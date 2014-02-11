@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 namespace Character_System
 {/* start Character_System namespace */
 
-    public class Party
-    {/* start Party class */
+    public enum StatEnum : int
+    {/* start StatEnum */
 
-        public static const int MAXPARTY = 3;
+        NULL = int.MinValue,
+        STRENGTH = 0,
+        MAGIC = 1,
+        AGILITY = 2,
+        STAMINA = 3,
+        ARMOR = 4
 
-        private Character[] mParty;
-
-    }/* end Party class */
+    }/* end StatEnum */
 
 }/* end Character_System namespace */

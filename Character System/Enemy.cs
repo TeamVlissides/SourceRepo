@@ -10,10 +10,10 @@ namespace Character_System
     public class Enemy : Character
     {/* start Enemy class */
 
-        private IAI mActions;
+        private AI mActions;
         private int mExperienceWorth;
 
-        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, ArrayList abilities, IAI actions, int experienceWorth )
+        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, ArrayList abilities, AI actions, int experienceWorth )
         {/* start constructor */
 
             mHealth = health;

@@ -12,12 +12,14 @@ namespace Character_System
 
         private int mArmorValue;
         private String mName;
+        private String mDescription;
 
-        public Armor(int armorValue, String name)
+        public Armor( int armorValue, String name, String description )
         {/* start constructor */
 
             mArmorValue = armorValue;
             mName = name;
+            mDescription = description;
 
         }/* end constructor */
 
@@ -44,6 +46,18 @@ namespace Character_System
             }/* end accessor */
 
         }/* end Name property */
+
+        public String Description
+        {/* start Description property */
+
+            get
+            {/* start accessor */
+
+                return mDescription;
+
+            }/* end accessor */
+
+        }/* end Description property */
 
     }/* end Armor class */
 

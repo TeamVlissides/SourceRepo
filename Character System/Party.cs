@@ -14,6 +14,13 @@ namespace Character_System
 
         private Character[] mParty;
 
+        public Party( Character[] party )
+        {/* start constructor */
+
+            mParty = party;
+
+        }/* end constructor */
+
         public Character getCharacter( int index )
         {/* start getCharacter */
 

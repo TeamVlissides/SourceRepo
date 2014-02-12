@@ -99,6 +99,13 @@ namespace Character_System
 
         }/* end getTotalArmor */
 
+        public bool isDead()
+        {/* start isDead */
+
+            return mHealth <= 0;
+
+        }/* end isDead */
+
     }/* end Character class */
 
 }/* end Character_System namespace */

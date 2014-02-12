@@ -106,6 +106,13 @@ namespace Character_System
 
         }/* end isDead */
 
+        public IEnumerator getAbilities()
+        {/* start getAbilities */
+
+            return mAbilities.GetEnumerator();
+
+        }/* end getAbilities */
+
     }/* end Character class */
 
 }/* end Character_System namespace */

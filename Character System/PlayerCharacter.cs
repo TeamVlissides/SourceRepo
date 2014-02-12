@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Character_System
 {/* end Character_System namespace */
@@ -14,6 +15,23 @@ namespace Character_System
         private int mLevel;
         private LevelTract mClassLevelTract;
         private bool mUpgraded;
+
+        public PlayerCharacter(int health, int mana, Armor[] armor, string name, int[] stats, ArrayList abilities, LevelTract classLevelTract )
+        {/* start constructor */
+
+            mHealth = health;
+            mMana = mana;
+            mArmor = armor;
+            mName = name;
+            mStats = stats;
+            mAbilities = abilities;
+            mClassLevelTract = classLevelTract;
+
+            mExperience = 0;
+            mLevel = 1;
+            mUpgraded = false;
+
+        }/* end constructor */
 
         public int Level
         {/* start Level property */
@@ -42,7 +60,7 @@ namespace Character_System
         public void gainExperience( int experience )
         {/* start gainExperience */
 
-
+            
 
         }/* end gainExperience */
 

@@ -42,6 +42,7 @@
     <Compile Include="Armor.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterEnumerations.cs" />
+    <Compile Include="Ability.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,6 +14,16 @@ namespace Character_System
 
         private Character[] mParty;
 
+        public Character getCharacter( int index )
+        {/* start getCharacter */
+
+            if (index <= 0)
+                throw new IndexOutOfRangeException();
+
+            return mParty[index];
+
+        }/* end getCharacter */
+
     }/* end Party class */
 
 }/* end Character_System namespace */

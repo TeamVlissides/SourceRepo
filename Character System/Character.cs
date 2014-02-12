@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.ArrayList;
+using System.Collections;
 
 namespace Character_System
 {/* start Character_System namespace */
@@ -21,7 +21,7 @@ namespace Character_System
         protected Armor[] mArmor;
         protected string mName;
         protected int[] mStats;
-        private ArrayList<Abilities> mAbilities; 
+        protected ArrayList mAbilities; 
 
         public int Health
         {/* start Health property */

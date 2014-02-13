@@ -32,12 +32,33 @@ namespace Game_System
 
         }/* end createCharacters */
 
-        public int getInput()
+        public int getInput( int max )
         {/* start getInput */
 
             return int.MaxValue;
 
         }/* end getInput */
+
+        public void giveBattleOutput( Event ourEvent )
+        {/* start giveBattleOutput */
+            
+            
+
+        }/* end giveBattleOutput */
+
+        public void giveDungeonOutput( Grid grid )
+        {/* start giveDungeonOutput */
+
+
+
+        }/* end giveDungeonOutput */
+
+        public void dragonIsDead()
+        {/* start dragonIsDead */
+
+
+
+        }/* end dragonIsDead */
 
     }/* end Game class */
 

@@ -13,7 +13,7 @@ namespace Character_System
         private AI mActions;
         private int mExperienceWorth;
 
-        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, ArrayList abilities, AI actions, int experienceWorth )
+        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, AI actions, int experienceWorth )
         {/* start constructor */
 
             mHealth = health;
@@ -21,7 +21,6 @@ namespace Character_System
             mArmor = armor;
             mName = name;
             mStats = stats;
-            mAbilities = abilities;
 
             mActions = actions;
             mExperienceWorth = experienceWorth;

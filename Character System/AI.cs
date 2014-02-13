@@ -19,6 +19,13 @@ namespace Character_System
 
         }/* end constructor */
 
+        public IEnumerator getAbilities()
+        {/* start getAbilities */
+
+            return mAbilities.GetEnumerator();
+
+        }/* end getAbilities */
+
     }/* end AI class */
 
 }/* end Character_System */

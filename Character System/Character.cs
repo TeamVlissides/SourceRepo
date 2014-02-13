@@ -21,7 +21,6 @@ namespace Character_System
         protected Armor[] mArmor;
         protected string mName;
         protected int[] mStats;
-        protected ArrayList mAbilities; 
 
         public int Health
         {/* start Health property */
@@ -105,13 +104,6 @@ namespace Character_System
             return mHealth <= 0;
 
         }/* end isDead */
-
-        public IEnumerator getAbilities()
-        {/* start getAbilities */
-
-            return mAbilities.GetEnumerator();
-
-        }/* end getAbilities */
 
     }/* end Character class */
 

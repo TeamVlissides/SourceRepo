@@ -26,6 +26,13 @@ namespace Character_System
 
         }/* end LevelUp */
 
+        public IEnumerator getAbilities()
+        {/* start getAbilities */
+
+            return mAbilities.GetEnumerator();
+
+        }/* end getAbilities */
+
     }/* end LevelTract */
 
 }/* end Character_System */

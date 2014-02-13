@@ -13,6 +13,10 @@ namespace DungeonSystem2
         private Type mItem;
 
         // Methods
+		public Type getType()
+		{
+			return null;
+		}
 
         // To be determined.
     }

@@ -20,7 +20,7 @@ namespace DungeonSystem2
 		
 		public void TestingMehthod()
 		{
-			int test;
+			int test = int.MaxValue;
 		}
 
         // Methods

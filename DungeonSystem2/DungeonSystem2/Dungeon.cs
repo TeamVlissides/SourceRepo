@@ -34,13 +34,8 @@ namespace DungeonSystem2
 
         public Game GetGame()
         {
-            return null;
+            
         }
-		
-		public void SetDungeonName(String name)
-		{
-		
-		}
 
         public Party GetGoodGuyParty()
         {

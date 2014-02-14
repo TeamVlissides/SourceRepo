@@ -25,7 +25,7 @@ namespace Character_System
         {/* start getCharacter */
 
             if (index <= 0)
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException( "Tried to get a character in getCharacter method outside of the array." );
 
             return mParty[index];
 

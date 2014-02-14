@@ -10,19 +10,11 @@ namespace Character_System
     public class Enemy : Character
     {/* start Enemy class */
 
-        private AI mActions;
         private int mExperienceWorth;
 
-        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, AI actions, int experienceWorth )
+        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI actions ) : base(health,  mana,  armor,  name, stats, weapon, actions)
         {/* start constructor */
 
-            mHealth = health;
-            mMana = mana;
-            mArmor = armor;
-            mName = name;
-            mStats = stats;
-
-            mActions = actions;
             mExperienceWorth = experienceWorth;
 
         }/* end constructor */
@@ -39,7 +31,7 @@ namespace Character_System
 
         }/* end Worth property */
 
-        public void takeTurn()
+        public void takeTurn( Character[] goodGuys )
         {/* start takeTurn */
 
 

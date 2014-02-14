@@ -21,6 +21,21 @@ namespace Character_System
         protected Armor[] mArmor;
         protected string mName;
         protected int[] mStats;
+        protected Weapon mWeapon;
+        protected AbilitiesHolder mAbilities;
+
+        protected Character(int health, int mana, Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
+        {/* start constructor */
+
+            mHealth = health;
+            mMana = mana;
+            mArmor = armor;
+            mName = name;
+            mStats = stats;
+            mWeapon = weapon;
+            mAbilities = abilities;
+
+        }/* end constructor */
 
         public int Health
         {/* start Health property */
@@ -65,16 +80,16 @@ namespace Character_System
             {/* start if */
 
                 if (stat == StatEnum.STRENGTH)
-                    return mStats[(int)StatEnum.STRENGTH];
+                    return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.STRENGTH );
 
                 if (stat == StatEnum.MAGIC)
-                    return mStats[(int)StatEnum.MAGIC];
+                    return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.MAGIC);
 
                 if (stat == StatEnum.AGILITY)
-                    return mStats[(int)StatEnum.AGILITY];
+                    return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.AGILITY);
 
                 if (stat == StatEnum.STAMINA)
-                    return mStats[(int)StatEnum.STAMINA];
+                    return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.STAMINA);
 
                 if (stat == StatEnum.ARMOR)
                     return getTotalArmor();
@@ -104,6 +119,13 @@ namespace Character_System
             return mHealth <= 0;
 
         }/* end isDead */
+
+        public void getAbilities()
+        {/* start getAbilities */
+
+            mAbilities.getAbilities();
+
+        }/* end getAbilities */
 
     }/* end Character class */
 

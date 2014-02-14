@@ -7,24 +7,17 @@ using System.Threading.Tasks;
 namespace Character_System
 {/* start Character_System */
 
-    public abstract class AI
+    public abstract class AI : AbilitiesHolder
     {/* start AI class */
 
-        private ArrayList mAbilities;
+        public void addAbility(Ability ability)
+        {/* start addAbility */
 
-        protected AI(ArrayList abilities)
-        {/* start constructor */
+            mAbilities.Add(ability);
 
-            mAbilities = abilities;
+        }/* end addAbility */
 
-        }/* end constructor */
-
-        public IEnumerator getAbilities()
-        {/* start getAbilities */
-
-            return mAbilities.GetEnumerator();
-
-        }/* end getAbilities */
+        public abstract void ai(Character[] goodGuys);
 
     }/* end AI class */
 

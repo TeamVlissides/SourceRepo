@@ -13,10 +13,9 @@ namespace Character_System
 
         private int mExperience;
         private int mLevel;
-        private LevelTract mClassLevelTract;
         private bool mUpgraded;
 
-        public PlayerCharacter(int health, int mana, Armor[] armor, string name, int[] stats, LevelTract classLevelTract )
+        public PlayerCharacter(int health, int mana, Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass ) : base( health,  mana, armor,  name, stats, weapon, pclass )
         {/* start constructor */
 
             mHealth = health;
@@ -24,7 +23,6 @@ namespace Character_System
             mArmor = armor;
             mName = name;
             mStats = stats;
-            mClassLevelTract = classLevelTract;
 
             mExperience = 0;
             mLevel = 1;

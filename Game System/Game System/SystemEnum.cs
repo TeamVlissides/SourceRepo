@@ -10,9 +10,10 @@ namespace Game_System
     public enum TypeEnum : int
     {/* start TypeEnum */
 
-        DIRECTION = 0,
-        INT = 1,
-        STRING = 2
+        NULL = -1,
+        INT = 0,
+        STRING = 1,
+        GRID = 2
 
     }/* end TypeEnum */
 

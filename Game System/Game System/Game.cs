@@ -42,7 +42,7 @@ namespace Game_System
         public void DungeonGo()
         {/* start DungeonLoop */
 
-            mDungeon.getDirection(mView.getInput(TypeEnum.DIRECTION));
+            mDungeon.getDirection(mView.getDirection());
 
         }/* end DungeonLoop */
 
@@ -65,9 +65,9 @@ namespace Game_System
             {/* start loop */
 
                 mView.sendOutput("What class type do you want? You get 3.");
-                mView.sendOutput(classes.GetEnumerator);
-                choice = mView.getInput(TypeEnum.INT);
-                name = mView.getInput(TypeEnum.STRING);
+                mView.sendOutput(classes.GetEnumerator(), TypeEnum.STRING);
+                choice = (int)mView.getInput(TypeEnum.INT);
+                name = (string)mView.getInput(TypeEnum.STRING);
 
                 characters[ i ] = CharacterCreationFactory(choice, name);
 
@@ -89,7 +89,7 @@ namespace Game_System
         public void notifyDungeonUpdate()
         {/* start giveDungeonOutput */
 
-            mView.sendOutput( mDungeon.getTileIterator() );
+            mView.sendOutput( mDungeon.getTileIterator(), TypeEnum.GRID );
 
         }/* end giveDungeonOutput */
 

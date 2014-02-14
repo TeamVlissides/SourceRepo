@@ -10,7 +10,7 @@ namespace Character_System
     public class Party
     {/* start Party class */
 
-        public static const int MAXPARTY = 3;
+        public const int MAXPARTY = 3;
 
         private Character[] mParty;
 

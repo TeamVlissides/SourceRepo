@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Character_System;
 
 namespace Game_System
 {/* start Game_System namespace */
@@ -68,7 +69,7 @@ namespace Game_System
                 choice = mView.getInput(TypeEnum.INT);
                 name = mView.getInput(TypeEnum.STRING);
 
-                character[ i ] = CharacterCreationFactory(choice, name);
+                characters[ i ] = CharacterCreationFactory(choice, name);
 
             }/* end loop */
 

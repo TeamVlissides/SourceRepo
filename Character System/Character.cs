@@ -12,8 +12,8 @@ namespace Character_System
     {/* start Character class */
 
         /* Constants */
-        public static const int MAXARMOR = 5;
-        public static const int MAXSTATS = 4;
+        public const int MAXARMOR = 5;
+        public const int MAXSTATS = 4;
 
         /* Attributes */
         protected int mHealth;
@@ -92,7 +92,7 @@ namespace Character_System
             int totalArmor = 0;
 
             for (i = 0; i < MAXARMOR; i++)
-                totalArmor += mArmor[i].Armor;
+                totalArmor += mArmor[i].ArmorStat;
 
             return totalArmor;
 

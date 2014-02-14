@@ -19,12 +19,7 @@ namespace Character_System
 
         }/* end constructor */
 
-        public abstract void LevelUp( int level )
-        {/* start LevelUp */
-
-
-
-        }/* end LevelUp */
+        public abstract void LevelUp(int level);
 
         public IEnumerator getAbilities()
         {/* start getAbilities */

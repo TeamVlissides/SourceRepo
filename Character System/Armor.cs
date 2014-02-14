@@ -23,7 +23,7 @@ namespace Character_System
 
         }/* end constructor */
 
-        public int Armor
+        public int ArmorStat
         {/* start Armor property */
 
             get

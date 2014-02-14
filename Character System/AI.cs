@@ -12,7 +12,7 @@ namespace Character_System
 
         private ArrayList mAbilities;
 
-        protected abstract AI(ArrayList abilities)
+        protected AI(ArrayList abilities)
         {/* start constructor */
 
             mAbilities = abilities;

@@ -5,7 +5,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>10</x>
-      <y>470</y>
+      <y>640</y>
       <w>300</w>
       <h>220</h>
     </coordinates>
@@ -26,7 +26,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>370</x>
-      <y>470</y>
+      <y>640</y>
       <w>180</w>
       <h>170</h>
     </coordinates>
@@ -45,7 +45,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>600</x>
-      <y>510</y>
+      <y>680</y>
       <w>100</w>
       <h>60</h>
     </coordinates>
@@ -59,7 +59,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>880</x>
-      <y>390</y>
+      <y>560</y>
       <w>200</w>
       <h>100</h>
     </coordinates>
@@ -75,22 +75,24 @@ giveItem( item item ): void</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>880</x>
-      <y>100</y>
-      <w>220</w>
-      <h>180</h>
+      <x>810</x>
+      <y>230</y>
+      <w>230</w>
+      <h>230</h>
     </coordinates>
-    <panel_attributes>Game(Facade)
+    <panel_attributes>Game(Facade/Controller)
 --
--mDungeon: Dungeon
--mGoodGuyParty: Party
--mBattleSystem: Battle
+-mDungeon : Dungeon
+-mGoodGuyParty : Party
+-mBattleSystem : Battle
+-mDragonDead : bool
+-mView : View
 --
-+goodGuysWon( bool victory )
++notifyBattleOutcome( bool victory )
 +createCharacters();
 +getInput( int max ): int
 +giveBattleOutput( Event event ):
-+giveDungeonOutput( Gird grid );
++notifyDungeonUpdate();
 +dragonDead()</panel_attributes>
     <additional_attributes/>
   </element>
@@ -98,7 +100,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>300</y>
+      <y>470</y>
       <w>720</w>
       <h>420</h>
     </coordinates>
@@ -109,7 +111,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>280</x>
-      <y>470</y>
+      <y>640</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -120,7 +122,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>520</x>
-      <y>510</y>
+      <y>680</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -131,18 +133,18 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>210</x>
-      <y>100</y>
-      <w>690</w>
-      <h>50</h>
+      <y>230</y>
+      <w>620</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>670;30;30;30</additional_attributes>
+    <additional_attributes>600;30;30;70</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>210</x>
-      <y>100</y>
+      <y>270</y>
       <w>50</w>
       <h>390</h>
     </coordinates>
@@ -153,7 +155,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1140</x>
-      <y>390</y>
+      <y>560</y>
       <w>150</w>
       <h>150</h>
     </coordinates>
@@ -173,7 +175,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1050</x>
-      <y>390</y>
+      <y>560</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -184,7 +186,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>860</x>
-      <y>580</y>
+      <y>750</y>
       <w>110</w>
       <h>60</h>
     </coordinates>
@@ -199,7 +201,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1190</x>
-      <y>570</y>
+      <y>740</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -217,7 +219,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1190</x>
-      <y>510</y>
+      <y>680</y>
       <w>80</w>
       <h>80</h>
     </coordinates>
@@ -228,7 +230,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>900</x>
-      <y>510</y>
+      <y>680</y>
       <w>280</w>
       <h>90</h>
     </coordinates>
@@ -239,7 +241,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>830</x>
-      <y>300</y>
+      <y>470</y>
       <w>580</w>
       <h>420</h>
     </coordinates>
@@ -250,7 +252,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1480</x>
-      <y>420</y>
+      <y>590</y>
       <w>200</w>
       <h>130</h>
     </coordinates>
@@ -269,7 +271,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1450</x>
-      <y>300</y>
+      <y>470</y>
       <w>480</w>
       <h>420</h>
     </coordinates>
@@ -280,7 +282,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1480</x>
-      <y>330</y>
+      <y>500</y>
       <w>240</w>
       <h>60</h>
     </coordinates>
@@ -295,7 +297,7 @@ giveItem( item item ): void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>580</x>
-      <y>730</y>
+      <y>900</y>
       <w>130</w>
       <h>110</h>
     </coordinates>
@@ -311,30 +313,8 @@ int: 3: DRAGON</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>920</x>
-      <y>10</y>
-      <w>100</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>Input</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>940</x>
-      <y>0</y>
-      <w>50</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;100</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
       <x>1470</x>
-      <y>570</y>
+      <y>740</y>
       <w>140</w>
       <h>80</h>
     </coordinates>
@@ -349,7 +329,7 @@ int: 3: DRAGON</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1690</x>
-      <y>420</y>
+      <y>590</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -373,7 +353,7 @@ int: 3: DRAGON</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1580</x>
-      <y>540</y>
+      <y>710</y>
       <w>130</w>
       <h>90</h>
     </coordinates>
@@ -381,54 +361,32 @@ int: 3: DRAGON</panel_attributes>
     <additional_attributes>30;70;110;30</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1080</x>
-      <y>10</y>
-      <w>100</w>
-      <h>20</h>
+      <x>1010</x>
+      <y>260</y>
+      <w>560</w>
+      <h>350</h>
     </coordinates>
-    <panel_attributes>View</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;540;330</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1020</x>
-      <y>0</y>
-      <w>120</w>
-      <h>120</h>
+      <x>880</x>
+      <y>430</y>
+      <w>110</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>100;30;30;100</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1070</x>
-      <y>130</y>
-      <w>500</w>
-      <h>310</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;480;290</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>940</x>
-      <y>250</y>
-      <w>50</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;140</additional_attributes>
+    <additional_attributes>30;30;90;130</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1260</x>
-      <y>40</y>
+      <y>210</y>
       <w>220</w>
       <h>80</h>
     </coordinates>
@@ -439,5 +397,71 @@ get""( name ): Character
 --
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>880</x>
+      <y>100</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>View</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>900</x>
+      <y>100</y>
+      <w>50</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;130;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>970</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>GUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>800</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Text</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>820</x>
+      <y>0</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>90;100;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>920</x>
+      <y>0</y>
+      <w>120</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;100;100;30</additional_attributes>
   </element>
 </diagram>

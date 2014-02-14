@@ -19,19 +19,26 @@ namespace Game_System
 
         private View mView;
 
+        public Game()
+        {/* start constructor */
+
+            
+
+        }/* end constructor */
+
         public void run()
         {/* start run */
 
-            bool createCharacter = false;
+            bool init = false;
 
             while (!mDragonDead && mVictory)
             {/* start loop */
 
-                if (!createCharacter)
+                if (!init)
                 {/* start if */
 
-                    createCharacters();
-                    createCharacter = true;
+                    initialize();
+                    init = true;
 
                 }/* end if */
 
@@ -48,8 +55,8 @@ namespace Game_System
 
         }/* end notifyBattleOutcome */
 
-        private void createCharacters()
-        {/* start createCharacters */
+        private void initialize()
+        {/* start initialize */
 
             int choice, i;
             String[] classes = new String[ 6 ] { "Warrior", "Theif", "Monk", "WhiteMage", "BlackMage", "RedMage" };
@@ -69,8 +76,10 @@ namespace Game_System
             }/* end loop */
 
             mGoodGuys = new Party(characters);
+            mBattle = new BattleSystem(this, mGoodGuys);
+            mDungeon = new Dungeon(this, mGoodGuys);
 
-        }/* end createCharacters */
+        }/* end initialize */
 
         public int getInput( int max )
         {/* start getInput */
@@ -86,7 +95,7 @@ namespace Game_System
 
         }/* end giveBattleOutput */
 
-        public void notifyDugeonUpdate()
+        public void notifyDungeonUpdate()
         {/* start giveDungeonOutput */
 
             mView.sendOutput( mDungeon.getTileIterator() );

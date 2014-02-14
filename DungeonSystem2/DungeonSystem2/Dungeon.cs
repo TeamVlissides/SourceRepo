@@ -13,7 +13,7 @@ namespace DungeonSystem2
         // Attributes
         private Grid mGrid;
         private String mName;
-        private Game mgame;
+        private Game mGame;
         private Party mGoodGuyParty;
 
         // Methods

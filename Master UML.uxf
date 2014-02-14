@@ -16,9 +16,10 @@
 -mGame: Game
 -mGoodGuyParty: Party
 --
-+movePlayer();
-
-
++getGrid() : Grid
++getGetDungeonName() : String
++SetDungeonName( name : String )
++getDirection( direction : DirectionEnum ) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -75,10 +76,10 @@ giveItem( item item ): void</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>810</x>
-      <y>230</y>
-      <w>230</w>
-      <h>230</h>
+      <x>770</x>
+      <y>210</y>
+      <w>270</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>Game(Facade/Controller)
 --
@@ -86,14 +87,16 @@ giveItem( item item ): void</panel_attributes>
 -mGoodGuyParty : Party
 -mBattleSystem : Battle
 -mDragonDead : bool
+-mVictory : bool
 -mView : View
 --
-+notifyBattleOutcome( bool victory )
-+createCharacters();
-+getInput( int max ): int
-+giveBattleOutput( Event event ):
-+notifyDungeonUpdate();
-+dragonDead()</panel_attributes>
++run() : void
++DungeonGo() : void
++notifyBattleOutcome( bool victory ) : void
+-initialize() : void
++giveBattleOutput( Event event ): void
++notifyDungeonUpdate() : void
++startBattle( type : EnemyEnum ) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -134,11 +137,11 @@ giveItem( item item ): void</panel_attributes>
     <coordinates>
       <x>210</x>
       <y>230</y>
-      <w>620</w>
+      <w>580</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>600;30;30;70</additional_attributes>
+    <additional_attributes>560;30;30;70</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -392,8 +395,8 @@ int: 3: DRAGON</panel_attributes>
     </coordinates>
     <panel_attributes>CharacterCreationFactory
 --
-getRedMage( name ): Character
-get""( name ): Character
+getRedMage( name ) : Character
+get""( name ) : Character
 --
 </panel_attributes>
     <additional_attributes/>
@@ -415,10 +418,10 @@ get""( name ): Character
       <x>900</x>
       <y>100</y>
       <w>50</w>
-      <h>150</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;130;30;30</additional_attributes>
+    <additional_attributes>30;110;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>

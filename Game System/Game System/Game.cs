@@ -22,25 +22,15 @@ namespace Game_System
         public Game()
         {/* start constructor */
 
-            
+            initialize();
 
         }/* end constructor */
 
         public void run()
         {/* start run */
 
-            bool init = false;
-
             while (!mDragonDead && mVictory)
             {/* start loop */
-
-                if (!init)
-                {/* start if */
-
-                    initialize();
-                    init = true;
-
-                }/* end if */
 
                 DungeonGo();
 
@@ -66,7 +56,7 @@ namespace Game_System
         {/* start initialize */
 
             int choice, i;
-            String[] classes = new String[ 6 ] { "Warrior", "Theif", "Monk", "WhiteMage", "BlackMage", "RedMage" };
+            String[] classes = new String[ 6 ] { "Warrior", "Theif", "Monk", "White Mage", "Black Mage", "Red Mage" };
             String name;
             Character[] characters = new Character[ Party.MAXPARTY ];
 
@@ -101,13 +91,6 @@ namespace Game_System
             mView.sendOutput( mDungeon.getTileIterator() );
 
         }/* end giveDungeonOutput */
-
-        public void dragonIsDead()
-        {/* start dragonIsDead */
-
-
-
-        }/* end dragonIsDead */
 
         public void startBattle( EnemyType type )
         {/* start startBattle */

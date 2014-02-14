@@ -16,12 +16,6 @@ namespace DungeonSystem2
         private Game mGame;
         private Party mGoodGuyParty;
 
-        // Methods
-        public void MovePlayer()
-        {
-
-        }
-
         public Grid GetGrid()
         {
             return null;
@@ -29,23 +23,15 @@ namespace DungeonSystem2
 
         public String GetDungeonName()
         {
-            return null;
-        }
-
-        public Game GetGame()
-        {
-            return null;
+            return new String(mName);
         }
 		
 		public void SetDungeonName(String name)
 		{
-		
-		}
 
-        public Party GetGoodGuyParty()
-        {
-            
-        }
+            mName = name;
+
+		}
 
         public void getDirection( DirectionEnum direction )
         {/* start getDirection */

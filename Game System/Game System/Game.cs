@@ -42,11 +42,18 @@ namespace Game_System
 
                 }/* end if */
 
-                mView.Display();
+                DungeonGo();
 
             }/* end loop */
 
         }/* end run */
+
+        public void DungeonGo()
+        {/* start DungeonLoop */
+
+            mDungeon.getDirection(mView.getInput(TypeEnum.DIRECTION));
+
+        }/* end DungeonLoop */
 
         public void notifyBattleOutcome( bool victory )
         {/* start notifyBattleOutcome */
@@ -68,8 +75,8 @@ namespace Game_System
 
                 mView.sendOutput("What class type do you want? You get 3.");
                 mView.sendOutput(classes.GetEnumerator);
-                choice = mView.getInput(TypeEnum.Int);
-                name = mView.getInput(TypeEnum.String);
+                choice = mView.getInput(TypeEnum.INT);
+                name = mView.getInput(TypeEnum.STRING);
 
                 character[ i ] = CharacterCreationFactory(choice, name);
 
@@ -80,13 +87,6 @@ namespace Game_System
             mDungeon = new Dungeon(this, mGoodGuys);
 
         }/* end initialize */
-
-        public int getInput( int max )
-        {/* start getInput */
-
-            return mView.getInput(TypeEnum.Int);
-
-        }/* end getInput */
 
         public void giveBattleOutput( Event ourEvent )
         {/* start giveBattleOutput */
@@ -108,6 +108,16 @@ namespace Game_System
 
 
         }/* end dragonIsDead */
+
+        public void startBattle( EnemyType type )
+        {/* start startBattle */
+
+            if (type == EnemyType.NULL)
+                mBattle.startBattle();
+            else
+                mBattle.startBattle(type);
+
+        }/* end startBattle */
 
     }/* end Game class */
 

@@ -47,5 +47,31 @@ namespace DungeonSystem2
             
         }
 
-}
+        public void getDirection( DirectionEnum direction )
+        {/* start getDirection */
+
+            if( direction == DirectionEnum.LEFT )
+                /*...*/
+
+            if( direction == DirectionEnum.RIGHT )
+                /*...*/
+
+            if( direction == DirectionEnum.DOWN )
+                /*...*/
+
+            if( direction == DirectionEnum.UP )
+                /*...*/
+
+            notifyDungeonUpdate();
+
+            if( checkIfDragon() )
+                mGame.StartBattle(EnemyType.DRAGON);
+            else
+                if( RollBattleDice() )
+                    mGame.StartBattle( EnemyType.NULL );
+
+        }/* end getDirection */
+
+    }
+
 }

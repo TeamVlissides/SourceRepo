@@ -17,8 +17,7 @@ namespace Game_System
         private bool mDragonDead = false;
         private bool mVictory = true;
 
-        private Input mInput;
-        private Output mOutput;
+        private View mView;
 
         public void run()
         {/* start run */
@@ -36,7 +35,7 @@ namespace Game_System
 
                 }/* end if */
 
-
+                mView.Display();
 
             }/* end loop */
 
@@ -60,10 +59,10 @@ namespace Game_System
             for (i = 0; i < Party.MAXPARTY; i++)
             {/* start loop */
 
-                mOutput.sendOutput("What class type do you want? You get 3.");
-                mOutput.sendOutput(classes.GetEnumerator);
-                choice = mInput.getInput(TypeEnum.Int);
-                name = mInput.getInput(TypeEnum.String);
+                mView.sendOutput("What class type do you want? You get 3.");
+                mView.sendOutput(classes.GetEnumerator);
+                choice = mView.getInput(TypeEnum.Int);
+                name = mView.getInput(TypeEnum.String);
 
                 character[ i ] = CharacterCreationFactory(choice, name);
 
@@ -76,7 +75,7 @@ namespace Game_System
         public int getInput( int max )
         {/* start getInput */
 
-            return mInput.getInput(TypeEnum.Int);
+            return mView.getInput(TypeEnum.Int);
 
         }/* end getInput */
 
@@ -90,7 +89,7 @@ namespace Game_System
         public void notifyDugeonUpdate()
         {/* start giveDungeonOutput */
 
-            mOutput.sendOutput( mDungeon.getTileIterator() );
+            mView.sendOutput( mDungeon.getTileIterator() );
 
         }/* end giveDungeonOutput */
 

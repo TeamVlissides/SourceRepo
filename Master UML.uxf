@@ -15,6 +15,7 @@
 -mName: String
 -mGame: Game
 -mGoodGuyParty: Party
+-mBadGuyParty: Party
 --
 +getGrid() : Grid
 +getGetDungeonName() : String
@@ -28,8 +29,8 @@
     <coordinates>
       <x>70</x>
       <y>900</y>
-      <w>180</w>
-      <h>170</h>
+      <w>220</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>Grid
 --
@@ -39,6 +40,12 @@
 -mPartyColumn: int
 -mTiles: Tile[][]
 --
++createGrid(): void
++SetNumberRows(int n): void
++SetNumberColumns(int n): void
++SetPartyRow(int row): void
++SetPartyColumn(int n): void
++GetTiles(): Tile[,]
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -50,7 +57,7 @@
       <w>270</w>
       <h>240</h>
     </coordinates>
-    <panel_attributes>Tiles
+    <panel_attributes>Tile
 --
 -backgroundColor: Brush
 -borderColor: Brush

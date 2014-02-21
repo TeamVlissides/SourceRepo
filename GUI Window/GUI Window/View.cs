@@ -37,7 +37,7 @@ namespace GUI_Window
         {
             //g.DrawLine(new Pen(Brushes.Black, 5), 0, 0, 200, 200);
            // graphics = g;
-            party = Image.FromFile(@"C:\Users\Anonymous\Documents\Visual Studio 2013\Projects\GUI Window\GUI Window\images\party2.png");
+            party = Image.FromFile(@"C:\Users\Regan Fencl\Documents\GitHub\SourceRepo\GUI Window\GUI Window\images\party2.png");
 
     
 

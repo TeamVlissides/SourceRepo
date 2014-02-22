@@ -10,7 +10,60 @@ namespace Character_System
     public abstract class LevelTract : AbilitiesHolder
     {/* start LevelTract */
 
-        public abstract void LevelUp(int level);
+        protected int[] mStats;
+
+        protected LevelTract( int[] stats )
+        {/* start constructor */
+
+            mStats = stats;
+
+        }/* end constructor */
+
+        public void LevelUp(int level)
+        {/* start LevelUp */
+
+            if (level == 1)
+                levelOne();
+
+            if (level == 2)
+                levelTwo();
+
+            if (level == 3)
+                levelThree();
+
+            if (level == 4)
+                levelFour();
+
+            if (level == 5)
+                levelFive();
+
+            if (level == 6)
+                levelSix();
+
+            if (level == 7)
+                levelSeven();
+
+            if (level == 8)
+                levelEight();
+
+            if (level == 9)
+                levelNine();
+
+            if (level == 10)
+                levelTen();
+
+        }/* end LevelUp */
+
+        protected abstract void levelOne();
+        protected abstract void levelTwo();
+        protected abstract void levelThree();
+        protected abstract void levelFour();
+        protected abstract void levelFive();
+        protected abstract void levelSix();
+        protected abstract void levelSeven();
+        protected abstract void levelEight();
+        protected abstract void levelNine();
+        protected abstract void levelTen();
 
     }/* end LevelTract */
 

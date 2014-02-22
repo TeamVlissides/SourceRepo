@@ -12,7 +12,7 @@ namespace Character_System
 
         private int mExperienceWorth;
 
-        public Enemy( int health, int mana, Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI actions ) : base(health,  mana,  armor,  name, stats, weapon, actions)
+        public Enemy( Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI actions ) : base( armor,  name, stats, weapon, actions)
         {/* start constructor */
 
             mExperienceWorth = experienceWorth;

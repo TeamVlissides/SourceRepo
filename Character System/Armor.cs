@@ -10,6 +10,10 @@ namespace Character_System
     public class Armor
     {/* start Armor class */
 
+        /* Constants */
+        public const int MAXARMOR = 4;
+
+        /* Attributes */
         private int mArmorValue;
         private String mName;
         private String mDescription;

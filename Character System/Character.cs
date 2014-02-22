@@ -12,7 +12,6 @@ namespace Character_System
     {/* start Character class */
 
         /* Constants */
-        public const int MAXARMOR = 5;
         public const int MAXSTATS = 4;
 
         /* Attributes */
@@ -24,20 +23,21 @@ namespace Character_System
         protected Weapon mWeapon;
         protected AbilitiesHolder mAbilities;
 
-        protected Character(int health, int mana, Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
+        protected Character( Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
         {/* start constructor */
-
-            mHealth = health;
-            mMana = mana;
+         
             mArmor = armor;
             mName = name;
             mStats = stats;
             mWeapon = weapon;
             mAbilities = abilities;
 
+            mHealth = this.MaximumHealth;
+            mMana = this.MaximumMana;
+
         }/* end constructor */
 
-        public int Health
+        public int CurrentHealth
         {/* start Health property */
 
             get
@@ -49,7 +49,7 @@ namespace Character_System
 
         }/* end Health property */
 
-        public int Mana
+        public int CurrentMana
         {/* start Health property */
 
             get
@@ -60,6 +60,30 @@ namespace Character_System
             }/* end accessor */
 
         }/* end Health property */
+
+        public int MaximumMana
+        {/* start MaximumMana property */
+
+            get
+            {/* start accessor */
+
+                return mStats[(int)StatEnum.MAGIC] * 100;
+            
+            }/* end accessor */
+
+        }/* end MaximumMana property */
+
+        public int MaximumHealth
+        {/* start MaximumHealth property */
+
+            get
+            {/* start accessor */
+
+                return mStats[(int)StatEnum.STAMINA] * 100;
+
+            }/* end accessor */
+
+        }/* end MaximumHealth property */
 
         public String Name
         {/* start Name property */
@@ -106,7 +130,7 @@ namespace Character_System
             int i;
             int totalArmor = 0;
 
-            for (i = 0; i < MAXARMOR; i++)
+            for (i = 0; i < Armor.MAXARMOR; i++)
                 totalArmor += mArmor[i].ArmorStat;
 
             return totalArmor;

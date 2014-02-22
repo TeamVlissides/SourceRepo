@@ -14,19 +14,17 @@ namespace Character_System
         private int mExperience;
         private int mLevel;
         private bool mUpgraded;
+        private LevelTract mClass;
 
-        public PlayerCharacter(int health, int mana, Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass ) : base( health,  mana, armor,  name, stats, weapon, pclass )
+        public PlayerCharacter( Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass ) : base( armor,  name, stats, weapon, pclass )
         {/* start constructor */
-
-            mHealth = health;
-            mMana = mana;
-            mArmor = armor;
-            mName = name;
-            mStats = stats;
 
             mExperience = 0;
             mLevel = 1;
             mUpgraded = false;
+            mClass = pclass;
+
+            mClass.LevelUp(1);
 
         }/* end constructor */
 

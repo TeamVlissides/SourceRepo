@@ -10,8 +10,44 @@ namespace Character_System
     public class Weapon
     {/* start Weapon class */
 
+        private String mName;
+        private String mDescription;
         private int mBaseDamage;
         protected int[] mStats;
+
+        public Weapon(String name, String description, int damage, int[] stats)
+        {/* start constructor */
+
+            mName = name;
+            mDescription = description;
+            mBaseDamage = damage;
+            mStats = stats;
+
+        }/* end constructor */
+
+        public String Name
+        {/* start Name property */
+
+            get
+            {/* start accessor */
+
+                return mName;
+
+            }/* end accessor */
+
+        }/* end Name property */
+
+        public String Description
+        {/* start Description property */
+
+            get
+            {/* start accessor */
+
+                return mDescription;
+
+            }/* end accessor */
+
+        }/* end Description property */
 
         public int Damage
         {/* start Damage property */

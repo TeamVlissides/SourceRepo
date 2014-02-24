@@ -48,8 +48,6 @@ namespace Character_System
             stats[(int)StatEnum.STAMINA] = 12;
             stats[(int)StatEnum.STRENGTH] = 10;
 
-
-
             return new PlayerCharacter( ArmorFactory.getBasicRedMageArmor(), name, stats, WeaponFactory.getWeapon( WeaponEnum.WETIREDSWORD ), new RedMage( stats ) );
 
         }/* end getRedMage */

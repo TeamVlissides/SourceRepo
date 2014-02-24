@@ -155,24 +155,13 @@ giveItem( item item ): void</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>330</x>
+      <x>240</x>
       <y>310</y>
-      <w>580</w>
-      <h>120</h>
+      <w>670</w>
+      <h>400</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>560;30;30;100</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>330</x>
-      <y>380</y>
-      <w>50</w>
-      <h>330</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>30;30;30;310</additional_attributes>
+    <additional_attributes>650;30;30;30;30;380</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,7 @@ namespace GUI_Window
         {
             //g.DrawLine(new Pen(Brushes.Black, 5), 0, 0, 200, 200);
            // graphics = g;
-            party = Image.FromFile(@"C:\Users\Regan Fencl\Documents\GitHub\SourceRepo\GUI Window\GUI Window\images\party2.png");
+            party = Image.FromFile( Directory.GetCurrentDirectory() + @"\images\party2.png");
 
     
 

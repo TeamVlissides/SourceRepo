@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace GUI_Window
             backgroundColor = Brushes.Orange;
             borderColor = Brushes.Black;
             size = 5;
-            Gem gem1 = new Gem("Ruby", @"C:\Users\Anonymous\Documents\Visual Studio 2013\Projects\GUI Window\GUI Window\images\gem00.png", 1);
+            Gem gem1 = new Gem("Ruby", Directory.GetCurrentDirectory() + @"\images\gem00.png", 1);
             gems[0] = gem1;
         }
 

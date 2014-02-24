@@ -32,10 +32,11 @@ namespace DungeonSystem2
             mName = name;
 
 		}
-
+        /* direction is the direction the party wants to go */
         public void getDirection( DirectionEnum direction )
         {/* start getDirection */
 
+            //Method here. Update Location */
             if( direction == DirectionEnum.LEFT )
                 /*...*/
 

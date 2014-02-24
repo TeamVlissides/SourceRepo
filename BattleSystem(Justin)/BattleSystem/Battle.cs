@@ -26,6 +26,14 @@ namespace BattleSystem
         }
 
         // Methods
+        /*Start Battle Method Outline */
+        /* 1) Get good and bad guys.
+         * 2) Create an array that can hold all characters.
+         * 3) Sort array by agility.
+         * 4) Loop through array, giving each character a turn. Start over at the first element you the last goes.(L)
+         * 5) For each players turn, MATH and handle choices. (F)
+         */
+
         public void startBattle()
         {
                        

@@ -104,7 +104,7 @@ namespace Character_System
             {/* start if */
 
                 if (stat == StatEnum.STRENGTH)
-                    return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.STRENGTH );
+                    return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.STRENGTH);
 
                 if (stat == StatEnum.MAGIC)
                     return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.MAGIC);

@@ -47,6 +47,13 @@ namespace Character_System
 
             }/* end accessor */
 
+            set
+            {/* start mutator */
+
+                mHealth = value;
+
+            }/* end mutator */
+
         }/* end Health property */
 
         public int CurrentMana
@@ -58,6 +65,13 @@ namespace Character_System
                 return mMana;
 
             }/* end accessor */
+
+            set
+            {/* start mutator */
+
+                mMana = value;
+
+            }/* end mutator */
 
         }/* end Health property */
 

@@ -32,6 +32,7 @@ namespace BattleSystem
          * 3) Sort array by agility.
          * 4) Loop through array, giving each character a turn. Start over at the first element you the last goes.(L)
          * 5) For each players turn, MATH and handle choices. (F)
+         * 6) If a player character defeats an enemy, call the gainExperience method of the character and send the worth of the enemy it defeated.
          */
 
         public void startBattle()

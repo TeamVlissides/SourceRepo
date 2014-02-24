@@ -16,8 +16,9 @@ namespace Character_System
         private bool mTargetSpread;
         private bool mAffectEnemy;
         private int mBaseStat;
+        private int mCost;
 
-        public Ability( String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseStat )
+        public Ability( String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseStat, int cost )
         {/* start constructor */
 
             mDescription = description;
@@ -26,8 +27,21 @@ namespace Character_System
             mTargetSpread = targetSpread;
             mAffectEnemy = affectEnemy;
             mBaseStat = baseStat;
+            mCost = cost;
 
         }/* end constructor */
+
+        public int Cost
+        {/* start Cost property */
+
+            get
+            {/* start get */
+
+                return mCost;
+
+            }/* end get */
+
+        }/* end Cost property */
 
         public int BaseStat
         {/* start BaseStat property */

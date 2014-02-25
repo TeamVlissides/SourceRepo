@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GUI_Window
+namespace CSGameSystem
 {
     class Dungeon
     {
@@ -12,8 +12,8 @@ namespace GUI_Window
         private Grid mGrid;
         private String mName;
         private Tile[,] tiles;
-       // private Game mgame;
-       // private Party mGoodGuyParty;
+        private Game mGame;
+        private Party mGoodGuyParty;
 
         // Constructors
         public Dungeon()
@@ -22,11 +22,6 @@ namespace GUI_Window
         }
 
         // Methods
-        public void MovePlayer()
-        {
-
-        }
-
        
         public Grid GetGrid()
         {
@@ -35,7 +30,51 @@ namespace GUI_Window
 
         public String GetDungeonName()
         {
-            return null;
+            return ""; // new String(mName);
+        }
+
+        public void SetDungeonName(String name)
+        {
+
+            mName = name;
+
+        }
+
+        /* direction is the direction the party wants to go */
+        public void getDirection(DirectionEnum direction)
+        {/* start getDirection */
+
+            //Method here. Update Location */
+            if (direction == DirectionEnum.LEFT)
+                /*...*/
+
+                if (direction == DirectionEnum.RIGHT)
+                    /*...*/
+
+                    if (direction == DirectionEnum.DOWN)
+                        /*...*/
+
+                        if (direction == DirectionEnum.UP)
+                            /*...*/
+
+                            mGame.notifyDungeonUpdate();
+
+            if (checkIfDragon())
+                mGame.startBattle(EnemyType.DRAGON);
+            else
+                if (RollBattleDice())
+                    mGame.startBattle(EnemyType.NULL);
+
+        }/* end getDirection */
+
+        public bool checkIfDragon()
+        {
+            return false;
+        }
+
+        public bool RollBattleDice()
+        {
+            return false;
         }
 
         /*

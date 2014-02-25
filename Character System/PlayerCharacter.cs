@@ -18,7 +18,6 @@ namespace Character_System
         {/* start constructor */
 
             mExperience = 0;
-            mLevel = 1;
             mClass = pclass;
 
             mClass.LevelUp(1);

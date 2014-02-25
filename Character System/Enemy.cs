@@ -11,11 +11,13 @@ namespace Character_System
     {/* start Enemy class */
 
         private int mExperienceWorth;
+        private AI mAI;
 
-        public Enemy( Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI actions ) : base( armor,  name, stats, weapon, actions)
+        public Enemy( Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI ai ) : base( armor,  name, stats, weapon, ai)
         {/* start constructor */
 
             mExperienceWorth = experienceWorth;
+            mAI = ai;
 
         }/* end constructor */
 
@@ -36,6 +38,13 @@ namespace Character_System
 
 
         }/* end takeTurn */
+
+        public void addAbility(Ability ability)
+        {/* start addAbility */
+
+            mAI.addAbility(ability);
+
+        }/* end addAbility */
 
     }/* end Enemy class */
 

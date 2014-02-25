@@ -10,7 +10,6 @@ namespace Character_System
     public enum StatEnum : int
     {/* start StatEnum */
 
-        NULL = int.MinValue,
         STRENGTH = 0,
         MAGIC = 1,
         AGILITY = 2,
@@ -22,7 +21,6 @@ namespace Character_System
     public enum ClassEnum : int
     {/* start ClassEnum */
 
-        NULL = int.MinValue,
         REDMAGE = 0,
         WHITEMAGE = 1,
         BLACKMAGE = 2,
@@ -35,7 +33,6 @@ namespace Character_System
     public enum ArmorEnum : int
     {/* start ArmorEnum */
 
-        NULL = int.MinValue,
         HEAD = 0,
         CHEST = 1,
         GLOVES = 2,
@@ -46,7 +43,6 @@ namespace Character_System
     public enum WeaponEnum : int
     {/* start WeaponEnum */
 
-        NULL = int.MinValue,
         WETIREDSWORD = 0,
         WETRIEDSTAFF = 1,
         WETRIEDKNIFE = 2

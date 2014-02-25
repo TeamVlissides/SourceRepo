@@ -5,7 +5,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1320</x>
-      <y>630</y>
+      <y>800</y>
       <w>210</w>
       <h>60</h>
     </coordinates>
@@ -20,7 +20,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2190</x>
-      <y>630</y>
+      <y>800</y>
       <w>260</w>
       <h>130</h>
     </coordinates>
@@ -39,7 +39,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1870</x>
-      <y>630</y>
+      <y>800</y>
       <w>210</w>
       <h>270</h>
     </coordinates>
@@ -50,7 +50,7 @@
 - mType : bool
 - mTargetSpread : bool
 - mAffectEnemy : bool
-- mBaseStat : int
+- mBaseDamage : int
 - mCost : int
 --
 + property Cost : int
@@ -66,7 +66,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2190</x>
-      <y>450</y>
+      <y>620</y>
       <w>260</w>
       <h>80</h>
     </coordinates>
@@ -82,7 +82,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2290</x>
-      <y>500</y>
+      <y>670</y>
       <w>50</w>
       <h>150</h>
     </coordinates>
@@ -93,7 +93,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1450</x>
-      <y>820</y>
+      <y>990</y>
       <w>340</w>
       <h>60</h>
     </coordinates>
@@ -107,7 +107,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1430</x>
-      <y>660</y>
+      <y>830</y>
       <w>210</w>
       <h>180</h>
     </coordinates>
@@ -118,7 +118,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>920</x>
-      <y>380</y>
+      <y>550</y>
       <w>200</w>
       <h>150</h>
     </coordinates>
@@ -138,7 +138,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>540</x>
-      <y>380</y>
+      <y>550</y>
       <w>270</w>
       <h>380</h>
     </coordinates>
@@ -171,7 +171,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>320</x>
-      <y>820</y>
+      <y>990</y>
       <w>320</w>
       <h>80</h>
     </coordinates>
@@ -189,7 +189,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1210</x>
-      <y>820</y>
+      <y>990</y>
       <w>200</w>
       <h>240</h>
     </coordinates>
@@ -214,7 +214,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1280</x>
-      <y>660</y>
+      <y>830</y>
       <w>130</w>
       <h>180</h>
     </coordinates>
@@ -225,7 +225,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>780</x>
-      <y>300</y>
+      <y>470</y>
       <w>292</w>
       <h>180</h>
     </coordinates>
@@ -237,15 +237,16 @@ m2=0..MAXARMOR</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>380</y>
+      <y>550</y>
       <w>260</w>
-      <h>80</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>Party
 --
 + const MAXPARTY : int
 - mParty : Character[]
 --
++ property isDead : bool
 + getCharacter( index : int ) : Character</panel_attributes>
     <additional_attributes/>
   </element>
@@ -253,7 +254,7 @@ m2=0..MAXARMOR</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>230</x>
-      <y>400</y>
+      <y>570</y>
       <w>330</w>
       <h>50</h>
     </coordinates>
@@ -265,7 +266,7 @@ m2=0..MAXPARTY</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>700</x>
-      <y>820</y>
+      <y>990</y>
       <w>270</w>
       <h>100</h>
     </coordinates>
@@ -283,7 +284,7 @@ m2=0..MAXPARTY</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>450</x>
-      <y>730</y>
+      <y>900</y>
       <w>200</w>
       <h>110</h>
     </coordinates>
@@ -294,7 +295,7 @@ m2=0..MAXPARTY</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>690</x>
-      <y>730</y>
+      <y>900</y>
       <w>170</w>
       <h>110</h>
     </coordinates>
@@ -305,7 +306,7 @@ m2=0..MAXPARTY</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>780</x>
-      <y>500</y>
+      <y>670</y>
       <w>660</w>
       <h>150</h>
     </coordinates>
@@ -316,7 +317,7 @@ m2=0..MAXPARTY</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1500</x>
-      <y>630</y>
+      <y>800</y>
       <w>390</w>
       <h>50</h>
     </coordinates>
@@ -328,7 +329,7 @@ m2=0..n</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2050</x>
-      <y>630</y>
+      <y>800</y>
       <w>160</w>
       <h>50</h>
     </coordinates>
@@ -340,7 +341,7 @@ m2=0..n</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>20</x>
-      <y>530</y>
+      <y>700</y>
       <w>210</w>
       <h>170</h>
     </coordinates>
@@ -361,7 +362,7 @@ m2=0..n</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>90</x>
-      <y>480</y>
+      <y>650</y>
       <w>470</w>
       <h>70</h>
     </coordinates>
@@ -372,7 +373,7 @@ m2=0..n</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>940</x>
-      <y>840</y>
+      <y>1010</y>
       <w>290</w>
       <h>50</h>
     </coordinates>
@@ -383,24 +384,23 @@ m2=0..n</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>610</x>
-      <y>820</y>
+      <y>990</y>
       <w>860</w>
-      <h>320</h>
+      <h>290</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;50;60;50;60;300;820;300;820;30;840;30</additional_attributes>
+    <additional_attributes>30;50;60;50;60;270;820;270;820;30;840;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>150</y>
+      <y>340</y>
       <w>140</w>
-      <h>130</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>StatEnum : int
 --
-NULL = int.MinValue
 STRENGTH = 0
 MAGIC = 1
 AGILITY = 2
@@ -411,14 +411,13 @@ ARMOR = 4</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>180</x>
-      <y>130</y>
+      <x>360</x>
+      <y>320</y>
       <w>150</w>
-      <h>150</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>ClassEnum : int
 --
-NULL = int.MinValue
 REDMAGE = 0
 WHITEMAGE = 1
 BLACKMAGE = 2
@@ -430,14 +429,13 @@ MONK = 5</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>370</x>
-      <y>170</y>
+      <x>180</x>
+      <y>350</y>
       <w>140</w>
-      <h>110</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>ArmorEnum : int
 --
-NULL = int.MinValue
 HEAD = 0
 CHEST = 1
 GLOVES = 2
@@ -448,13 +446,12 @@ FEET = 3</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>550</x>
-      <y>180</y>
+      <y>370</y>
       <w>160</w>
-      <h>100</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>WeaponEnum : int
 --
-NULL = int.MinValue
 WETIREDSWORD = 0
 WETRIEDSTAFF = 1
 WETRIEDKNIFE = 2</panel_attributes>
@@ -463,18 +460,34 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>920</x>
-      <y>170</y>
-      <w>280</w>
-      <h>110</h>
+      <x>810</x>
+      <y>80</y>
+      <w>390</w>
+      <h>370</h>
     </coordinates>
     <panel_attributes>ArmorFactory
 --
-+ static getBasicRedMageArmor() : Armor[]
-- static WeTriedHat() : Armor
-- static WeTriedMail() : Armor
-- static WeTriedGloves() : Armor
-- static WeTriedShoes() : Armor
+- static mFactory : ArmorFactory 
+- mArmorSet : Armor[]
+--
++ static getInstance() : ArmorFactory
++ Armor[] getBasicArmorSet( classes : ClassEnum ) : Armor[]
+- setBasicMonkArmor() : void
+- setBasicRedMageArmor() : void
+- setBasicBlackMageArmor() : void
+- setBasicWhiteMageArmor() : void
+- setBasicWarriorArmor() : void
+- setBasicTheifArmor() : void
+- WeTriedHat() : Armor 
+- WeTriedMail() : Armor 
+- WeTriedGloves() : Armor 
+- WeTriedShoes() : Armor 
+- WeTriedRobe() : Armor 
+- WeTriedPlate() : Armor 
+- WeTriedHelm() : Armor 
+- WeTriedGauntlets() : Armor 
+- WeTriedBoots() : Armor 
+- WeTriedTunic() : Armor 
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -482,7 +495,7 @@ WETRIEDKNIFE = 2</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1250</x>
-      <y>170</y>
+      <y>340</y>
       <w>360</w>
       <h>110</h>
     </coordinates>
@@ -494,5 +507,230 @@ WETRIEDKNIFE = 2</panel_attributes>
 - static getWeTriedStaff() : Weapon
 - static NullWeapon() : Weapon</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1660</x>
+      <y>200</y>
+      <w>420</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>CharacterFactory
+--
+- static CharacterFactory mFactory;
+- mStats : int[]
+- mArmor : Armor[]
+- mWeapon : Weapon
+- mClass : LevelTract
+--
++ static getInstance() : CharacterFactory
++ getCharacter( classes : ClassEnum, name : String ) : Character
+- setRedMage() : void
+- setWhiteMage() : void
+- setBlackMage() : void
+- setWarrior() : void
+- setTheif() : void
+- setMonk() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1310</x>
+      <y>1330</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>RedMage
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1100</x>
+      <y>1330</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>WhiteMage
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1730</x>
+      <y>1330</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Warrior
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1520</x>
+      <y>1330</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>BlackMage
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>680</x>
+      <y>1330</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Monk
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>890</x>
+      <y>1330</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Theif
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>750</x>
+      <y>1200</y>
+      <w>500</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>480;30;480;80;30;80;30;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>960</x>
+      <y>1200</y>
+      <w>320</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>300;30;300;100;30;100;30;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1170</x>
+      <y>1200</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120;30;120;110;30;110;30;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1300</x>
+      <y>1200</y>
+      <w>130</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;110;110;110;110;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1330</x>
+      <y>1200</y>
+      <w>310</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;100;290;100;290;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1360</x>
+      <y>1200</y>
+      <w>490</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80;470;80;470;130</additional_attributes>
   </element>
 </diagram>

@@ -47,6 +47,11 @@
     <Compile Include="CharacterEnumerations.cs" />
     <Compile Include="Ability.cs" />
     <Compile Include="CharacterFactory.cs" />
+    <Compile Include="BlackMage.cs" />
+    <Compile Include="Theif.cs" />
+    <Compile Include="Monk.cs" />
+    <Compile Include="Warrior.cs" />
+    <Compile Include="WhiteMage.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="LevelTract.cs" />

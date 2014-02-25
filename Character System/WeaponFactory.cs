@@ -43,7 +43,7 @@ namespace Character_System
 
             stats[(int)StatEnum.AGILITY] = 1;
             stats[(int)StatEnum.MAGIC] = 1;
-            stats[(int)StatEnum.STAMINA] = 1;
+            stats[(int)StatEnum.STAMINA] = 3;
             stats[(int)StatEnum.STRENGTH] = 3;
 
             return new Weapon(name, description, damage, stats);
@@ -77,10 +77,10 @@ namespace Character_System
 
             int[] stats = new int[Character.MAXSTATS];
 
-            stats[(int)StatEnum.AGILITY] = 0;
+            stats[(int)StatEnum.AGILITY] = 2;
             stats[(int)StatEnum.MAGIC] = 3;
             stats[(int)StatEnum.STAMINA] = 2;
-            stats[(int)StatEnum.STRENGTH] = 0;
+            stats[(int)StatEnum.STRENGTH] = 2;
 
             return new Weapon(name, description, damage, stats);
 

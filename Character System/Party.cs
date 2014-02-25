@@ -21,6 +21,24 @@ namespace Character_System
 
         }/* end constructor */
 
+        public bool isDead
+        {/* start isDead property */
+
+            get
+            {/* start accessor */
+
+                bool isDead = true;
+
+                for (int i = 0; i < MAXPARTY; i++)
+                    if (mParty[i] != null)
+                        isDead = isDead && mParty[i].isDead;
+
+                return isDead;
+
+            }/* end accessor */
+
+        }/* end isDead property */
+
         public Character getCharacter( int index )
         {/* start getCharacter */
 

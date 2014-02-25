@@ -124,9 +124,6 @@ namespace Character_System
         public int getStat(StatEnum stat)
         {/* start getStat */
 
-            if (stat != StatEnum.NULL)
-            {/* start if */
-
                 if (stat == StatEnum.STRENGTH)
                     return mStats[(int)StatEnum.STRENGTH] + mWeapon.getStat(StatEnum.STRENGTH);
 
@@ -142,9 +139,7 @@ namespace Character_System
                 if (stat == StatEnum.ARMOR)
                     return getTotalArmor();
 
-            }/* end if */
-
-            return (int)StatEnum.NULL;
+            return int.MinValue;
 
         }/* end getStat */
 

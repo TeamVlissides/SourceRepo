@@ -36,6 +36,7 @@ namespace Character_System
         public BattleEvent takeTurn( Character[] goodGuys )
         {/* start takeTurn */
 
+            throw new NotImplementedException();
 
         }/* end takeTurn */
 

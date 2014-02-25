@@ -31,7 +31,7 @@ namespace Character_System
 
         }/* end Worth property */
 
-        public void takeTurn( Character[] goodGuys )
+        public BattleEvent takeTurn( Character[] goodGuys )
         {/* start takeTurn */
 
 

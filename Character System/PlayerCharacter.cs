@@ -12,8 +12,6 @@ namespace Character_System
     {/* start PlayerCharacter class */
 
         private int mExperience;
-        private int mLevel;
-        private bool mUpgraded;
         private LevelTract mClass;
 
         public PlayerCharacter( Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass ) : base( armor,  name, stats, weapon, pclass )
@@ -21,7 +19,6 @@ namespace Character_System
 
             mExperience = 0;
             mLevel = 1;
-            mUpgraded = false;
             mClass = pclass;
 
             mClass.LevelUp(1);
@@ -34,23 +31,11 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return mLevel;
+                return (mExperience + 1000) / 1000;
 
             }/* end accessor */
 
         }/* end Level property */
-
-        public bool Upgraded
-        {/* start Upgraded property */
-
-            get
-            {/* start accessor */
-
-                return mUpgraded;
-
-            }/* end accessor */
-
-        }/* end Upgraded property */
 
         public void gainExperience( int experience )
         {/* start gainExperience */

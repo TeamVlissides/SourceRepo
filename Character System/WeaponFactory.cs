@@ -86,6 +86,24 @@ namespace Character_System
 
         }/* end getWeTriedStaff */
 
+        public static Weapon NullWeapon()
+        {/* start NullWeapon */
+
+            String name = "NULL";
+            String description = "NULL";
+            int damage = 0;
+
+            int[] stats = new int[Character.MAXSTATS];
+
+            stats[(int)StatEnum.AGILITY] = 0;
+            stats[(int)StatEnum.MAGIC] = 0;
+            stats[(int)StatEnum.STAMINA] = 0;
+            stats[(int)StatEnum.STRENGTH] = 0;
+
+            return new Weapon(name, description, damage, stats);
+
+        }/* end NullWeapon */
+        
     }/* end WeaponFactory class */
 
 }/* end Character_System namespace */

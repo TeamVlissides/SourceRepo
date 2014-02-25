@@ -13,7 +13,7 @@ namespace Character_System
         private String mName;
         private String mDescription;
         private int mBaseDamage;
-        protected int[] mStats;
+        private int[] mStats;
 
         public Weapon(String name, String description, int damage, int[] stats)
         {/* start constructor */

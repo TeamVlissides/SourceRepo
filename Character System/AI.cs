@@ -17,7 +17,7 @@ namespace Character_System
 
         }/* end addAbility */
 
-        public abstract void ai(Character[] goodGuys);
+        public abstract BattleEvent ai(Character[] goodGuys);
 
     }/* end AI class */
 

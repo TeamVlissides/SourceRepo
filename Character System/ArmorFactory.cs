@@ -19,7 +19,7 @@ namespace Character_System
 
             Armor[] set = new Armor[ Armor.MAXARMOR ];
 
-            set[ (int)ArmorEnum.HEAD ] = WeTriedHat();
+            set[(int)ArmorEnum.HEAD] = WeTriedHat();
             set[(int)ArmorEnum.CHEST] = WeTriedMail();
             set[(int)ArmorEnum.GLOVES] = WeTriedGloves();
             set[(int)ArmorEnum.FEET] = WeTriedShoes();

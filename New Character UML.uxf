@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1320</x>
+      <y>500</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>/AbilitiesHolder/
+--
+# mAbilities : List&lt;Ability&gt;
+--
++ getAbilities() : AbilitiesIterator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>2190</x>
+      <y>500</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>AbilitiesIterator
+--
+- mAbilities : List&lt;Ability&gt;
+- mCurrent : int 
+--
++ property Current : Ability
++ MoveNext() : bool
++ Reset() : void
++ getAbilityAtIndex( index : int ) : Ability </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1870</x>
+      <y>500</y>
+      <w>210</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>Ability
+--
+- mDescription : String
+- mName : String
+- mType : bool
+- mTargetSpread : bool
+- mAffectEnemy : bool
+- mBaseStat : int
+- mCost : int
+--
++ property Cost : int
++ property BaseDamage : int
++ property Name : String
++ property Description : String
++ property isMagic : bool
++ property isSingleTarget : bool
++ property AffectEnemy : bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>2190</x>
+      <y>320</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/IEnumerator&lt;T&gt; ( .NET Framework )/
+--
++ property Current : T
++ MoveNext() : bool
++ Reset() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>2290</x>
+      <y>370</y>
+      <w>50</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1450</x>
+      <y>690</y>
+      <w>340</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>/AI/
+--
++ addAbility( ability : Ability ) : void
++ abstract ai( goodGuys : Character[] ) : BattleEvent</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1430</x>
+      <y>530</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;60;190;60;190;160</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>920</x>
+      <y>250</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Armor
+--
++ const MAXARMOR : int
+- mArmorValue : int 
+- mName : String
+- mDescription : String
+--
++ property ArmorStat : int
++ property Name : String
++ property Description : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>540</x>
+      <y>250</y>
+      <w>270</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>/Character/
+--
++ const MAXSTATS : int
+# mHealth : int
+# mMana : int 
+# mArmor :  Armor[]
+# mName : String
+# mStats : int[]
+# mWeapon : Weapon = NullWeapon
+# mAbilities : AbilitiesHolder
+--
++ property CurrentMana : int
++ property CurrentHealth : int
++ property MaximumMana : int
++ property MaximumHealth: int
++ property Name : String
++ property Abilities : AbilitiesIterator
++ property isDead : bool
++ getStat( stat : StatEnum ) : int
++ getArmor( armor : ArmorEnum ) : Armor 
+- totalArmor() : int
++ takeDamage( damage : int ) : void
++ useMana( mana : int ) : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>320</x>
+      <y>690</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Enemy
+--
+- mExperienceWorth : int
+--
++ property Worth : int
++ takeTurn( Character[] goodGuys ) : BattleEvent
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1210</x>
+      <y>690</y>
+      <w>200</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>/LevelTract/
+--
+# mStats : int[]
+--
++ LevelUp( level : int ) : void
+# abstract levelOne() : void
+# abstract levelTwo() : void 
+# abstract levelThree() : void
+# abstract levelFour() : void
+# abstract levelFive() : void 
+# abstract levelSix() : void
+# abstract levelSeven() : void
+# abstract levelEight() : void
+# abstract levelNine() : void 
+# abstract levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1280</x>
+      <y>530</y>
+      <w>130</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110;30;110;60;30;60;30;160</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>780</x>
+      <y>170</y>
+      <w>292</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=0..MAXARMOR</panel_attributes>
+    <additional_attributes>30;160;90;160;90;30;240;30;240;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>250</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Party
+--
++ const MAXPARTY : int
+- mParty : Character[]
+--
++ getCharacter( index : int ) : Character</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>230</x>
+      <y>270</y>
+      <w>330</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..MAXPARTY</panel_attributes>
+    <additional_attributes>30;30;310;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>700</x>
+      <y>690</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>PlayerCharacter
+--
+- mExperience : int
+- mClass : LevelTract
+--
++ property Level : int
++ gainExperience( experience : int ) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>600</y>
+      <w>200</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>180;30;180;60;30;60;30;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>690</x>
+      <y>600</y>
+      <w>170</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;60;150;60;150;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>780</x>
+      <y>370</y>
+      <w>660</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;80;30;80;90;640;90;640;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1500</x>
+      <y>500</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>30;30;370;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>2050</x>
+      <y>500</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>140;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>20</x>
+      <y>400</y>
+      <w>210</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Weapon
+--
+- mName : String
+- mDescription : String
+- mBaseDamage : int
+- mStats : int[]
+--
++ property Name : String
++ property Description : String
++ property Damage : int
++ getStat( stat : StatEnum ) : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>90</x>
+      <y>350</y>
+      <w>470</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>450;30;30;30;30;50</additional_attributes>
+  </element>
+</diagram>

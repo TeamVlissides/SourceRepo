@@ -18,9 +18,9 @@ namespace Character_System
         protected int mHealth;
         protected int mMana;
         protected Armor[] mArmor;
-        protected string mName;
+        protected String mName;
         protected int[] mStats;
-        protected Weapon mWeapon;
+        protected Weapon mWeapon = WeaponFactory.NullWeapon();
         protected AbilitiesHolder mAbilities;
 
         protected Character( Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
@@ -37,27 +37,32 @@ namespace Character_System
 
         }/* end constructor */
 
-        public int CurrentHealth
-        {/* start Health property */
+        public bool isDead
+        {/* start isDead */
 
             get
             {/* start accessor */
 
-                return mHealth;
+                return mHealth <= 0;
 
             }/* end accessor */
 
-            set
-            {/* start mutator */
+        }/* end isDead */
 
-                mHealth = value;
+        public AbilitiesIterator Abilities
+        {/* start Abilities property */
 
-            }/* end mutator */
+            get
+            {/* start accessor */
 
-        }/* end Health property */
+                return mAbilities.getAbilities();
+
+            }/* end accessor */
+
+        }/* end Abilities property */
 
         public int CurrentMana
-        {/* start Health property */
+        {/* start CurrentMana property */
 
             get
             {/* start accessor */
@@ -66,14 +71,19 @@ namespace Character_System
 
             }/* end accessor */
 
-            set
-            {/* start mutator */
+        }/* end CurrentMana property */
 
-                mMana = value;
+        public int CurrentHealth
+        {/* start CurrentHealth property */
 
-            }/* end mutator */
+            get
+            {/* start accessor */
 
-        }/* end Health property */
+                return mHealth;
+
+            }/* end accessor */
+
+        }/* end CurrentHealth property */
 
         public int MaximumMana
         {/* start MaximumMana property */
@@ -151,19 +161,26 @@ namespace Character_System
 
         }/* end getTotalArmor */
 
-        public bool isDead()
-        {/* start isDead */
+        public void takeDamage(int damage)
+        {/* start takeDamage */
 
-            return mHealth <= 0;
+            mHealth -= damage;
 
-        }/* end isDead */
+        }/* end takeDamage */
 
-        public void getAbilities()
-        {/* start getAbilities */
+        public void useMana(int mana)
+        {/* start useMana */
 
-            mAbilities.getAbilities();
+            mMana -= mana;
 
-        }/* end getAbilities */
+        }/* end useMana */
+
+        public Armor getArmor(ArmorEnum armor)
+        {/* start getArmor */
+
+            return mArmor[(int)armor];
+
+        }/* end getArmor */
 
     }/* end Character class */
 

@@ -10,47 +10,73 @@ namespace Character_System
     public class CharacterFactory
     {/* start CharacterFactory */
 
+        public static CharacterFactory mFactory;
+
+        private int[] mStats;
+        private Armor[] mArmor;
+        private Weapon mWeapon;
+        private LevelTract mClass;
+
         private CharacterFactory()
         {/* start constructor */
         }/* end constructor */
 
-        public static Character getCharacter( ClassEnum classes, String name )
+        public static CharacterFactory getInstance()
+        {/* start getInstance */
+
+            if (mFactory == null)
+                mFactory = new CharacterFactory();
+
+            return mFactory;
+
+        }/* end getInstance */
+
+        public Character getCharacter( ClassEnum classes, String name )
         {/* start getCharacter */
 
+            /*Set all attributes to null, so if we don't call a set method, we don't pass references that are linked to other character's attributes. */
+            mStats = null;
+            mArmor = null;
+            mWeapon = null;
+            mClass = null;
+
             if( classes == ClassEnum.REDMAGE )
-                return getRedMage( name );
+                setRedMage();
 
             if (classes == ClassEnum.WHITEMAGE)
-                return getWhiteMage( name );
+                setWhiteMage();
 
             if (classes == ClassEnum.BLACKMAGE)
-                return getBlackMage( name );
+                setBlackMage( );
 
             if (classes == ClassEnum.WARRIOR)
-                return getWarrior( name );
+                setWarrior();
 
             if (classes == ClassEnum.THEIF)
-                return getTheif( name );
+                setTheif();
 
             if (classes == ClassEnum.MONK)
-                return getBlackMage( name );
+                setBlackMage();
+
+            return new PlayerCharacter(mArmor, name, mStats, mWeapon, mClass);
             
         }/* end getCharacter */
 
-        /* Feel like Template should be applied here */
-        private static Character getRedMage( String name )
-        {/* start getRedMage */
+        private void setRedMage()
+        {/* start setRedMage */
 
-            int[] stats = new int[Character.MAXSTATS];
+            mStats = new int[Character.MAXSTATS];
 
-            stats[(int)StatEnum.AGILITY] = 5;
-            stats[(int)StatEnum.MAGIC] = 10;
-            stats[(int)StatEnum.STAMINA] = 12;
-            stats[(int)StatEnum.STRENGTH] = 10;
+            mStats[(int)StatEnum.AGILITY] = 5;
+            mStats[(int)StatEnum.MAGIC] = 10;
+            mStats[(int)StatEnum.STAMINA] = 12;
+            mStats[(int)StatEnum.STRENGTH] = 10;
 
-            return new PlayerCharacter( ArmorFactory.getBasicRedMageArmor(), name, stats, WeaponFactory.getWeapon( WeaponEnum.WETIREDSWORD ), new RedMage( stats ) );
+            mArmor = ArmorFactory.getBasicRedMageArmor();
+            mWeapon = WeaponFactory.getWeapon( WeaponEnum.WETIREDSWORD );
+            mClass = new RedMage( mStats );
 
-        }/* end getRedMage */
+        }/* end setRedMage */
 
     }/* end CharacterFactory */
 

@@ -11,14 +11,17 @@ namespace Character_System
     public class PlayerCharacter : Character
     {/* start PlayerCharacter class */
 
+        private const int EXPERIENCEPERLEVEL = 1000;
+
         private int mExperience;
         private LevelTract mClass;
 
         public PlayerCharacter( Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass ) : base( armor,  name, stats, weapon, pclass )
         {/* start constructor */
 
-            mExperience = 0;
+            mExperience = 1000;
             mClass = pclass;
+            mIsPlayer = true;
 
             mClass.LevelUp(1);
 
@@ -30,7 +33,7 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return (mExperience + 1000) / 1000;
+                return mExperience / EXPERIENCEPERLEVEL;
 
             }/* end accessor */
 
@@ -39,7 +42,7 @@ namespace Character_System
         public void gainExperience( int experience )
         {/* start gainExperience */
 
-            
+            throw new NotImplementedException();
 
         }/* end gainExperience */
 

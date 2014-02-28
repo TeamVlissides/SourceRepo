@@ -13,11 +13,12 @@ namespace Character_System
         private int mExperienceWorth;
         private AI mAI;
 
-        public Enemy( Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI ai ) : base( armor,  name, stats, weapon, ai)
+        public Enemy( Armor[] armor, string name, int[] stats, Weapon weapon, int experienceWorth, AI ai ) : base( armor,  name, stats, weapon, ai )
         {/* start constructor */
 
             mExperienceWorth = experienceWorth;
             mAI = ai;
+            mIsPlayer = false;
 
         }/* end constructor */
 
@@ -33,7 +34,7 @@ namespace Character_System
 
         }/* end Worth property */
 
-        public BattleEvent takeTurn( Character[] goodGuys )
+        public BattleEvent takeTurn( Party goodGuys )
         {/* start takeTurn */
 
             throw new NotImplementedException();

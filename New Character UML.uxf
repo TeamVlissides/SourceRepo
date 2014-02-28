@@ -100,7 +100,7 @@
     <panel_attributes>/AI/
 --
 + addAbility( ability : Ability ) : void
-+ abstract ai( goodGuys : Character[] ) : BattleEvent</panel_attributes>
++ abstract ai( goodGuys : Party ) : BattleEvent</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -173,7 +173,7 @@
       <x>198</x>
       <y>594</y>
       <w>192</w>
-      <h>48</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Enemy
 --
@@ -181,7 +181,7 @@
 - mAI : AI
 --
 + property Worth : int
-+ takeTurn( Character[] goodGuys ) : BattleEvent
++ takeTurn( goodGuys : Party ) : BattleEvent
 </panel_attributes>
     <additional_attributes/>
   </element>

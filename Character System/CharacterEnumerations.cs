@@ -67,18 +67,18 @@ namespace Character_System
         SANCTIFY = 9,
 
         /* Black Mage */
-        LUKEWARM = 10,
-        HOT = 11,
-        BLAZE= 12,
-        BLAST= 13,
-        INCINERATE= 14,
+        BREEZE = 10,
+        COOL = 11,
+        COLD = 12,
+        FREEZE = 13,
+        BLIZZARD = 14,
 
         /* Warrior */
         POKE = 15,
         SLAP = 16,
         SMACK = 17,
         STRIKE = 18,
-        BLUDGEON= 19,
+        BLUDGEON = 19,
 
         /* Monk */
         PALM = 20,
@@ -100,10 +100,10 @@ namespace Character_System
         REGENERATE = 32,
 
         /* Red Mage Magic */
-        COOL = 33,
-        COLD = 34,
-        FREEZE = 35,
-
+        LUKEWARM = 33,
+        HOT = 34,
+        BLAZE = 35,
+        
         /* Red Mage Physical */
         FLAIL = 36,
         FLICK = 37,

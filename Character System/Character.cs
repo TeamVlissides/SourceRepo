@@ -13,6 +13,7 @@ namespace Character_System
 
         /* Constants */
         public const int MAXSTATS = 4;
+        public const int HEALTHMANAMULTIPLICITY = 100;
 
         /* Attributes */
         protected int mHealth;
@@ -22,6 +23,7 @@ namespace Character_System
         protected int[] mStats;
         protected Weapon mWeapon = WeaponFactory.NullWeapon();
         protected AbilitiesHolder mAbilities;
+        protected bool mIsPlayer;
 
         protected Character( Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
         {/* start constructor */
@@ -36,6 +38,18 @@ namespace Character_System
             mMana = this.MaximumMana;
 
         }/* end constructor */
+
+        public bool isPlayer
+        {/* start isPlayer */
+
+            get
+            {/* start accessor */
+
+                return isPlayer;
+
+            }/* end accessor */
+
+        }/* end isPlayer */
 
         public bool isDead
         {/* start isDead */
@@ -91,7 +105,7 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return mStats[(int)StatEnum.MAGIC] * 100;
+                return mStats[(int)StatEnum.MAGIC] * HEALTHMANAMULTIPLICITY;
             
             }/* end accessor */
 
@@ -103,7 +117,7 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return mStats[(int)StatEnum.STAMINA] * 100;
+                return mStats[(int)StatEnum.STAMINA] * HEALTHMANAMULTIPLICITY;
 
             }/* end accessor */
 
@@ -176,6 +190,13 @@ namespace Character_System
             return mArmor[(int)armor];
 
         }/* end getArmor */
+
+        public bool CompareTo(Character character)
+        {/* start CompareTo */
+
+            return this.getStat(StatEnum.AGILITY) < character.getStat(StatEnum.AGILITY);
+
+        }/* end CompareTo */
 
     }/* end Character class */
 

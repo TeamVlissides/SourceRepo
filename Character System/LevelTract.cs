@@ -22,6 +22,9 @@ namespace Character_System
         public sealed void LevelUp(int level)
         {/* start LevelUp */
 
+            if (level < 1 || level > 10)
+                throw new ArgumentOutOfRangeException("Level cannot be less than 1 or greater than 10.");
+
             if (level == 1)
                 levelOne();
 

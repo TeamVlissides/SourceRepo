@@ -10,6 +10,14 @@ namespace Character_System
     public class Ability
     {/* start Ability class */
 
+        /* Constants */
+        public const bool MAGIC = true;
+        public const bool PHYSICAL = false;
+        public const bool SINGLETARGET = true;
+        public const bool PARTYTARGET = false;
+        public const bool HEALING = true;
+        public const bool DAMAGING = false;
+
         private String mDescription;
         private String mName;
         private bool mType;

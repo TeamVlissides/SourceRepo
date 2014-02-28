@@ -49,4 +49,66 @@ namespace Character_System
 
     }/* end WeaponEnum */
 
+    public enum AbilitesEnum : int
+    {/* start AbilitiesEnum */
+
+        /* White Mage Heal */
+        KISSBOOBOO = 0,
+        PATONBACK = 1,
+        PRAY = 2,
+        MEND = 3,
+        HEAL = 4,
+
+        /* White Mage Attack */
+        FLASHLIGHT = 5,
+        SPARK = 6,
+        SMITE = 7,
+        CONSECRATE = 8,
+        SANCTIFY = 9,
+
+        /* Black Mage */
+        LUKEWARM = 10,
+        HOT = 11,
+        BLAZE= 12,
+        BLAST= 13,
+        INCINERATE= 14,
+
+        /* Warrior */
+        POKE = 15,
+        SLAP = 16,
+        SMACK = 17,
+        STRIKE = 18,
+        BLUDGEON= 19,
+
+        /* Monk */
+        PALM = 20,
+        BACKHAND = 21,
+        JUDOCHOP = 22,
+        PUNCH = 23,
+        KICK= 24,
+
+        /* Theif */
+        TRIP = 25,
+        POUNCE = 26,
+        BACKSTAB = 27,
+        FEINT = 28,
+        SLICETHROAT = 29,
+
+        /* Red Mage Heal */
+        APPLYBANDAID = 30,
+        SOOTH = 31,
+        REGENERATE = 32,
+
+        /* Red Mage Magic */
+        COOL = 33,
+        COLD = 34,
+        FREEZE = 35,
+
+        /* Red Mage Physical */
+        FLAIL = 36,
+        FLICK = 37,
+        SLICE = 38
+
+    }/* end AbilitiesEnum */
+
 }/* end Character_System namespace */

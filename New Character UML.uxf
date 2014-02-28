@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="12.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1380</x>
-      <y>720</y>
-      <w>210</w>
-      <h>60</h>
+      <x>798</x>
+      <y>480</y>
+      <w>126</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>/AbilitiesHolder/
 --
@@ -19,10 +19,10 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>2250</x>
-      <y>720</y>
-      <w>260</w>
-      <h>130</h>
+      <x>1320</x>
+      <y>480</y>
+      <w>156</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>AbilitiesIterator
 --
@@ -38,10 +38,10 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1930</x>
-      <y>720</y>
-      <w>210</w>
-      <h>270</h>
+      <x>1128</x>
+      <y>480</y>
+      <w>126</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Ability
 --
@@ -65,10 +65,10 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>2250</x>
-      <y>540</y>
-      <w>260</w>
-      <h>80</h>
+      <x>1320</x>
+      <y>372</y>
+      <w>156</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>/IEnumerator&lt;T&gt; ( .NET Framework )/
 --
@@ -81,21 +81,21 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2350</x>
-      <y>590</y>
-      <w>50</w>
-      <h>150</h>
+      <x>1380</x>
+      <y>402</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;130</additional_attributes>
+    <additional_attributes>18;18;18;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1510</x>
-      <y>910</y>
-      <w>340</w>
-      <h>60</h>
+      <x>876</x>
+      <y>594</y>
+      <w>204</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>/AI/
 --
@@ -106,21 +106,21 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1490</x>
-      <y>750</y>
-      <w>210</w>
-      <h>180</h>
+      <x>864</x>
+      <y>498</y>
+      <w>126</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;60;190;60;190;160</additional_attributes>
+    <additional_attributes>18;18;18;36;114;36;114;96</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>980</x>
-      <y>470</y>
-      <w>200</w>
-      <h>150</h>
+      <x>558</x>
+      <y>330</y>
+      <w>120</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Armor
 --
@@ -137,10 +137,10 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>600</x>
-      <y>470</y>
-      <w>270</w>
-      <h>380</h>
+      <x>330</x>
+      <y>330</y>
+      <w>162</w>
+      <h>228</h>
     </coordinates>
     <panel_attributes>/Character/
 --
@@ -170,10 +170,10 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>380</x>
-      <y>910</y>
-      <w>320</w>
-      <h>80</h>
+      <x>198</x>
+      <y>594</y>
+      <w>192</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Enemy
 --
@@ -188,16 +188,16 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1270</x>
-      <y>910</y>
-      <w>200</w>
-      <h>240</h>
+      <x>732</x>
+      <y>594</y>
+      <w>120</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>/LevelTract/
 --
 # mStats : int[]
 --
-+ LevelUp( level : int ) : void
++ sealed LevelUp( level : int ) : void
 # abstract levelOne() : void
 # abstract levelTwo() : void 
 # abstract levelThree() : void
@@ -213,33 +213,33 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1340</x>
-      <y>750</y>
-      <w>130</w>
-      <h>180</h>
+      <x>774</x>
+      <y>498</y>
+      <w>78</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>110;30;110;60;30;60;30;160</additional_attributes>
+    <additional_attributes>66;18;66;36;18;36;18;96</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>840</x>
-      <y>390</y>
-      <w>292</w>
-      <h>180</h>
+      <x>474</x>
+      <y>282</y>
+      <w>178</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 m2=0..MAXARMOR</panel_attributes>
-    <additional_attributes>30;160;90;160;90;30;240;30;240;80</additional_attributes>
+    <additional_attributes>18;96;54;96;54;18;144;18;144;48</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>60</x>
-      <y>470</y>
-      <w>260</w>
-      <h>100</h>
+      <x>6</x>
+      <y>330</y>
+      <w>156</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Party
 --
@@ -253,22 +253,22 @@ m2=0..MAXARMOR</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>290</x>
-      <y>490</y>
-      <w>330</w>
-      <h>50</h>
+      <x>144</x>
+      <y>342</y>
+      <w>198</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=0..MAXPARTY</panel_attributes>
-    <additional_attributes>30;30;310;30</additional_attributes>
+    <additional_attributes>18;18;186;18</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>760</x>
-      <y>910</y>
-      <w>270</w>
-      <h>100</h>
+      <x>426</x>
+      <y>594</y>
+      <w>162</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>PlayerCharacter
 --
@@ -283,67 +283,67 @@ m2=0..MAXPARTY</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>510</x>
-      <y>820</y>
-      <w>200</w>
-      <h>110</h>
+      <x>276</x>
+      <y>540</y>
+      <w>120</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>180;30;180;60;30;60;30;90</additional_attributes>
+    <additional_attributes>108;18;108;36;18;36;18;54</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>750</x>
-      <y>820</y>
-      <w>170</w>
-      <h>110</h>
+      <x>420</x>
+      <y>540</y>
+      <w>102</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;60;150;60;150;90</additional_attributes>
+    <additional_attributes>18;18;18;36;90;36;90;54</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>840</x>
-      <y>590</y>
-      <w>660</w>
-      <h>150</h>
+      <x>474</x>
+      <y>402</y>
+      <w>396</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;80;30;80;90;640;90;640;130</additional_attributes>
+    <additional_attributes>18;18;48;18;48;54;384;54;384;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1560</x>
-      <y>720</y>
-      <w>390</w>
-      <h>50</h>
+      <x>906</x>
+      <y>480</y>
+      <w>234</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=0..n</panel_attributes>
-    <additional_attributes>30;30;370;30</additional_attributes>
+    <additional_attributes>18;18;222;18</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2110</x>
-      <y>720</y>
-      <w>160</w>
-      <h>50</h>
+      <x>1236</x>
+      <y>480</y>
+      <w>96</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=0..n</panel_attributes>
-    <additional_attributes>140;30;30;30</additional_attributes>
+    <additional_attributes>84;18;18;18</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>80</x>
-      <y>620</y>
-      <w>210</w>
-      <h>170</h>
+      <x>18</x>
+      <y>420</y>
+      <w>126</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>Weapon
 --
@@ -361,43 +361,43 @@ m2=0..n</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>150</x>
-      <y>570</y>
-      <w>470</w>
-      <h>70</h>
+      <x>60</x>
+      <y>390</y>
+      <w>282</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>450;30;30;30;30;50</additional_attributes>
+    <additional_attributes>270;18;18;18;18;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1000</x>
-      <y>930</y>
-      <w>290</w>
-      <h>50</h>
+      <x>570</x>
+      <y>606</y>
+      <w>174</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;270;30</additional_attributes>
+    <additional_attributes>18;18;162;18</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>670</x>
-      <y>910</y>
-      <w>860</w>
-      <h>290</h>
+      <x>372</x>
+      <y>594</y>
+      <w>516</w>
+      <h>174</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;50;60;50;60;270;820;270;820;30;840;30</additional_attributes>
+    <additional_attributes>18;30;36;30;36;162;492;162;492;18;504;18</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>60</x>
-      <y>260</y>
-      <w>140</w>
-      <h>110</h>
+      <x>6</x>
+      <y>204</y>
+      <w>84</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>StatEnum : int
 --
@@ -411,10 +411,10 @@ ARMOR = 4</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>420</x>
-      <y>240</y>
-      <w>150</w>
-      <h>130</h>
+      <x>222</x>
+      <y>192</y>
+      <w>90</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>ClassEnum : int
 --
@@ -429,10 +429,10 @@ MONK = 5</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>240</x>
-      <y>270</y>
-      <w>140</w>
-      <h>100</h>
+      <x>114</x>
+      <y>210</y>
+      <w>84</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>ArmorEnum : int
 --
@@ -445,10 +445,10 @@ FEET = 3</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>610</x>
-      <y>290</y>
-      <w>160</w>
-      <h>80</h>
+      <x>336</x>
+      <y>222</y>
+      <w>96</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>WeaponEnum : int
 --
@@ -460,10 +460,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>870</x>
-      <y>0</y>
-      <w>390</w>
-      <h>370</h>
+      <x>492</x>
+      <y>48</y>
+      <w>234</w>
+      <h>222</h>
     </coordinates>
     <panel_attributes>ArmorFactory
 --
@@ -494,10 +494,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1310</x>
-      <y>260</y>
-      <w>360</w>
-      <h>110</h>
+      <x>756</x>
+      <y>204</y>
+      <w>216</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>WeaponFactory
 --
@@ -505,16 +505,16 @@ WETRIEDKNIFE = 2</panel_attributes>
 - static getWeTriedSword() : Weapon
 - static getWeTriedKnife() : Weapon
 - static getWeTriedStaff() : Weapon
-- static NullWeapon() : Weapon</panel_attributes>
++ static NullWeapon() : Weapon</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1720</x>
+      <x>1002</x>
       <y>120</y>
-      <w>420</w>
-      <h>250</h>
+      <w>252</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>CharacterFactory
 --
@@ -538,10 +538,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1370</x>
-      <y>1250</y>
-      <w>200</w>
-      <h>200</h>
+      <x>792</x>
+      <y>798</y>
+      <w>120</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>RedMage
 --
@@ -560,10 +560,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1160</x>
-      <y>1250</y>
-      <w>200</w>
-      <h>200</h>
+      <x>666</x>
+      <y>798</y>
+      <w>120</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>WhiteMage
 --
@@ -582,10 +582,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1790</x>
-      <y>1250</y>
-      <w>200</w>
-      <h>200</h>
+      <x>1044</x>
+      <y>798</y>
+      <w>120</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Warrior
 --
@@ -604,10 +604,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1580</x>
-      <y>1250</y>
-      <w>200</w>
-      <h>200</h>
+      <x>918</x>
+      <y>798</y>
+      <w>120</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>BlackMage
 --
@@ -626,10 +626,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>740</x>
-      <y>1250</y>
-      <w>200</w>
-      <h>200</h>
+      <x>414</x>
+      <y>798</y>
+      <w>120</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Monk
 --
@@ -648,10 +648,10 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>950</x>
-      <y>1250</y>
-      <w>200</w>
-      <h>200</h>
+      <x>540</x>
+      <y>798</y>
+      <w>120</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Theif
 --
@@ -670,67 +670,89 @@ WETRIEDKNIFE = 2</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>810</x>
-      <y>1120</y>
-      <w>500</w>
-      <h>150</h>
+      <x>456</x>
+      <y>720</y>
+      <w>300</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>480;30;480;80;30;80;30;130</additional_attributes>
+    <additional_attributes>288;18;288;48;18;48;18;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1020</x>
-      <y>1120</y>
-      <w>320</w>
-      <h>150</h>
+      <x>582</x>
+      <y>720</y>
+      <w>192</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>300;30;300;100;30;100;30;130</additional_attributes>
+    <additional_attributes>180;18;180;60;18;60;18;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1230</x>
-      <y>1120</y>
-      <w>140</w>
-      <h>150</h>
+      <x>708</x>
+      <y>720</y>
+      <w>84</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120;30;120;110;30;110;30;130</additional_attributes>
+    <additional_attributes>72;18;72;66;18;66;18;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1360</x>
-      <y>1120</y>
-      <w>130</w>
-      <h>150</h>
+      <x>786</x>
+      <y>720</y>
+      <w>78</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;110;110;110;110;130</additional_attributes>
+    <additional_attributes>18;18;18;66;66;66;66;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1390</x>
-      <y>1120</y>
-      <w>310</w>
-      <h>150</h>
+      <x>804</x>
+      <y>720</y>
+      <w>186</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;100;290;100;290;130</additional_attributes>
+    <additional_attributes>18;18;18;60;174;60;174;78</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1420</x>
-      <y>1120</y>
-      <w>490</w>
-      <h>150</h>
+      <x>822</x>
+      <y>720</y>
+      <w>294</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;80;470;80;470;130</additional_attributes>
+    <additional_attributes>18;18;18;48;282;48;282;78</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>432</x>
+      <y>0</y>
+      <w>186</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60;66;18;66;18;18;174;18;174;48</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>966</x>
+      <y>72</y>
+      <w>174</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>36;66;18;66;18;18;162;18;162;48</additional_attributes>
   </element>
 </diagram>

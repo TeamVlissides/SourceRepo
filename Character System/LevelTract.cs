@@ -19,7 +19,7 @@ namespace Character_System
 
         }/* end constructor */
 
-        public void LevelUp(int level)
+        public sealed void LevelUp(int level)
         {/* start LevelUp */
 
             if (level == 1)

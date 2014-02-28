@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbilitiesFactory.cs" />
     <Compile Include="AbilitiesHolder.cs" />
     <Compile Include="AbilitiesIterator.cs" />
     <Compile Include="Armor.cs" />

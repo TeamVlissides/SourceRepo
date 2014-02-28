@@ -14,8 +14,8 @@ namespace BattleSystem
         {
             usedAbility = abilityToUse;
         }
-
-        private void specificAction(Character actingCharacter, Character[] combatants)
+        
+        public void specificAction(Character actingCharacter, ref Character target)
         {
             throw new NotImplementedException();
         }

@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbilityAction.cs" />
-    <Compile Include="Action.cs" />
     <Compile Include="AttackAction.cs" />
     <Compile Include="Battle.cs" />
     <Compile Include="EnemyFactory.cs" />

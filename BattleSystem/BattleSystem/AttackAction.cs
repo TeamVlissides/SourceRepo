@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace BattleSystem
 {
-    class AbilityAction : BattleAction
+    class AttackAction : BattleAction
     {
-        public Ability usedAbility;
-
-        public AbilityAction(Ability abilityToUse)
+        public AttackAction()
         {
-            usedAbility = abilityToUse;
+
         }
 
-        private void specificAction(Character actingCharacter, Character[] combatants)
+        public void specificAction(Character actingCharacter, ref Character target)
         {
             throw new NotImplementedException();
         }

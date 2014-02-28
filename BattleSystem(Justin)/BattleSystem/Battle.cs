@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,9 @@ namespace BattleSystem
         // Attributes
         private Party mGoodGuys;
         private Party mBadGuys;
-        private Character currentActor;
+        private int currentActor;
 
-        private int totalCombatants;
-        private int currentActorNum;
+        private Character[] turnOrder;
 
         private Game mGame;
 
@@ -41,10 +41,12 @@ namespace BattleSystem
             mGoodGuys = mGame.getParty();
             mBadGuys = new EnemyFactory().getEnemyParty(mGoodGuys.getLevel());
 
-            totalCombatants = mGoodGuys.mParty.Length + mBadGuys.mParty.Length;
-            currentActorNum = totalCombatants - 1;
-
-            currentActor = selectNextCharactor();
+            turnOrder = buildTurnOrder();
+            currentActor = 0;
+            while (turnOrder[currentActor].isDead)
+            {
+                currentActor++;
+            }
         }
 
         public void startBattle(EnemyType type)
@@ -52,49 +54,90 @@ namespace BattleSystem
             mGoodGuys = mGame.getParty();
             mBadGuys = new EnemyFactory().getEnemyParty(type);
 
-            totalCombatants = mGoodGuys.getSize() + mBadGuys.getSize();
-            currentActorNum = totalCombatants;
-
-            currentActor = selectNextCharactor();
-        }
-
-        private void selectNextCharactor()
-        {
-            currentActorNum = (currentActorNum + 1) % totalCombatants;
-            if(currentActorNum > mGoodGuys.getSize())
+            turnOrder = buildTurnOrder();
+            while (turnOrder[currentActor].isDead)
             {
-                currentActor = mBadGuys.getCharacter(currentActorNum - mGoodGuys.getSize() - 1);
-            }
-            else
-            {
-                currentActor = mGoodGuys.getCharacter(currentActorNum);
-            }
-
-            if(currentActor.CurrentHealth == 0)
-            {
-                selectNextCharactor();
+                currentActor++;
             }
         }
 
-        public int[] getTargets()
+        private Character[] buildTurnOrder()
         {
-            int[] targets = { 0 };
-            return targets;
+            Character[] orderOfBattle = new Character[mGoodGuys.size + mBadGuys.size];
+            for (int i = 0; i < mGoodGuys.size; i++)
+            {
+                orderOfBattle[i] = mGoodGuys.getCharacter[i];
+            }
+            for (int i = 0; i < mBadGuys.size; i++)
+            {
+                orderOfBattle[i + mGoodGuys.size] = mBadGuys.getCharacter[i];
+            }
+            return orderOfBattle;
         }
 
-        public void executeAction(Action action, int[] targets)
+        public ArrayList getFriendlyTargets()
         {
-
+            ArrayList targetlist = new ArrayList();
+            for (int i = 0; i < mGoodGuys.size; i++)
+            {
+                if(mGoodGuys.getCharacter(i).isDead() == false)
+                {
+                    targetlist.Add(i);
+                }
+            }
+            return targetlist;
         }
 
-        private void battleOver()
+        public ArrayList getHostileTargets()
         {
-            
+            ArrayList targetlist = new ArrayList();
+            for (int i = mGoodGuys.size; i < mGoodGuys.size; i++)
+            {
+                if (mGoodGuys.getCharacter(i).isDead() == false)
+                {
+                    targetlist.Add(i + mGoodGuys.size);
+                }
+            }
+            return targetlist;
         }
 
-        private void GameOver()
+        public ArrayList getTargets(Ability abilityToUse)
         {
+            ArrayList targetlist = new ArrayList();
+            return targetlist;
+        }
 
+        public ArrayList getTargets(Item itemToUse)
+        {
+            ArrayList targetlist = new ArrayList();
+            return targetlist;
+        }
+
+        public void executeAction(BattleAction actionToExecute, ArrayList targetlist)
+        {
+            foreach(int i in targetlist)
+            {
+                actionToExecute.specificAction(turnOrder[currentActor], turnOrder[i]);
+                mGame.giveBattleOutput(new Event(turnOrder[currentActor], actionToExecute, turnOrder[i]));
+            }
+            checkBattleOver();
+            while (turnOrder[currentActor].isDead)
+            {
+                currentActor++;
+            }
+        }
+
+        private void checkBattleOver()
+        {
+            if(mGoodGuys.isDead || mBadGuys.isDead)
+            {
+                mGame.notifyBattleOutcome(mBadGuys.isDead);
+            }
+        }
+
+        public Character getCharacter(int charIndex)
+        {
+            return turnOrder[charIndex];
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BattleSystem
             usedItem = itemToUse;
         }
 
-        public void specificAction(Character actingCharacter, ref Character target)
+        private void specificAction(Character actingCharacter, Character[] combatants)
         {
             throw new NotImplementedException();
         }

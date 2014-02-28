@@ -8,19 +8,32 @@ namespace BattleSystem
 {
     class AttackAction : BattleAction
     {
-        public AttackAction()
-        {
-
-        }
+        String attackResult = " attacked ";
         
-        public void specificAction(ref Character target)
+        public AttackAction(int i)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        private void specificAction(Character actingCharacter, Character target)
+        {
+            
+            int attack = actingCharacter.getStat(StatEnum.STRENGTH);
+            int damage = attack - target.getStat(StatEnum.ARMOR);
+            if (damage > 0)
+            {
+                target.takeDamage(damage);
+                attackResult = " attacked and did " + damage + " to ";
+            }
+            else
+            {
+                attackResult = " was unable to damage ";
+            }
         }
 
         public string toString()
         {
-            throw new NotImplementedException();
+            return attackResult;
         }
     }
 }

@@ -8,33 +8,33 @@ using System.Drawing;
 
 namespace CSGameSystem
 {
-    public class Tile
+    class Tile
     {
         // Attributes
         private Brush backgroundColor;
         private Brush borderColor;
         private int size;
-        private Item[] items;
+        private Gem[] gems;
 
         // Default Constructor
         public Tile()
         {
-            // Can have up to 3 items;
-            items = new Item[3];
+            // Can have up to 3 gems;
+            gems = new Gem[3];
             backgroundColor = Brushes.Orange;
             borderColor = Brushes.Black;
             size = 5;
-            Item item1 = new Item("Treasure", Directory.GetCurrentDirectory() + @"\images\treasure00.png", 1);
-            items[0] = item1;
+            Gem gem1 = new Gem("Ruby", Directory.GetCurrentDirectory() + @"\images\gem00.png", 1);
+            gems[0] = gem1;
         }
 
         // 
-        public Tile(Brush bgcolor, Brush bColor, int size, Item [] items)
+        public Tile(Brush bgcolor, Brush bColor, int size, Gem [] gems)
         {
             backgroundColor = bgcolor;
             borderColor = bColor;
             this.size = size;
-            this.items = items;
+            this.gems = gems;
         }
 
         // setter Methods
@@ -53,9 +53,9 @@ namespace CSGameSystem
             this.size = s;
         }
 
-        public void SetItems(Item[] items)
+        public void SetGems(Gem[] gems)
         {
-            this.items = items;
+            this.gems = gems;
         }
 
         // getter methods
@@ -75,9 +75,9 @@ namespace CSGameSystem
             return this.borderColor;
         }
 
-        public Item[] getItems()
+        public Gem[] getGems()
         {
-            return this.items;
+            return this.gems;
         }
 
     }

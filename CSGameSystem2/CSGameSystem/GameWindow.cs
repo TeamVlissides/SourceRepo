@@ -10,38 +10,19 @@ using System.Windows.Forms;
 
 namespace CSGameSystem
 {
-
-    public enum LocationA
-    {
-        UP, // 0
-        DOWN, // 1
-        RIGHT, // 2
-        LEFT //3
-    }
-
     public partial class GUIWindow : Form
     {
         int imageX;
         int imageY;
 
         DisplayView v = null;
-        Dungeon dungeon;
-        Game game = null;
-        BattleSystem battle;
 
         public GUIWindow()
         {
             InitializeComponent();
             imageX = 30;
             imageY = 30;
-            game = new Game();
-            dungeon = new Dungeon();
-            v = new DisplayView(this, dungeon);
-            battle = new BattleSystem(v);
-            dungeon.SetView(v);
-            game = new Game(dungeon, v, battle);
-            dungeon.SetGame(game);
-            
+            v = new DisplayView(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,23 +32,7 @@ namespace CSGameSystem
            // v = new View(this);
 
            // g.DrawLine(new Pen(Brushes.Black, 5), 0, 0, 200, 200);
-           // viewTextOutput.AppendText(Environment.NewLine + "The player has mod left.");
-           // v.sendOutput("The player has moved left.");
-            testENUM(LocationA.UP);
-        }
-
-        public void testENUM(LocationA loc)
-        {
-            if (loc.ToString() == "UP")
-            {
-                MessageBox.Show("Location: " + LocationA.UP);
-            }
-        }
-
-        public void SetTextOutput(String str)
-        {
-            //viewTextOutput.Text = str;
-            viewTextOutput.AppendText(Environment.NewLine + str);
+            
         }
 
         private void GUIWindow_Paint(object sender, PaintEventArgs e)
@@ -110,16 +75,7 @@ namespace CSGameSystem
         private void button3_Click(object sender, EventArgs e)
         {
             // UP
-           // v.MovePartyUp();
-            try
-            {
-                dungeon.getDirection(DirectionEnum.UP);
-                v.PartyMoveUpdate();
-            }
-            catch(Exception exp)
-            {
-                MessageBox.Show("DEBUG: " + exp.ToString());
-            }
+            v.MovePartyUp();
             /*
             if (imageY > 30)
             {
@@ -131,9 +87,7 @@ namespace CSGameSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //v.MovePartyRight();
-            dungeon.getDirection(DirectionEnum.RIGHT);
-            v.PartyMoveUpdate();
+            v.MovePartyRight();
             // Right
             /*
             if (imageX <= 300)
@@ -147,9 +101,7 @@ namespace CSGameSystem
 
         private void DownButton_Click(object sender, EventArgs e)
         {
-           // v.MovePartyDown();
-            dungeon.getDirection(DirectionEnum.DOWN);
-            v.PartyMoveUpdate();
+            v.MovePartyDown();
             /*
            if (imageY <= 300)
             {
@@ -161,9 +113,7 @@ namespace CSGameSystem
 
         private void LeftButton_Click(object sender, EventArgs e)
         {
-            //v.MovePartyLeft();
-            dungeon.getDirection(DirectionEnum.LEFT);
-            v.PartyMoveUpdate();
+            v.MovePartyLeft();
             /*
             if (imageX > 30)
             {

@@ -11,7 +11,7 @@ namespace CSGameSystem
         public int NULL = -1;
         public int FREESPACE = 0;
         public int WALL = 1;
-        //public int ITEM = 2;
+        public int ITEM = 2;
         public int DRAGON = 3;
     }
 }

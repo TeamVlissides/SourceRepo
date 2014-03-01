@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSGameSystem
 {
-    public class Grid
+    class Grid
     {
         // Attributes
         private int mNumRows;
@@ -15,8 +15,6 @@ namespace CSGameSystem
         private int mPartyColumn;
         private Tile[,] tiles;
         private Tile mTiles;
-
-
 
         // Constructor
         public Grid()
@@ -35,29 +33,6 @@ namespace CSGameSystem
 
 
         // Methods
-
-        public int NumRows
-        {
-            get
-            {
-                return mNumRows;
-            }
-            set
-            {
-                mNumRows = value;
-            }
-        }
-        public int NumColumns
-        {
-            get
-            {
-                return mNumColumns;
-            }
-            set
-            {
-                mNumColumns = value;
-            }
-        }
 
         public void createGrid()
         {

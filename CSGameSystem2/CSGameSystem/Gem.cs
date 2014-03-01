@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace CSGameSystem
 {
-    public class Gem
+    class Gem
     {
         // Attributes
         private String gemName;

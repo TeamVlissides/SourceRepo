@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonSystem2
+namespace CSGameSystem
 {
-    internal class Dungeon
+    class Dungeon
     {
-
         // Attributes
         private Grid mGrid;
         private String mName;
@@ -23,44 +21,49 @@ namespace DungeonSystem2
             mGrid = new Grid(5, 5);
         }
 
+        // Methods
+       
         public Grid GetGrid()
         {
-            return null;
+            return mGrid;
         }
 
         public String GetDungeonName()
         {
-            return new String(mName);
+            return ""; // new String(mName);
         }
-		
-		public void SetDungeonName(String name)
-		{
+
+        public void SetDungeonName(String name)
+        {
+
             mName = name;
-		}
+
+        }
+
         /* direction is the direction the party wants to go */
-        public void getDirection( DirectionEnum direction )
+        public void getDirection(DirectionEnum direction)
         {/* start getDirection */
 
             //Method here. Update Location */
-            if( direction == DirectionEnum.LEFT )
+            if (direction == DirectionEnum.LEFT)
                 /*...*/
 
-            if( direction == DirectionEnum.RIGHT )
-                /*...*/
+                if (direction == DirectionEnum.RIGHT)
+                    /*...*/
 
-            if( direction == DirectionEnum.DOWN )
-                /*...*/
+                    if (direction == DirectionEnum.DOWN)
+                        /*...*/
 
-            if( direction == DirectionEnum.UP )
-                /*...*/
+                        if (direction == DirectionEnum.UP)
+                            /*...*/
 
-            mGame.notifyDungeonUpdate();
+                            mGame.notifyDungeonUpdate();
 
-            if( checkIfDragon() )
-                mGame.StartBattle(EnemyType.DRAGON);
+            if (checkIfDragon())
+                mGame.startBattle(EnemyType.DRAGON);
             else
-                if( RollBattleDice() )
-                    mGame.StartBattle( EnemyType.NULL );
+                if (RollBattleDice())
+                    mGame.startBattle(EnemyType.NULL);
 
         }/* end getDirection */
 
@@ -73,6 +76,20 @@ namespace DungeonSystem2
         {
             return false;
         }
+
+        /*
+       public Game GetGame()
+       {
+
+       }
+
+       public Party GetGoodGuyParty()
+       {
+
+       }
+        * */
+
+
 
         // Interaction with other Systems code here...
 
@@ -92,13 +109,9 @@ namespace DungeonSystem2
          *  - How does the GUI get updates about the statistics for the characters?
          * 
          * 
-         */
+         */ 
 
         // get character location
-
-        // get location of gems
-
-        // 
 
         // 
 
@@ -114,8 +127,5 @@ namespace DungeonSystem2
         // do with it.
 
         // 
-
-
     }
-
 }

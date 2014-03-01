@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSGameSystem
 {
-    public class BattleSystem
+    class BattleSystem
     {
 
         // Attributes
@@ -18,12 +18,6 @@ namespace CSGameSystem
         private int currentActorNum;
 
         private Game mGame;
-        private View view;
-
-        public BattleSystem(View v)
-        {
-            view = v;
-        }
 
         // Constructors
         public BattleSystem(Game currentGame)
@@ -51,8 +45,6 @@ namespace CSGameSystem
            // currentActorNum = totalCombatants - 1;
 
            // currentActor = selectNextCharactor();
-            view.sendOutput("Battle has started.");
-
         }
 
         public void startBattle(EnemyType type)

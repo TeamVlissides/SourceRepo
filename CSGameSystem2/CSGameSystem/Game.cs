@@ -23,15 +23,6 @@ namespace CSGameSystem
         public Game()
         {/* start constructor */
 
-            //initialize();
-
-        }/* end constructor */
-
-        public Game(Dungeon dungeon, View view, BattleSystem battle)
-        {/* start constructor */
-            mDungeon = dungeon;
-            mView = view;
-            mBattle = battle;
             initialize();
 
         }/* end constructor */
@@ -75,14 +66,14 @@ namespace CSGameSystem
 
                 mView.sendOutput("What class type do you want? You get 3.");
                 mView.sendOutput(classes.GetEnumerator(), TypeEnum.STRING);
-               // choice = (int)mView.getInput(TypeEnum.INT);
-               // name = (string)mView.getInput(TypeEnum.STRING);
+                choice = (int)mView.getInput(TypeEnum.INT);
+                name = (string)mView.getInput(TypeEnum.STRING);
 
                // characters[ i ] = CharacterCreationFactory(choice, name);
 
             }/* end loop */
 
-            //mGoodGuys = new Party(characters);
+            mGoodGuys = new Party(characters);
             //mBattle = new BattleSystem(this, mGoodGuys);
            // mDungeon = new Dungeon(this, mGoodGuys);
 

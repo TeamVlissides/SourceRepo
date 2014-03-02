@@ -193,5 +193,16 @@ namespace CSGameSystem
 
         }
 
+        private void viewPanel_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.DrawRectangle(new Pen(Brushes.Black, 5), 0, 0, viewPanel.Width, viewPanel.Height);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }

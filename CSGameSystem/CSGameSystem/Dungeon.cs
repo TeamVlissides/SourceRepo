@@ -5,6 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * 
+ * 1. Make the location of the treasure static.
+- once game starts the first location of treasure stay 
+  where it started.
+2. How to handle what class type they want?
+How to handle :
+3. Stats for each player
+4. Display how many goodguys and bad guys there are.
+5. giving the items to the characters and then
+   removing the item from the screen.
+6. Create the TileFactory which will create tiles
+for walls, freespace, treasure, dragon,
+these will have images, need to get a wall image,
+a freespace iamge, a dragon image.
+7. Complete Checkfor/item/dragon, getdirection methods.
+ * 
+ */
+ 
+
 namespace CSGameSystem
 {
     public class Dungeon
@@ -191,6 +211,7 @@ namespace CSGameSystem
             if(checkForItem())
             {
                 // Give item to party.
+               // mGoodGuyParty
             }
 
             if (checkIfDragon())

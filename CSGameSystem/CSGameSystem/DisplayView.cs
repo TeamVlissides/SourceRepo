@@ -191,6 +191,7 @@ namespace CSGameSystem
                     graphics.DrawRectangle(new Pen(borderColor, 5), ((height + 10) * x) + 20, ((width + 10) * y) + 20, width, height);
                     graphics.FillRectangle(bgcolor, ((height + 10) * x) + 20, ((width + 10) * y) + 20, width, height);
 
+
                     Random r = new Random();
                     int rand = r.Next() % 100;
 

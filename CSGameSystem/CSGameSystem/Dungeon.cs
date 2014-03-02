@@ -22,8 +22,40 @@ these will have images, need to get a wall image,
 a freespace iamge, a dragon image.
 7. Complete Checkfor/item/dragon, getdirection methods.
  * 
+ * Dungeon:
+
+View:
+
+GUI:
+add statistics
+add players char
+
+
+Replace Gem Class with Item
+and use a trasure box instead of
+a Gem.
+
+a. Complete isDirectionValid method.
+
+6. Create the TileFactory which will create tiles
+for walls, freespace, treasure, dragon,
+these will have images, need to get a wall image,
+a freespace iamge, a dragon image.
+
+2. How to handle what class type they want?
+How to handle :
+3. Stats for each player
+4. Display how many goodguys and bad guys there are.
+5. giving the items to the characters and then
+   removing the item from the screen.
+
+
+7. Complete Checkfor/item/dragon, getdirection methods.
+8. TileModel, and TileView to imp. single responsibility.
+
+
  */
- 
+
 
 namespace CSGameSystem
 {
@@ -89,6 +121,15 @@ namespace CSGameSystem
                     playerLocationColumn = value;
             }
         }
+
+        public int[] getCurrentPartyLocation()
+        {
+            int[] tempArray = new int[2];
+            tempArray[0] = PlayerLocationRow;
+            tempArray[1] = PlayerLocationColumn;
+
+            return tempArray;
+        }
        
         public Grid GetGrid()
         {
@@ -120,13 +161,11 @@ namespace CSGameSystem
 
         private void MovePlayerLocation(DirectionEnum locationEnum)
         {
-          
+
                 if (locationEnum == DirectionEnum.UP)
                 {
                     //if (playerLocationColumn > 0)
                     PlayerLocationColumn -= 1;
-                    if (view == null)
-                        MessageBox.Show("View null");
                     view.sendOutput("UP " + "[" + PlayerLocationRow + ", " + PlayerLocationColumn + "]");
 
                 }
@@ -175,7 +214,13 @@ namespace CSGameSystem
             {
                 /*...*/
                 // Check if direction is valid
-                //    The PlayerLocationRow/Columns alread do this.
+                //    The PlayerLocationRow/Columns already do this.
+                /*
+                 * getCurrentPartyLocation()
+                 * check if increment in that location is valid
+                 * if valid return true, else return false.
+                 * 
+                 */ 
                 //    but could setoutput that direction is invalid.
                 // Update party location.
                 MovePlayerLocation(DirectionEnum.LEFT);
@@ -208,10 +253,10 @@ namespace CSGameSystem
            //  mGame.notifyDungeonUpdate();
 
             // Check for item
-            if(checkForItem())
+            if (checkForItem())
             {
                 // Give item to party.
-               // mGoodGuyParty
+                // mGoodGuyParty
             }
 
             if (checkIfDragon())
@@ -222,6 +267,12 @@ namespace CSGameSystem
              
 
         }/* end getDirection */
+
+        public void checkTile()
+        {
+
+
+        }
 
         public bool checkForItem()
         {

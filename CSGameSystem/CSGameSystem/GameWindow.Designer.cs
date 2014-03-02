@@ -162,7 +162,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.viewPanel);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "GUIWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dungeon & Battle System Game";
             this.Load += new System.EventHandler(this.GUIWindow_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GUIWindow_Paint);

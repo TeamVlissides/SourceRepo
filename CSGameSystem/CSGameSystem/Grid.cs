@@ -87,6 +87,14 @@ namespace CSGameSystem
         }
 
         // getter methods
+
+        public void isDirectionValid(DirectionEnum direction)
+        {
+
+        }
+
+
+
         public void SetPartyRow(int row)
         {
 

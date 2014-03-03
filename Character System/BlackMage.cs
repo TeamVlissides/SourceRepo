@@ -17,70 +17,110 @@ namespace Character_System
         protected override void levelOne()
         {/* start levelOne */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] = 1;
+            mStats[(int)StatEnum.MAGIC] = 10;
+            mStats[(int)StatEnum.STAMINA] = 10;
+            mStats[(int)StatEnum.STRENGTH] = 1;
+
+            mAbilities = AbilitiesFactory.getInstance().getBasicAbilities(ClassEnum.BLACKMAGE);
 
         }/* end levelOne */
 
         protected override void levelTwo()
         {/* start levelTwo */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
 
         }/* end levelTwo */
 
         protected override void levelThree()
         {/* start levelThree */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.COOL));
 
         }/* end levelThree */
 
         protected override void levelFour()
         {/* start levelFour */
 
-            throw new NotImplementedException();
-
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
+            
         }/* end levelFour */
 
         protected override void levelFive()
         {/* start levelFive */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.COLD));
 
         }/* end levelFive */
 
         protected override void levelSix()
         {/* start levelSix */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
 
         }/* end levelSix */
 
         protected override void levelSeven()
         {/* start levelSeven */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.FREEZE));
 
         }/* end levelSeven */
 
         protected override void levelEight()
         {/* start levelEight */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
 
         }/* end levelEight */
 
         protected override void levelNine()
         {/* start levelNine */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.BLIZZARD));
 
         }/* end levelNine */
 
         protected override void levelTen()
         {/* start levelTen */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 1;
+            mStats[(int)StatEnum.MAGIC] += 10;
+            mStats[(int)StatEnum.STAMINA] += 10;
+            mStats[(int)StatEnum.STRENGTH] += 1;
 
         }/* end levelTen */
 

@@ -17,70 +17,114 @@ namespace Character_System
         protected override void levelOne()
         {/* start levelOne */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] = 3;
+            mStats[(int)StatEnum.MAGIC] = 3;
+            mStats[(int)StatEnum.STAMINA] = 30;
+            mStats[(int)StatEnum.STRENGTH] = 3;
+            
+            mAbilities = AbilitiesFactory.getInstance().getBasicAbilities(ClassEnum.REDMAGE);
 
         }/* end levelOne */
 
         protected override void levelTwo()
         {/* start levelTwo */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 15;
+            mStats[(int)StatEnum.STRENGTH] += 3;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.FLICK));
 
         }/* end levelTwo */
 
         protected override void levelThree()
         {/* start levelThree */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.HOT));
 
         }/* end levelThree */
 
         protected override void levelFour()
         {/* start levelFour */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.SOOTH));
 
         }/* end levelFour */
 
         protected override void levelFive()
         {/* start levelFive */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
 
         }/* end levelFive */
 
         protected override void levelSix()
         {/* start levelSix */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.SLICE));
 
         }/* end levelSix */
 
         protected override void levelSeven()
         {/* start levelSeven */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
 
         }/* end levelSeven */
 
         protected override void levelEight()
         {/* start levelEight */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.BLAZE));
 
         }/* end levelEight */
 
         protected override void levelNine()
         {/* start levelNine */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
 
         }/* end levelNine */
 
         protected override void levelTen()
         {/* start levelTen */
 
-            throw new NotImplementedException();
+            mStats[(int)StatEnum.AGILITY] += 3;
+            mStats[(int)StatEnum.MAGIC] += 3;
+            mStats[(int)StatEnum.STAMINA] += 20;
+            mStats[(int)StatEnum.STRENGTH] += 3;
+
+            mAbilities.Add(AbilitiesFactory.getInstance().getAbility(AbilitesEnum.REGENERATE));
 
         }/* end levelTen */
 

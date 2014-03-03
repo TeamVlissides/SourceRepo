@@ -34,6 +34,42 @@ namespace Character_System
 
         }/* end getInstance */
 
+        public List<Ability> getBasicAbilities(ClassEnum classes)
+        {/* start getBasicAbilities */
+
+            List<Ability> abilities = new List<Ability>();
+
+            if (classes == ClassEnum.REDMAGE)
+                addRedMageBasicAbilities(abilities);
+
+            if (classes == ClassEnum.WHITEMAGE)
+                abilities.Add(getAbility(AbilitesEnum.KISSBOOBOO));
+
+            if (classes == ClassEnum.BLACKMAGE)
+                abilities.Add(getAbility(AbilitesEnum.BREEZE));
+
+            if (classes == ClassEnum.WARRIOR)
+                abilities.Add(getAbility(AbilitesEnum.POKE));
+
+            if (classes == ClassEnum.THEIF)
+                abilities.Add(getAbility(AbilitesEnum.TRIP));
+
+            if(classes == ClassEnum.MONK)
+                abilities.Add(getAbility(AbilitesEnum.PALM));
+
+            return abilities;
+
+        }/* end getBasicAbilities */
+
+        private void addRedMageBasicAbilities(List<Ability> abilities)
+        {/* start addRedMageBasicAbilities */
+
+            abilities.Add(getAbility(AbilitesEnum.APPLYBANDAID));
+            abilities.Add(getAbility(AbilitesEnum.LUKEWARM));
+            abilities.Add(getAbility(AbilitesEnum.FLAIL));
+
+        }/* end addRedMageBasicAbilities */
+
         public Ability getAbility(AbilitesEnum ability)
         {/* start getAbility */
 

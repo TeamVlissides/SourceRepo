@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 
 namespace BattleSystem
 {
-    class Event
+    class BattleEvent
     {
 
         private Character mActor;
         private BattleAction mAction;
+        private String actionOutcome;
         private Character mActee;
 
-        public Event(Character currentActor, BattleAction actorAction, Character actorTarget)
+        public BattleEvent(Character currentActor, BattleAction actorAction, Character actorTarget)
         {
             mActor = currentActor;
             mAction = actorAction;
+            actionOutcome = mAction.ToString();
             mActee = actorTarget;
         }
 
-        public toString()
+        public String toString()
         {
-            return currentActor.toString() + mAction.toString() + mActee.toString();
+            return currentActor.toString() + actionOutcome + mActee.toString();
         }
         
     }

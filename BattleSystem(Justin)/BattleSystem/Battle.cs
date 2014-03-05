@@ -13,7 +13,8 @@ namespace BattleSystem
         // Attributes
         private Party mGoodGuys;
         private Party mBadGuys;
-        private int currentActor;
+        private Character currentActor;
+        private int currentActorIndex;
 
         private Character[] turnOrder;
 
@@ -41,12 +42,21 @@ namespace BattleSystem
             mGoodGuys = mGame.getParty();
             mBadGuys = new EnemyFactory().getEnemyParty(mGoodGuys.getLevel());
 
-            turnOrder = buildTurnOrder();
-            currentActor = 0;
-            while (turnOrder[currentActor].isDead)
+            turnOrder = mGoodGuys.getTurnOrder(mBadGuys);
+            selectFirstCharacter();
+
+            while(!battleOver())
             {
-                currentActor++;
+                if (currentActor.mIsPlayer)
+                {
+                    //TODO: Figure out if we just wait here until the game gives input or what
+                }
+                else
+                {
+                    executeAction(currentActor.mAI.ai(turnOrder));
+                }
             }
+
         }
 
         public void startBattle(EnemyType type)
@@ -59,20 +69,6 @@ namespace BattleSystem
             {
                 currentActor++;
             }
-        }
-
-        private Character[] buildTurnOrder()
-        {
-            Character[] orderOfBattle = new Character[mGoodGuys.size + mBadGuys.size];
-            for (int i = 0; i < mGoodGuys.size; i++)
-            {
-                orderOfBattle[i] = mGoodGuys.getCharacter[i];
-            }
-            for (int i = 0; i < mBadGuys.size; i++)
-            {
-                orderOfBattle[i + mGoodGuys.size] = mBadGuys.getCharacter[i];
-            }
-            return orderOfBattle;
         }
 
         public ArrayList getFriendlyTargets()
@@ -101,43 +97,49 @@ namespace BattleSystem
             return targetlist;
         }
 
-        public ArrayList getTargets(Ability abilityToUse)
+        public void executeAction(BattleAction actionToExecute)
         {
-            ArrayList targetlist = new ArrayList();
-            return targetlist;
+            actionToExecute.specificAction(currentActor, turnOrder);
+            ArrayList executedActions = actionToExecute.getBattleEvents();
+            foreach (BattleEvent currentEvent in executedActions)
+            {
+                mGame.giveBattleOutput(currentEvent);
+            }
+            selectNextCharacter();
         }
 
-        public ArrayList getTargets(Item itemToUse)
+        private Boolean battleOver()
         {
-            ArrayList targetlist = new ArrayList();
-            return targetlist;
-        }
-
-        public void executeAction(BattleAction actionToExecute, ArrayList targetlist)
-        {
-            foreach(int i in targetlist)
-            {
-                actionToExecute.specificAction(turnOrder[currentActor], turnOrder[i]);
-                mGame.giveBattleOutput(new Event(turnOrder[currentActor], actionToExecute, turnOrder[i]));
-            }
-            checkBattleOver();
-            while (turnOrder[currentActor].isDead)
-            {
-                currentActor++;
-            }
-        }
-
-        private void checkBattleOver()
-        {
-            if(mGoodGuys.isDead || mBadGuys.isDead)
-            {
-                mGame.notifyBattleOutcome(mBadGuys.isDead);
-            }
+            return (mGoodGuys.isDead || mBadGuys.isDead);
         }
 
         public Character getCharacter(int charIndex)
         {
             return turnOrder[charIndex];
+        }
+
+        private void selectFirstCharacter()
+        {
+            int i = 0;
+            currentActor = turnOrder[i];
+            while (!currentActor.isDead)
+            {
+                i++;
+                currentActor = turnOrder[i];
+                currentActorIndex = i;
+            }
+        }
+
+        private void selectNextCharacter()
+        {
+            int i = currentActorIndex;
+            currentActor = turnOrder[i];
+            while (!currentActor.isDead)
+            {
+                i = (i + 1) % turnOrder.Length;
+                currentActor = turnOrder[i];
+                currentActorIndex = i;
+            }
         }
     }
 }

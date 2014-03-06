@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /*
+ * Need a ship battle event to the view system. 
+ * 
+ * Do a seperate window to put the stats sheet on instead of putting it
+ * on the Dungeon window.
  * 
  * 1. Make the location of the treasure static.
 - once game starts the first location of treasure stay 

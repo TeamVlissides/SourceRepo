@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Character_System;
 using Dungeon_System;
+using Battle_System;
 
 namespace Game_System
 {/* start Game_System namespace */
@@ -82,15 +83,15 @@ namespace Game_System
 
         public void giveBattleOutput( BattleEvent ourEvent )
         {/* start giveBattleOutput */
-            
-            
+
+            throw new NotImplementedException();
 
         }/* end giveBattleOutput */
 
         public void notifyDungeonUpdate()
         {/* start giveDungeonOutput */
 
-            mView.sendOutput( mDungeon.getTileIterator(), TypeEnum.GRID );
+            //mView.sendOutput( mDungeon.getTileIterator(), TypeEnum.GRID );
 
         }/* end giveDungeonOutput */
 

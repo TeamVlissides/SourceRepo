@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Battle_System;
 
 namespace Character_System
 {/* start Character_System namespace */

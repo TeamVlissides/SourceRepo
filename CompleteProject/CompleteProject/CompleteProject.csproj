@@ -48,6 +48,9 @@
     <Compile Include="AI.cs" />
     <Compile Include="Armor.cs" />
     <Compile Include="ArmorFactory.cs" />
+    <Compile Include="BattleAction.cs" />
+    <Compile Include="BattleEvent.cs" />
+    <Compile Include="BattleSystem.cs" />
     <Compile Include="BlackMage.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterEnumerations.cs" />

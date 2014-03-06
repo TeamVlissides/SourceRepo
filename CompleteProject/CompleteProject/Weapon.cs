@@ -64,24 +64,19 @@ namespace Character_System
         public int getStat(StatEnum stat)
         {/* start getStat */
 
-            if (stat != StatEnum.NULL)
-            {/* start if */
+            if (stat == StatEnum.STRENGTH)
+                return mStats[(int)StatEnum.STRENGTH];
 
-                if (stat == StatEnum.STRENGTH)
-                    return mStats[(int)StatEnum.STRENGTH];
+            if (stat == StatEnum.MAGIC)
+                return mStats[(int)StatEnum.MAGIC];
 
-                if (stat == StatEnum.MAGIC)
-                    return mStats[(int)StatEnum.MAGIC];
+            if (stat == StatEnum.AGILITY)
+                return mStats[(int)StatEnum.AGILITY];
 
-                if (stat == StatEnum.AGILITY)
-                    return mStats[(int)StatEnum.AGILITY];
+            if (stat == StatEnum.STAMINA)
+                return mStats[(int)StatEnum.STAMINA];
 
-                if (stat == StatEnum.STAMINA)
-                    return mStats[(int)StatEnum.STAMINA];
-
-            }/* end if */
-
-            return (int)StatEnum.NULL;
+            return 0;
 
         }/* end getStat */
 

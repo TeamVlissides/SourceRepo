@@ -111,4 +111,13 @@ namespace Character_System
 
     }/* end AbilitiesEnum */
 
+    public enum ActionEnum : int
+    {/* start ActionEnum */
+
+        ATTACK = 0,
+        ABILITY = 1,
+        ITEM = 2
+
+    }/* end ActionEnum */
+
 }/* end Character_System namespace */

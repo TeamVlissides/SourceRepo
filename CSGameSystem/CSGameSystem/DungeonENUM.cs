@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CSGameSystem
 {
-    class DungeonEnum
+    public enum DungeonEnum
     {
-        public int NULL = -1;
-        public int FREESPACE = 0;
-        public int WALL = 1;
-        //public int ITEM = 2;
-        public int DRAGON = 3;
-    }
+        NULL = -1,
+        FREESPACE = 0,
+        WALL = 1,
+        ITEM = 2,
+        DRAGON = 3
+    };
 }

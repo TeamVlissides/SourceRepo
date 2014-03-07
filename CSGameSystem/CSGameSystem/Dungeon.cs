@@ -45,7 +45,8 @@ a Gem.
  * 10. Figure out how to test if a treasure/item is on a tile the
  * chracter is on.
 
-a. Complete isDirectionValid method.
+a. Complete isDirectionValid method, 
+ * did isWall instead.
 
 6. Create the TileFactory which will create tiles
 for walls, freespace, treasure, dragon,

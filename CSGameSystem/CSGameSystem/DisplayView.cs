@@ -103,7 +103,7 @@ namespace CSGameSystem
 
                     // if (rand % 2 != 0)
                     {
-                        if (hasItem) //items[0].getItemImagePath() != null
+                      //  if (hasItem) //items[0].getItemImagePath() != null
                         {
                            // Image image = Image.FromFile(items[0].getItemImagePath());
                             //graphics.DrawImage(image, ((height + 10) * x) + 20, ((width + 10) * y) + 20, 20, 20); // Gem size

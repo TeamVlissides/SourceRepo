@@ -16,8 +16,47 @@ namespace CSGameSystem
 {
     public class TileFactory
     {
-        public Tile createTile(String tileType)
+        public Tile createTile(Random r)
         {
+            Tile tile = null;
+            int randomItemType = (int)DungeonEnum.FREESPACE;
+            
+
+            // Deterime if tile has treasure/ a item or not.
+            // This is not creating random numbers for each tile???
+            // it creates the same numbers for all of them.
+            //Random r = new Random();
+            // Dont know but passing in the reference works.
+            // But does not seem like a good thing to do.
+            int rand = r.Next() % 100;
+
+            // Put an item here.
+            if (rand % 2 != 0)
+            {
+                // decide what type of item to put here.
+                // generate random itemtype number here and set the itemType to it.
+                randomItemType = r.Next(-1, 3);
+
+                //hasAnItem = true;
+                // Console.WriteLine("True." + r);
+            }
+
+
+
+            if (randomItemType == (int)DungeonEnum.NULL)
+                tile = new NullTile(); // 
+            if (randomItemType == (int)DungeonEnum.FREESPACE)
+                tile = new FreespaceTile();
+            if (randomItemType == (int)DungeonEnum.WALL)
+                tile = new WallTile();
+
+            // This would be just for a single tile with some items on it.
+            if (randomItemType == (int)DungeonEnum.ITEM)
+                tile = new ItemTile();
+            if (randomItemType == (int)DungeonEnum.DRAGON)
+                tile = new DragonTile();
+
+
             /*
             if (tileType == "NULL")
                 return new NullTile(); // 
@@ -32,7 +71,7 @@ namespace CSGameSystem
             if (tileType == "DRAGON")
                 return new DragonTile();
                          * */
-            return null;
+            return tile;
 
         }
     }

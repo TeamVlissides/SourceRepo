@@ -67,6 +67,7 @@ namespace CSGameSystem
             // Create tiles
             tiles = new Tile[mNumRows, mNumColumns];
             Random rand = new Random();
+            TileFactory tileFactory = new TileFactory();
 
             // Rows
             for (int i = 0; i < mNumRows; i++)
@@ -74,7 +75,8 @@ namespace CSGameSystem
                 // Columns
                 for (int j = 0; j < mNumColumns; j++)
                 {
-                    tiles[i, j] = new Tile(rand);
+                   // tiles[i, j] = new Tile(rand);
+                    tiles[i, j] = tileFactory.createTile(rand);
                 }
             }
         }

@@ -8,21 +8,21 @@ using System.Drawing;
 
 namespace CSGameSystem
 {
-    public class Tile
+    public abstract class Tile
     {
         // Attributes
-        private Brush backgroundColor;
-        private Brush borderColor;
-        private Boolean hasAnItem;
-        private int itemType;
-        private int size;
+        protected Brush backgroundColor;
+        protected Brush borderColor;
+        protected Boolean hasAnItem;
+        protected int itemType;
+        protected int size;
        // private Item[] items;
 
         // The tile needs to keep track of what kind of tile it is
         // is it a null tile, a freespace, a item, a wall, a dragon tile?
 
         // Default Constructor
-        public Tile(Random rand)
+        public Tile()
         {
             // Can have up to 3 items;
             //items = new Item[3];
@@ -38,25 +38,6 @@ namespace CSGameSystem
             //items[0] = item1;
             hasAnItem = false;
             itemType = 0;
-
-            // Deterime if tile has treasure/ a item or not.
-            // This is not creating random numbers for each tile???
-            // it creates the same numbers for all of them.
-            //Random r = new Random();
-            // Dont know but passing in the reference works.
-            // But does not seem like a good thing to do.
-            int r = rand.Next() % 100;
-
-            // Put an item here.
-            if (r % 2 != 0)
-            {
-                // decide what type of item to put here.
-                // generate random itemtype number here and set the itemType to it.
-                itemType = rand.Next(-1, 3);
-
-                hasAnItem = true;
-               // Console.WriteLine("True." + r);
-            }
 
             
         }

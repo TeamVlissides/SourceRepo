@@ -89,8 +89,8 @@ namespace Character_System
         public static Weapon NullWeapon()
         {/* start NullWeapon */
 
-            String name = "NULL";
-            String description = "NULL";
+            String name = "No weapon.";
+            String description = "No weapon.";
             int damage = 0;
 
             int[] stats = new int[Character.MAXSTATS];

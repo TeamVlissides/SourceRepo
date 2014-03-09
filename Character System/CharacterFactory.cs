@@ -52,7 +52,7 @@ namespace Character_System
             if (classes == ClassEnum.MONK)
                 setMonk();
 
-            return new PlayerCharacter(mArmor, name, mStats, mWeapon, mClass);
+            return new PlayerCharacter(mArmor, name, mStats, mWeapon, mClass, classes);
             
         }/* end getCharacter */
 

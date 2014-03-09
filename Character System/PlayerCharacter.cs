@@ -15,17 +15,31 @@ namespace Character_System
 
         private int mExperience;
         private LevelTract mClass;
+        private ClassEnum mClassEnum;
 
-        public PlayerCharacter( Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass ) : base( armor,  name, stats, weapon, pclass )
+        public PlayerCharacter( Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass, ClassEnum classes ) : base( armor,  name, stats, weapon, pclass )
         {/* start constructor */
 
             mExperience = 1000;
             mClass = pclass;
             mIsPlayer = true;
+            mClassEnum = classes;
 
             mClass.LevelUp(1);
 
         }/* end constructor */
+
+        public ClassEnum Class
+        {/* start Class propertry */
+
+            get
+            {/* start accessor */
+
+                return mClassEnum;
+
+            }/* end accessor */
+
+        }/* end Class propertry */
 
         public int Level
         {/* start Level property */

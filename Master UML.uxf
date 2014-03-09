@@ -331,7 +331,7 @@ int: 3: DRAGON</panel_attributes>
 --
 -mUser: Character
 -mAction: Action
--mSpecificTarget: Character
+-mTarget: Character
 -mDamage : int </panel_attributes>
     <additional_attributes/>
   </element>
@@ -343,7 +343,7 @@ int: 3: DRAGON</panel_attributes>
       <w>273</w>
       <h>247</h>
     </coordinates>
-    <panel_attributes>Action
+    <panel_attributes>BattleAction
 --
 -mAbilityUsed: Ability
 -mItemUsed: Item

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>80</y>
+      <w>310</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Dungeon
+--
+main(String[] args): void
+chooseHero(): Hero
+generateMonster(): Monster
+playAgain(): boolean
+battle(Hero theHero, Monster theMonster): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>770</x>
+      <y>80</y>
+      <w>290</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>DungeonCharacter
+--
+name: String
+hitPoints: int
+attackSpeed: int
+chanceToHit: double
+damageMin: int
+damageMax: int
+--
+compareTo(Object o): int
+getName(): String
+getHitPoints(): int
+getAttackSpeed(): int
+addHitPoints(int hitPoints): void
+subtractHitPoints(int hitPoints): void
+isAlive(): boolean
+attack(DungeonCharacter opponent): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>/Comparable/
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>390</y>
+      <w>320</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Hero
+--
+chanceToBlock: double
+numTurns: int
+--
+readName(): void
+defend(): boolean
+subtractHitPoints(int hitPoints): void
+battleChoices(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>820</x>
+      <y>0</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>550</x>
+      <y>320</y>
+      <w>260</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1440</x>
+      <y>420</y>
+      <w>240</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Monster
+--
+chanceToHeal: double
+minHeal: int
+maxHeal: int
+--
+heal(): void
+subtractHitPoints(int hitPoints): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>990</x>
+      <y>320</y>
+      <w>520</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;500;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1250</x>
+      <y>610</y>
+      <w>280</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Gremlin
+--
+--
+attack(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1260</x>
+      <y>530</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1560</x>
+      <y>610</y>
+      <w>280</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Ogre
+--
+--
+attack(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1520</x>
+      <y>530</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;80;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1860</x>
+      <y>610</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Skeleton
+--
+--
+attack(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1590</x>
+      <y>530</y>
+      <w>330</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;310;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>640</y>
+      <w>320</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Sorceress
+--
+MIN_ADD: int
+MAX_ADD: int
+--
+increaseHitPoints(): void
+attack(DungeonCharacter opponent): void
+battleChoices(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>10</x>
+      <y>500</y>
+      <w>470</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>450;30;30;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>610</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Thief
+--
+--
+surpriseAttack(DungeonCharacter opponent): void
+battleChoices(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>420</x>
+      <y>500</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120;30;30;110</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>610</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Warrior
+--
+--
+crushingBlow(DungeonCharacter opponent): void
+attack(DungeonCharacter opponent): void
+battleChoices(DungeonCharacter opponent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>500</y>
+      <w>290</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;270;110</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>290</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=white
+This is the UML for Tom's Dungeon without
+any code changes.</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

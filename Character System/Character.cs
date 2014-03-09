@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
+/* Implement Armor/Weapon acquirement and removal. R.F. : 3/7/2014 */
+
 namespace Character_System
 {/* start Character_System namespace */
 
@@ -135,6 +137,18 @@ namespace Character_System
 
         }/* end Name property */
 
+        public int WeaponDamage
+        {/* start WeaponDamage property */
+
+            get
+            {/* start accessor */
+
+                return mWeapon.Damage;
+
+            }/* end accessor */
+
+        }/* end WeaponDamage property */
+
         public int getStat(StatEnum stat)
         {/* start getStat */
 
@@ -163,6 +177,9 @@ namespace Character_System
             int i;
             int totalArmor = 0;
 
+            if (mArmor == null)
+                return 0;
+
             for (i = 0; i < Armor.MAXARMOR; i++)
                 totalArmor += mArmor[i].ArmorStat;
 
@@ -174,6 +191,9 @@ namespace Character_System
         {/* start takeDamage */
 
             mHealth -= damage;
+
+            if (mHealth < 0)
+                mHealth = 0;
 
         }/* end takeDamage */
 

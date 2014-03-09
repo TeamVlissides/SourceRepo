@@ -111,4 +111,27 @@ namespace Character_System
 
     }/* end AbilitiesEnum */
 
+    public enum ActionEnum : int
+    {/* start ActionEnum */
+
+        ATTACK = 0,
+        ABILITY = 1,
+        ITEM = 2
+
+    }/* end ActionEnum */
+
+    public enum EnemyType : int
+    {/* start EnemyType enum */
+
+        DRAGON = 0,
+        SPIDER = 1,
+        BAT = 2,
+        BEAR = 3,
+        LION = 4,
+        TROLL = 5,
+        GOBLIN = 6,
+        THEPREDATOR = 7,
+
+    }/* end EnemyType enum */
+
 }/* end Character_System namespace */

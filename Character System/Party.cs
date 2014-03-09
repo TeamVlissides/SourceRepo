@@ -19,6 +19,7 @@ namespace Character_System
         {/* start constructor */
 
             mParty = party;
+            mPartySize = party.Length;
 
         }/* end constructor */
 
@@ -90,6 +91,41 @@ namespace Character_System
             return turnOrder;
 
         }/* end getTurnOrder */
+
+        public int Level
+        {/* start Level property */
+
+            get
+            {/* start accessor */
+
+                int i, level;
+
+                /* Check if the array is null */
+                if (mParty == null)
+                    return 0;
+
+                /* Check if the first character is null */
+                if (mParty[0] == null)
+                    return 0;
+
+                /* Check if the first character is a player character */
+                if (!(mParty[0] is PlayerCharacter))
+                    return 0;
+
+                /* Initialize Level */
+                level = ((PlayerCharacter)mParty[0]).Level;
+
+                /* Check if any other character has a higher level */
+                for (i = 1; i < mParty.Length; i++)
+                    if (mParty[i] != null)
+                        if (((PlayerCharacter)mParty[i]).Level > level)
+                            level = ((PlayerCharacter)mParty[i]).Level;
+
+                return level;
+
+            }/* end accessor */
+
+        }/* end Level property */
 
     }/* end Party class */
 

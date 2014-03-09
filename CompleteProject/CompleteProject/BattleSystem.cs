@@ -55,7 +55,7 @@ namespace Battle_System
             BattleEvent battleEvent;
 
             /* Step 1 */
-            Party enemies = EnemyFactory(mGoodGuys.Level);
+            Party enemies = EnemyFactory.getEnemyParty(mGoodGuys.Level);
 
             /* Step 2 */
             Character[] characters = mGoodGuys.getTurnOrder(enemies);

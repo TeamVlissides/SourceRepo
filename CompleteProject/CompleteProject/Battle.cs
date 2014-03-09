@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Character_System;
+using Game_System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +23,10 @@ namespace BattleSystem
         private Game mGame;
 
         // Constructors
-        public Battle(Game currentGame)
+        public Battle(Game currentGame, Party goodGuyParty)
         {
             mGame = currentGame;
+            mGoodGuys = goodGuyParty;
         }
 
         // Methods
@@ -38,8 +41,6 @@ namespace BattleSystem
 
         public void startBattle()
         {
-                       
-            mGoodGuys = mGame.getParty();
             mBadGuys = new EnemyFactory().getEnemyParty(mGoodGuys.getLevel());
 
             turnOrder = mGoodGuys.getTurnOrder(mBadGuys);
@@ -61,8 +62,7 @@ namespace BattleSystem
 
         public void startBattle(EnemyType type)
         {
-            mGoodGuys = mGame.getParty();
-            mBadGuys = new EnemyFactory().getEnemyParty(type);
+            mBadGuys = new EnemyFactory().getSpecificParty(type);
 
             turnOrder = mGoodGuys.getTurnOrder(mBadGuys);
             selectFirstCharacter();
@@ -86,9 +86,9 @@ namespace BattleSystem
         public ArrayList getFriendlyTargets()
         {
             ArrayList targetlist = new ArrayList();
-            for (int i = 0; i < mGoodGuys.size; i++)
+            for (int i = 0; i < mGoodGuys.mPartySize; i++)
             {
-                if(mGoodGuys.getCharacter(i).isDead() == false)
+                if(mGoodGuys.getCharacter(i).isDead == false)
                 {
                     targetlist.Add(mGoodGuys.getCharacter(i));
                 }
@@ -99,9 +99,9 @@ namespace BattleSystem
         public ArrayList getHostileTargets()
         {
             ArrayList targetlist = new ArrayList();
-            for (int i = mBadGuys.size; i < mBadGuys.size; i++)
+            for (int i = 0; i < mBadGuys.mPartySize; i++)
             {
-                if (mBadGuys.getCharacter(i).isDead() == false)
+                if (mBadGuys.getCharacter(i).isDead == false)
                 {
                     targetlist.Add(mBadGuys.getCharacter(i));
                 }

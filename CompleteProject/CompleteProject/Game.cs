@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Character_System;
 using Dungeon_System;
-using Battle_System;
+using BattleSystem;
 
 namespace Game_System
 {/* start Game_System namespace */
@@ -15,7 +15,7 @@ namespace Game_System
 
         private Dungeon mDungeon;
         private Party mGoodGuys;
-        private BattleSystem mBattle;
+        private Battle mBattle;
 
         private bool mDragonDead = false;
         private bool mVictory = true;
@@ -76,7 +76,7 @@ namespace Game_System
             }/* end loop */
 
             mGoodGuys = new Party(characters);
-            mBattle = new BattleSystem(this, mGoodGuys);
+            mBattle = new Battle(this, mGoodGuys);
             mDungeon = new Dungeon(this, mGoodGuys);
 
         }/* end initialize */
@@ -105,6 +105,11 @@ namespace Game_System
 
         }/* end startBattle */
 
+
+        internal BattleAction getPlayerAction()
+        {
+            throw new NotImplementedException();
+        }
     }/* end Game class */
 
 }/* end Game_System namespace */

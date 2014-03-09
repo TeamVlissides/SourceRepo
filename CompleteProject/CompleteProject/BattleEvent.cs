@@ -3,84 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Character_System;
 
-namespace Battle_System
-{/* start Battle_System namespace */
+namespace BattleSystem
+{
+    class BattleEvent
+    {
 
-    public class BattleEvent
-    {/* start BattleEvent class */
-
-        private Character mUser;
+        private Character mActor;
         private BattleAction mAction;
-        private Character mTarget;
-        private int mDamage;
+        private String actionOutcome;
+        private Character mActee;
 
-        public BattleEvent(Character user, BattleAction action, Character target, int damage)
-        {/* start constructor */
+        public BattleEvent(Character currentActor, BattleAction actorAction, Character actorTarget)
+        {
+            mActor = currentActor;
+            mAction = actorAction;
+            actionOutcome = mAction.ToString();
+            mActee = actorTarget;
+        }
 
-            mUser = user;
-            mAction = action;
-            mTarget = target;
-            mDamage = damage;
-
-        }/* end constructor */
-
-        public Character User
-        {/* start User property */
-
-            get
-            {/* start accessor */
-
-                return mUser;
-
-            }/* end accessor */
-
-        }/* end User property */
-
-        public Character Target
-        {/* start Target property */
-
-            get
-            {/* start accessor */
-
-                return mTarget;
-
-            }/* end accessor */
-
-        }/* end Target property */
-
-        public BattleAction Action
-        {/* start Action property */
-
-            get
-            {/* start accessor */
-
-                return mAction;
-
-            }/* end accessor */
-
-        }/* end Action property */
-
-        public int Damage
-        {/* start Damage property */
-
-            get
-            {/* start accessor */
-
-                return mDamage;
-
-            }/* end accessor */
-
-            set
-            {/* start mutator */
-
-                mDamage = value;
-
-            }/* end mutator */
-
-        }/* end Damage property */
-
-    }/* end BattleEvent class */
-
-}/* end Battle_System namespace */
+        public String toString()
+        {
+            return currentActor.toString() + actionOutcome + mActee.toString();
+        }
+        
+    }
+}

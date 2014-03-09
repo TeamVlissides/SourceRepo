@@ -45,7 +45,7 @@
     <Compile Include="AttackAction.cs" />
     <Compile Include="Battle.cs" />
     <Compile Include="EnemyFactory.cs" />
-    <Compile Include="Event.cs" />
+    <Compile Include="BattleEvent.cs" />
     <Compile Include="BattleAction.cs" />
     <Compile Include="ItemAction.cs" />
     <Compile Include="Program.cs" />

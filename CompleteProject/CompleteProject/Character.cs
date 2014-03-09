@@ -23,7 +23,7 @@ namespace Character_System
         protected int[] mStats;
         protected Weapon mWeapon = WeaponFactory.NullWeapon();
         protected AbilitiesHolder mAbilities;
-        protected bool mIsPlayer;
+        public bool mIsPlayer;
 
         protected Character( Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
         {/* start constructor */
@@ -45,7 +45,7 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return isPlayer;
+                return mIsPlayer;
 
             }/* end accessor */
 

@@ -13,7 +13,7 @@ namespace Character_System
         public const int MAXPARTY = 3;
 
         private Character[] mParty;
-        private int mPartySize;
+        public int mPartySize;
 
         public Party( Character[] party )
         {/* start constructor */
@@ -126,6 +126,11 @@ namespace Character_System
 
         }/* end getTurnOrder */
 
+
+        internal int getLevel()
+        {
+            throw new NotImplementedException();
+        }
     }/* end Party class */
 
 }/* end Character_System namespace */

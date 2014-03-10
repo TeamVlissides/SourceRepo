@@ -58,13 +58,6 @@ namespace Character_System
 
         }/* end takeTurn */
 
-        public void addAbility(Ability ability)
-        {/* start addAbility */
-
-            mAI.addAbility(ability);
-
-        }/* end addAbility */
-
     }/* end Enemy class */
 
 }/* end Character_System namespace */

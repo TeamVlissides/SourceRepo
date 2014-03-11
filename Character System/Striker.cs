@@ -35,7 +35,7 @@ namespace Character_System
                         if (ability.BaseDamage > theAbility.BaseDamage)
                             theAbility = ability;
 
-                for (i = 0; i < goodGuys.GetSize; i++)
+                for (i = 0; i < goodGuys.Size; i++)
                     if (goodGuys.getCharacter(i).CurrentHealth < target.CurrentHealth)
                         target = goodGuys.getCharacter(i);
 

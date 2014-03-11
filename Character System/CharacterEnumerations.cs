@@ -130,8 +130,17 @@ namespace Character_System
         LION = 4,
         TROLL = 5,
         GOBLIN = 6,
-        THEPREDATOR = 7,
+        THEPREDATOR = 7
 
     }/* end EnemyType enum */
+
+    public enum ItemType : int
+    {/* start ItemType */
+
+        WEAPON = 0,
+        ABILITY = 1,
+        ARMOR = 2
+
+    }/* end ItemType */
 
 }/* end Character_System namespace */

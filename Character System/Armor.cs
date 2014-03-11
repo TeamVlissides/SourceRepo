@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Character_System
 {/* start Character_System namespace */
 
-    public class Armor
+    public class Armor : Item
     {/* start Armor class */
 
         /* Constants */
@@ -18,7 +18,7 @@ namespace Character_System
         private String mName;
         private String mDescription;
 
-        public Armor( int armorValue, String name, String description )
+        public Armor( int armorValue, String name, String description, ItemType type ) : base( type )
         {/* start constructor */
 
             mArmorValue = armorValue;

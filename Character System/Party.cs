@@ -14,12 +14,14 @@ namespace Character_System
 
         private Character[] mParty;
         private int mPartySize;
+        private List<Item> mInventory;
 
         public Party( Character[] party )
         {/* start constructor */
 
             mParty = party;
             mPartySize = party.Length;
+            mInventory = new List<Item>();
 
         }/* end constructor */
 
@@ -41,8 +43,8 @@ namespace Character_System
 
         }/* end isDead property */
 
-        public int GetSize
-        {/* start GetSize property */
+        public int Size
+        {/* start Size property */
 
             get
             {/* start accessor */
@@ -51,7 +53,7 @@ namespace Character_System
 
             }/* end accessor */
 
-        }/* end GetSize property */
+        }/* end Size property */
 
         public Character getCharacter( int index )
         {/* start getCharacter */
@@ -126,6 +128,13 @@ namespace Character_System
             }/* end accessor */
 
         }/* end Level property */
+
+        public void giveItem( Item item )
+        {/* start giveItem */
+
+            mInventory.Add( item );
+
+        }/* end giveItem */
 
     }/* end Party class */
 

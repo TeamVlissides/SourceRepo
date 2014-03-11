@@ -54,6 +54,7 @@
     <Compile Include="BlackMage.cs" />
     <Compile Include="EnemyFactory.cs" />
     <Compile Include="HealerAttacker.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Striker.cs" />
     <Compile Include="Theif.cs" />
     <Compile Include="Monk.cs" />

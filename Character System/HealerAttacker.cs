@@ -24,12 +24,12 @@ namespace Character_System
             BattleAction action = new BattleAction(ActionEnum.ATTACK, null);
 
             /* Should modularize these loops */
-            for (i = 0; i < goodGuys.GetSize; i++)
+            for (i = 0; i < goodGuys.Size; i++)
                 if (((PlayerCharacter)goodGuys.getCharacter(i)).Class == ClassEnum.WHITEMAGE)
                     target = goodGuys.getCharacter(i);
 
             if( target == null )
-                for (i = 0; i < goodGuys.GetSize; i++)
+                for (i = 0; i < goodGuys.Size; i++)
                     if (((PlayerCharacter)goodGuys.getCharacter(i)).Class == ClassEnum.REDMAGE)
                         target = goodGuys.getCharacter(i);
 

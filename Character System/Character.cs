@@ -47,7 +47,7 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return isPlayer;
+                return mIsPlayer;
 
             }/* end accessor */
 

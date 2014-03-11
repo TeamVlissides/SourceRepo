@@ -46,7 +46,7 @@ namespace Character_System
             stats[(int)StatEnum.STAMINA] = 3;
             stats[(int)StatEnum.STRENGTH] = 3;
 
-            return new Weapon(name, description, damage, stats);
+            return new Weapon(name, description, damage, stats, ItemType.WEAPON);
 
         }/* end getWeTriedSword */
 
@@ -64,7 +64,7 @@ namespace Character_System
             stats[(int)StatEnum.STAMINA] = 1;
             stats[(int)StatEnum.STRENGTH] = 2;
 
-            return new Weapon(name, description, damage, stats);
+            return new Weapon(name, description, damage, stats, ItemType.WEAPON);
 
         }/* end getWeTriedKnife */
 
@@ -82,7 +82,7 @@ namespace Character_System
             stats[(int)StatEnum.STAMINA] = 2;
             stats[(int)StatEnum.STRENGTH] = 2;
 
-            return new Weapon(name, description, damage, stats);
+            return new Weapon(name, description, damage, stats, ItemType.WEAPON);
 
         }/* end getWeTriedStaff */
 
@@ -100,7 +100,7 @@ namespace Character_System
             stats[(int)StatEnum.STAMINA] = 0;
             stats[(int)StatEnum.STRENGTH] = 0;
 
-            return new Weapon(name, description, damage, stats);
+            return new Weapon(name, description, damage, stats, ItemType.WEAPON);
 
         }/* end NullWeapon */
         

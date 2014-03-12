@@ -77,7 +77,6 @@ namespace Character_System
 
         }/* end getAbilityAtIndex */
 
-
         public IEnumerator GetEnumerator()
         {/* start GetEnumerator */
 

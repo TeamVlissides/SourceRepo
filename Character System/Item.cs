@@ -19,6 +19,18 @@ namespace Character_System
 
         }/* end constructor */
 
+        public ItemType Type
+        {/* start Type property */
+
+            get
+            {/* start accessor */
+
+                return mType;
+
+            }/* end accessor */
+
+        }/* end Type property */
+
     }/* end Item interface */
 
 }/* end Character_System */

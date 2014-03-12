@@ -54,7 +54,7 @@ namespace Character_System
         public BattleEvent takeTurn( Party goodGuys )
         {/* start takeTurn */
 
-            throw new NotImplementedException();
+            return mAI.ai( goodGuys );
 
         }/* end takeTurn */
 

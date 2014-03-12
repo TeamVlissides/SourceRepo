@@ -113,6 +113,25 @@ namespace Character_System
 
         }/* end MaximumMana property */
 
+        public Weapon Weapon
+        {/* start Weapon property */
+
+            get
+            {/* start accessor */
+
+                return mWeapon;
+
+            }/* end accessor */
+
+            set
+            {/* start mutator */
+
+                mWeapon = value;
+
+            }/* end mutator */
+
+        }/* end Weapon property */
+
         public int MaximumHealth
         {/* start MaximumHealth property */
 

@@ -139,8 +139,21 @@ namespace Character_System
 
         WEAPON = 0,
         ABILITY = 1,
-        ARMOR = 2
+        ARMOR = 2,
+        POTION = 3,
+        DAMAGEITEM = 4
 
     }/* end ItemType */
+
+    public enum ItemEnum : int
+    {/* start Item enum */
+
+        HEALTHPOTION = 1,
+        MANAPOTION = 2,
+        UBERSWORD = 3,
+        GANDALFSSTAFF = 4,
+        BOMB = 5
+
+    }/* end Item enum */
 
 }/* end Character_System namespace */

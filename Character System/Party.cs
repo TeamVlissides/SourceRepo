@@ -136,6 +136,33 @@ namespace Character_System
 
         }/* end giveItem */
 
+        public IEnumerator<Item> Inventory
+        {/* start Inventory property */
+
+            get
+            {/* start accessor */
+
+                return mInventory.GetEnumerator();
+
+            }/* end accessor */
+
+        }/* end Inventory property */
+
+        public void equipItem( Item item, Character target )
+        {/* start equipItem */
+
+            mInventory.Remove( item );
+
+            if (item.Type == ItemType.WEAPON)
+            {/* start if */
+
+                mInventory.Add(target.Weapon);
+                target.Weapon = (Weapon)item;
+
+            }/* end if */
+
+        }/* end equipItem */
+
     }/* end Party class */
 
 }/* end Character_System namespace */

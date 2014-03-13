@@ -3,10 +3,11 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Battle_System;
+using Battle;
+using BattleSystem;
 
 namespace Character_System
-{/* start Character_System namespace */
+{/* start Character_System namespace */ 
 
     public class Enemy : Character
     {/* start Enemy class */
@@ -35,7 +36,7 @@ namespace Character_System
 
         }/* end Worth property */
 
-        public BattleEvent takeTurn( Party goodGuys )
+        public BattleAction takeTurn( Party goodGuys )
         {/* start takeTurn */
 
             throw new NotImplementedException();

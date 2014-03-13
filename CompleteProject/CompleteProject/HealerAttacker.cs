@@ -21,7 +21,6 @@ namespace Character_System
             Random random = new Random();
             int i;
             Character target = null;
-            BattleAction action = new BattleAction(ActionEnum.ATTACK, null);
 
             /* Should modularize these loops */
             for (i = 0; i < goodGuys.Size; i++)
@@ -36,7 +35,7 @@ namespace Character_System
             if (target == null)
                 target = goodGuys.getCharacter(random.Next(Party.MAXPARTY));
 
-            return new BattleEvent(mEnemy, action, target, 0);
+            return new AttackAction(target);
 
         }/* end ai */
 

@@ -86,12 +86,13 @@ namespace BattleSystem
             }
         }
 
+        #region Dead Code Thus Far
         public ArrayList getFriendlyTargets()
         {
             ArrayList targetlist = new ArrayList();
             for (int i = 0; i < mGoodGuys.Size; i++)
             {
-                if(mGoodGuys.getCharacter(i).isDead == false)
+                if (mGoodGuys.getCharacter(i).isDead == false)
                 {
                     targetlist.Add(mGoodGuys.getCharacter(i));
                 }
@@ -133,7 +134,9 @@ namespace BattleSystem
                 }
             }
             return targetlist;
-        } 
+        }
+
+        #endregion
 
         public void executeAction(BattleAction actionToExecute)
         {

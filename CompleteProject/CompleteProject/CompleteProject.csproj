@@ -78,6 +78,7 @@
     <Compile Include="RedMage.cs" />
     <Compile Include="Striker.cs" />
     <Compile Include="SystemEnum.cs" />
+    <Compile Include="TextView.cs" />
     <Compile Include="Theif.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileFactory.cs" />

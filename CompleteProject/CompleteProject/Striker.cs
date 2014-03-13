@@ -18,9 +18,8 @@ namespace Character_System
         public override BattleAction ai(Party goodGuys)
         {/* start ai */
 
-            Character target = getTarget();
+            Character target = getTarget( goodGuys );
             BattleAction action;
-            int i;
             AbilitiesIterator abilities;
             Ability theAbility;
 
@@ -35,22 +34,20 @@ namespace Character_System
                         if (ability.BaseDamage > theAbility.BaseDamage)
                             theAbility = ability;
 
-                
-
                 if (theAbility.Cost > mEnemy.CurrentMana)
-                    action = new BattleAction(ActionEnum.ATTACK, null);
+                    action = new AttackAction( target );
                 else
-                    action = new BattleAction(ActionEnum.ABILITY, theAbility);
+                    action = new AbilityAction( theAbility, target );
 
             }/* end if */
             else
             {/* start else */
 
-                action = new BattleAction(ActionEnum.ATTACK, null);
+                action = new AttackAction(target);
 
             }/* end else */
 
-            return new BattleEvent(mEnemy, action, target, 0);
+            return action;
 
         }/* end ai */
 

@@ -11,10 +11,7 @@ namespace Dungeon_System
         // Attributes
         private int mNumRows;
         private int mNumColumns;
-        private int mPartyRow;
-        private int mPartyColumn;
         private Tile[,] tiles;
-        private Tile mTiles;
 
         // Images on the tiles
         // not here in the view.

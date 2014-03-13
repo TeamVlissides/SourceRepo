@@ -91,26 +91,18 @@ namespace Dungeon_System
         // Attributes
         private Grid mGrid;
         private String mName;
-        private Tile[,] tiles;
        // public int[,] playerLocation;
         private int playerLocationRow;
         private int playerLocationColumn;
         private Game mGame;
-        private int[,] itemLocations;
 
         // reference needed to give items to party;
-        private Party mGoodGuyParty;
-
-        private View view;
-
-
 
         // Constructors
-        public Dungeon( Game game, Party goodGuys)
+        public Dungeon( Game game )
         {
 
             mGame = game;
-            mGoodGuyParty = goodGuys;
 
             // This is going to be a set size for the grid.
             mGrid = new Grid(5, 5);
@@ -178,11 +170,6 @@ namespace Dungeon_System
             return mGrid;
         }
 
-        public void SetView(View v)
-        {
-            view = v;
-        }
-
         public void SetGame(Game g)
         {
             mGame = g;
@@ -204,38 +191,36 @@ namespace Dungeon_System
         private void MovePlayerLocation(DirectionEnum locationEnum)
         {
 
-                if (locationEnum == DirectionEnum.UP)
-                {
-                    //if (playerLocationColumn > 0)
-                    PlayerLocationColumn -= 1;
-                    view.sendOutput("UP " + "[" + PlayerLocationRow + ", " + PlayerLocationColumn + "]");
+            if (locationEnum == DirectionEnum.UP)
+            {
+                //if (playerLocationColumn > 0)
+                PlayerLocationColumn -= 1;
 
   
 
-                }
-                else if (locationEnum == DirectionEnum.DOWN)
-                {
-                    //if (playerLocationColumn > 0)
-                    PlayerLocationColumn += 1;
-                    view.sendOutput("DOWN " + "[" + PlayerLocationRow + ", " + PlayerLocationColumn + "]");
+            }
+            else if (locationEnum == DirectionEnum.DOWN)
+            {
+                //if (playerLocationColumn > 0)
+                PlayerLocationColumn += 1;
 
-                }
-                else if (locationEnum == DirectionEnum.LEFT)
-                {
-                    //if (playerLocationRow > 0)
-                    PlayerLocationRow -= 1;
-                    view.sendOutput("LEFT " + "[" + PlayerLocationRow + ", " + PlayerLocationColumn + "]");
+            }
+            else if (locationEnum == DirectionEnum.LEFT)
+            {
+                //if (playerLocationRow > 0)
+                PlayerLocationRow -= 1;
 
 
-                }
-                else if (locationEnum == DirectionEnum.RIGHT)
-                {
-                    //if (playerLocationRow > 0)
-                    PlayerLocationRow += 1;
-                    view.sendOutput("RIGHT " + "[" + PlayerLocationRow + ", " + PlayerLocationColumn + "]");
+            }
+            else if (locationEnum == DirectionEnum.RIGHT)
+            {
+                //if (playerLocationRow > 0)
+                PlayerLocationRow += 1;
 
-                }
-            
+            }
+
+
+            mGame.updatePlayerLocation(playerLocationRow, playerLocationColumn);
 
         }
 
@@ -280,7 +265,7 @@ namespace Dungeon_System
                 }
                 else
                 {
-                    view.sendOutput("A wall is blocking you!");
+                    mGame.HitAWall();
                 }
 
             }
@@ -290,7 +275,7 @@ namespace Dungeon_System
                 if (!isWall(direction))
                     MovePlayerLocation(DirectionEnum.RIGHT);
                 else
-                    view.sendOutput("A wall is blocking you!");
+                    mGame.HitAWall();
             }
             if (direction == DirectionEnum.DOWN)
             {
@@ -298,7 +283,7 @@ namespace Dungeon_System
                 if (!isWall(direction))
                     MovePlayerLocation(DirectionEnum.DOWN);
                 else
-                    view.sendOutput("A wall is blocking you!");
+                    mGame.HitAWall();
             }
             if (direction == DirectionEnum.UP)
             {
@@ -306,7 +291,7 @@ namespace Dungeon_System
                 if (!isWall(direction))
                     MovePlayerLocation(DirectionEnum.UP);
                 else
-                    view.sendOutput("A wall is blocking you!");
+                    mGame.HitAWall();
             }
                            
             
@@ -317,14 +302,13 @@ namespace Dungeon_System
             {
                 // Give item to party.
                 // mGoodGuyParty
-                view.sendOutput("Give item to party.");
+                mGame.FoundItem();
 
             }
 
             if (checkIfDragon())
             {
                 mGame.startBattle(EnemyType.DRAGON);
-                view.sendOutput("Dragon Battle has started.");
             }
             else
                 if (!isWall(direction) && RollBattleDice())
@@ -410,13 +394,11 @@ namespace Dungeon_System
             // percentage, probability that I will roll, pick a number... 
             // if roll on a number start a battle else do notthing.
             // if roll > 50 go into battle, else no battle.
-            view.sendOutput("Dice Roll!");
             if (diceRollNumber > 50)
             {
                 return true;
             }
 
-            view.sendOutput("No battle.");
             return false;
         }
 

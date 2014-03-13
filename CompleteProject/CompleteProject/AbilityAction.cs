@@ -25,7 +25,7 @@ namespace BattleSystem
             specificTarget = targetedCharacter;
         }
 
-        private void specificAction(Character actingCharacter, Character[] combatants)
+        public void specificAction(Character actingCharacter, Character[] combatants)
         {
             int cost = usedAbility.Cost;
             actingCharacter.useMana(cost);
@@ -68,7 +68,7 @@ namespace BattleSystem
 
             for (int i = 0; i < combatants.Length; i++)
             {
-                if (combatants[i].mIsPlayer && !usedAbility.AffectEnemy || !combatants[i].mIsPlayer && usedAbility.AffectEnemy)
+                if (combatants[i].isPlayer && !usedAbility.AffectEnemy || !combatants[i].isPlayer && usedAbility.AffectEnemy)
                 {
                     combatants[i].takeDamage(base_stat * usedAbility.BaseDamage);
                 }

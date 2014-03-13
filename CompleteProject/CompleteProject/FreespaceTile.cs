@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dungeon_System
 {
-    public enum DungeonEnum
+    public class FreespaceTile : Tile
     {
-        NULL = -1,
-        FREESPACE = 0,
-        WALL = 1,
-        ITEM = 2,
-        DRAGON = 3
-    };
+        public FreespaceTile()
+        {
+            itemType = (int)DungeonEnum.FREESPACE;
+        }
+    }
 }

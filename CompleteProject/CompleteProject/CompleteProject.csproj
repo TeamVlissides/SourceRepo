@@ -46,6 +46,7 @@
     <Compile Include="AbilitiesHolder.cs" />
     <Compile Include="AbilitiesIterator.cs" />
     <Compile Include="Ability.cs" />
+    <Compile Include="AbilityAction.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="Armor.cs" />
     <Compile Include="ArmorFactory.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="DungeonENUM.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyFactory.cs" />
+    <Compile Include="FreespaceTile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="HealerAttacker.cs" />

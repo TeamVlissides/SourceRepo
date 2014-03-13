@@ -3,10 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Game_System;
+using System.Windows;
 using Character_System;
-
+using BattleSystem;
+using Game_System;
 /*
+ * UPDATE YOUR UML!!!... UML UPDATE.... UPDATE THE UML...
+ * 
+ * Possible apply the decorator pattern to the tiles to add color for background and borders
+ * 
+ * Use Singleton on the dungeon.
+ * 
+ * Add ability on GUI to attack and defend.
+ * 
+ * Make treasure image disapear after player moves over it.
+ * 
+ * Using the Null Object pattern with the Tiles.
+ * 
+ * **Create a static map for the dungeon so that you can get to the dungeon**
+ * 
+ * Need a ship battle event to the view system. 
+ * 
+ * Do a seperate window to put the stats sheet on instead of putting it
+ * on the Dungeon window.
  * 
  * 1. Make the location of the treasure static.
 - once game starts the first location of treasure stay 
@@ -30,13 +49,20 @@ View:
 GUI:
 add statistics
 add players char
+ * 
+ * Make it so that the player cannot move over a wall.
+ * 
 
 
 Replace Gem Class with Item
 and use a trasure box instead of
 a Gem.
+ * 
+ * 10. Figure out how to test if a treasure/item is on a tile the
+ * chracter is on.
 
-a. Complete isDirectionValid method.
+a. Complete isDirectionValid method, 
+ * did isWall instead.
 
 6. Create the TileFactory which will create tiles
 for walls, freespace, treasure, dragon,
@@ -80,11 +106,11 @@ namespace Dungeon_System
 
 
         // Constructors
-        public Dungeon( Game game, Party party )
+        public Dungeon( Game game, Party goodGuys)
         {
 
             mGame = game;
-            mGoodGuyParty = party;
+            mGoodGuyParty = goodGuys;
 
             // This is going to be a set size for the grid.
             mGrid = new Grid(5, 5);
@@ -96,6 +122,16 @@ namespace Dungeon_System
 
             // Player begin at top left corner of grid.
             //playerLocation[0, 0] = 1;
+
+            // Set starting tile and dragon tile
+            Tile[,] sTiles = mGrid.GetTiles();
+
+            // Set the dragon image on last tile
+            sTiles[4, 4].SetItemType(3);
+
+            // Make sure that the first tile is a freespace
+            sTiles[0, 0].SetItemType(0);
+            
 
         }
 
@@ -127,6 +163,7 @@ namespace Dungeon_System
             }
         }
 
+        // Returns an array that contains the [row, col]
         public int[] getCurrentPartyLocation()
         {
             int[] tempArray = new int[2];
@@ -173,6 +210,8 @@ namespace Dungeon_System
                     PlayerLocationColumn -= 1;
                     view.sendOutput("UP " + "[" + PlayerLocationRow + ", " + PlayerLocationColumn + "]");
 
+  
+
                 }
                 else if (locationEnum == DirectionEnum.DOWN)
                 {
@@ -217,6 +256,8 @@ namespace Dungeon_System
             //Method here. Update Location */
             if (direction == DirectionEnum.LEFT)
             {
+                if (!isWall(direction))
+                { 
                 /*...*/
                 // Check if direction is valid
                 //    The PlayerLocationRow/Columns already do this.
@@ -228,7 +269,7 @@ namespace Dungeon_System
                  */ 
                 //    but could setoutput that direction is invalid.
                 // Update party location.
-                MovePlayerLocation(DirectionEnum.LEFT);
+                    MovePlayerLocation(DirectionEnum.LEFT);
                 //    check if item to give; 
                 //    part.GiveItem(ItemEnum)
                 // Check if dragon
@@ -236,22 +277,36 @@ namespace Dungeon_System
                 // if not step five
                 // roll to see if random battle occurs; start battle
                 // update view/ repaint.
+                }
+                else
+                {
+                    view.sendOutput("A wall is blocking you!");
+                }
 
             }
             if (direction == DirectionEnum.RIGHT)
             {
                 /*...*/
-                MovePlayerLocation(DirectionEnum.RIGHT);
+                if (!isWall(direction))
+                    MovePlayerLocation(DirectionEnum.RIGHT);
+                else
+                    view.sendOutput("A wall is blocking you!");
             }
             if (direction == DirectionEnum.DOWN)
             {
                 /*...*/
-                MovePlayerLocation(DirectionEnum.DOWN);
+                if (!isWall(direction))
+                    MovePlayerLocation(DirectionEnum.DOWN);
+                else
+                    view.sendOutput("A wall is blocking you!");
             }
             if (direction == DirectionEnum.UP)
             {
                 /*...*/
-                MovePlayerLocation(DirectionEnum.UP);
+                if (!isWall(direction))
+                    MovePlayerLocation(DirectionEnum.UP);
+                else
+                    view.sendOutput("A wall is blocking you!");
             }
                            
             
@@ -262,30 +317,89 @@ namespace Dungeon_System
             {
                 // Give item to party.
                 // mGoodGuyParty
+                view.sendOutput("Give item to party.");
+
             }
 
             if (checkIfDragon())
+            {
                 mGame.startBattle(EnemyType.DRAGON);
+                view.sendOutput("Dragon Battle has started.");
+            }
             else
-                if (RollBattleDice())
+                if (!isWall(direction) && RollBattleDice())
                     mGame.startBattle(EnemyType.NULL);
              
 
         }/* end getDirection */
 
+        // Check if the next move is a wall.
+        public Boolean isWall(DirectionEnum directionEnum)
+        {
+            int row = PlayerLocationRow;
+            int col = PlayerLocationColumn;
+
+            if (directionEnum == DirectionEnum.UP)
+            {
+                if (col >= 0)
+                    col--;
+            }
+
+            if (directionEnum == DirectionEnum.DOWN)
+            {
+                if (col >= 0)
+                  col++;
+            }
+
+            if (directionEnum == DirectionEnum.LEFT)
+            {
+                if (row >= 0)
+                    row--;
+            }
+
+            if (directionEnum == DirectionEnum.RIGHT)
+            {
+                if (row >= 0)
+                 row++;
+            }
+
+            // Dont let out of bounds conditions happen,
+            // and prevent negative numbers.
+            if (row < 0 || row > 4)
+                row = 0;
+
+            if (col < 0 || col > 4)
+                col = 0;
+
+            Tile[,] tmpTiles = mGrid.GetTiles();
+            int item = tmpTiles[row, col].getItemType();
+            if (item == (int)DungeonEnum.WALL)
+                return true;
+            return false;
+        }
+
         public void checkTile()
         {
-
 
         }
 
         public bool checkForItem()
         {
+            // Check if tile has an item
+            Tile[,] tmpTiles = mGrid.GetTiles();
+            int tileHasItem = tmpTiles[PlayerLocationRow, PlayerLocationColumn].getItemType();
+            if (tileHasItem == (int)DungeonEnum.ITEM)
+                return true; // view.sendOutput("Tile has item.");
+
             return false;
         }
 
         public bool checkIfDragon()
         {
+            Tile[,] tmpTiles = mGrid.GetTiles();
+            int item = tmpTiles[PlayerLocationRow, PlayerLocationColumn].getItemType();
+            if (item == (int)DungeonEnum.DRAGON)
+                return true;
             return false;
         }
 

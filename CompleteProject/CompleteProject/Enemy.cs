@@ -51,7 +51,7 @@ namespace Character_System
 
         }/* end Worth property */
 
-        public BattleEvent takeTurn( Party goodGuys )
+        public BattleAction takeTurn( Party goodGuys )
         {/* start takeTurn */
 
             return mAI.ai( goodGuys );

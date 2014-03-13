@@ -38,7 +38,7 @@ namespace Character_System
 
         }/* end addAbility */
 
-        public abstract BattleEvent ai(Party goodGuys);
+        public abstract BattleAction ai(Party goodGuys);
 
     }/* end AI class */
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Game_System;
 
 namespace Dungeon_System
 {
@@ -16,6 +15,9 @@ namespace Dungeon_System
         private int mPartyColumn;
         private Tile[,] tiles;
         private Tile mTiles;
+
+        // Images on the tiles
+        // not here in the view.
 
 
 
@@ -64,6 +66,8 @@ namespace Dungeon_System
         {
             // Create tiles
             tiles = new Tile[mNumRows, mNumColumns];
+            Random rand = new Random();
+            TileFactory tileFactory = new TileFactory();
 
             // Rows
             for (int i = 0; i < mNumRows; i++)
@@ -71,7 +75,8 @@ namespace Dungeon_System
                 // Columns
                 for (int j = 0; j < mNumColumns; j++)
                 {
-                    tiles[i, j] = new Tile();
+                   // tiles[i, j] = new Tile(rand);
+                    tiles[i, j] = tileFactory.createRandomTile(rand);
                 }
             }
         }
@@ -89,10 +94,10 @@ namespace Dungeon_System
 
         // getter methods
 
-        public void isDirectionValid(DirectionEnum direction)
-        {
+        //public void isDirectionValid(DirectionEnum direction)
+        //{
 
-        }
+       // }
 
 
 

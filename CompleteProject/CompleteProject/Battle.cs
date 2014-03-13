@@ -51,7 +51,7 @@ namespace BattleSystem
             {
                 if (currentActor.mIsPlayer)
                 {
-                    executeAction(mGame.getPlayerAction());
+                    executeAction(mGame.getPlayerAction(currentActor));
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace BattleSystem
             {
                 if (currentActor.mIsPlayer)
                 {
-                    executeAction(mGame.getPlayerAction());
+                    executeAction(mGame.getPlayerAction( currentActor ));
                 }
                 else
                 {

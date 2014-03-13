@@ -13,22 +13,29 @@ namespace Character_System
         public static Item getItem(ItemEnum item)
         {/* start getItem */
 
+            Item items = null;
+
             if (item == ItemEnum.HEALTHPOTION)
-                return new Ability("Heals a character's health by 25%", "Health Potion", Ability.MAGIC, Ability.SINGLETARGET, Ability.HEALING, 25, 0, ItemType.POTION);
+                items = new Ability("Heals a character's health by 25%", "Health Potion", Ability.MAGIC, Ability.SINGLETARGET, Ability.HEALING, 25, 0, ItemType.ABILITY);
 
             if (item == ItemEnum.MANAPOTION)
-                return new Ability("Restores a character's mana by 25%", "Mana Potion", Ability.MAGIC, Ability.HEALING, false, 25, 0, ItemType.POTION);
+            {/* start if */
+
+                items = new Ability("Restores a character's mana by 25%", "Mana Potion", Ability.MAGIC, Ability.HEALING, false, 25, 0, ItemType.ABILITY);
+                items.IsMana = true;
+
+            }/* end if */
 
             if (item == ItemEnum.GANDALFSSTAFF)
-                return new Weapon("Gandalf's Staff", "YOU SHALL NOT PASS!", 100, new int[Character.MAXSTATS] { 5, 100, 5, 20 }, ItemType.WEAPON);
+                items = new Weapon("Gandalf's Staff", "YOU SHALL NOT PASS!", 100, new int[Character.MAXSTATS] { 5, 100, 5, 20 }, ItemType.WEAPON);
 
             if (item == ItemEnum.UBERSWORD)
-                return new Weapon("Uber Sword", "Used to PWN noobs.", 100, new int[Character.MAXSTATS] { 100, 15, 30, 30 }, ItemType.WEAPON);
+                items = new Weapon("Uber Sword", "Used to PWN noobs.", 100, new int[Character.MAXSTATS] { 100, 15, 30, 30 }, ItemType.WEAPON);
 
             if (item == ItemEnum.BOMB)
-                return new Ability("Blow up the enemy.", "Bomb", Ability.PHYSICAL, Ability.PARTYTARGET, Ability.DAMAGING, 25, 0, ItemType.DAMAGEITEM);
+                items = new Ability("Blow up the enemy.", "Bomb", Ability.PHYSICAL, Ability.PARTYTARGET, Ability.DAMAGING, 25, 0, ItemType.ABILITY);
 
-            return null;
+            return items;
 
         }/* end getItem */
 

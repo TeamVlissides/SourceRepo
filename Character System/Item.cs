@@ -11,6 +11,7 @@ namespace Character_System
     {/* start Item interface */
 
         private ItemType mType;
+        private bool mIsManaPotion = false;
 
         public Item(ItemType type)
         {/* start constructor */
@@ -18,6 +19,25 @@ namespace Character_System
             mType = type;
 
         }/* end constructor */
+
+        public bool IsMana
+        {/* start IsMana property */
+
+            get
+            {/* start accessor */
+
+                return mIsManaPotion;
+
+            }/* end accessor */
+
+            set
+            {/* start mutator */
+
+                mIsManaPotion = value;
+
+            }/* end mutator */
+
+        }/* end IsMana property */
 
         public ItemType Type
         {/* start Type property */

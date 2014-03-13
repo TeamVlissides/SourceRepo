@@ -106,7 +106,7 @@ namespace Game_System
         }/* end startBattle */
 
 
-        internal BattleAction getPlayerAction()
+        internal BattleAction getPlayerAction( Character character )
         {
             throw new NotImplementedException();
         }

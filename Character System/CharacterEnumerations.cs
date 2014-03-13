@@ -140,9 +140,7 @@ namespace Character_System
         WEAPON = 0,
         ABILITY = 1,
         ARMOR = 2,
-        POTION = 3,
-        DAMAGEITEM = 4
-
+        
     }/* end ItemType */
 
     public enum ItemEnum : int

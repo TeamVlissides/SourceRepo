@@ -221,7 +221,30 @@ namespace Character_System
 
             mMana -= mana;
 
+            if (mMana < 0)
+                mMana = 0;
+
         }/* end useMana */
+
+        public void restoreMana(int mana)
+        {/* start restoreMana */
+
+            mMana += mana;
+
+            if (mMana > MaximumMana)
+                mMana = MaximumMana;
+
+        }/* end restoreMana */
+
+        public void restoreHealth(int health)
+        {/* start restoreHealth */
+
+            mHealth += health;
+
+            if (mHealth > MaximumHealth)
+                mHealth = MaximumHealth;
+
+        }/* end restoreHealth */
 
         public Armor getArmor(ArmorEnum armor)
         {/* start getArmor */

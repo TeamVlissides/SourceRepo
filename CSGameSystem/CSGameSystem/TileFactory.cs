@@ -17,8 +17,8 @@ namespace CSGameSystem
     {
         public Tile createTile(Random r)
         {
-            Tile tile = null;
-            int randomItemType = (int)DungeonEnum.FREESPACE;
+            //Tile tile = null;
+            DungeonEnum randomItemType = DungeonEnum.FREESPACE;
             
 
             // Deterime if tile has treasure/ a item or not.
@@ -32,17 +32,17 @@ namespace CSGameSystem
 
             // Put an item here.
            // if (rand % 2 != 0)
-            {
+           // {
                 // decide what type of item to put here.
                 // generate random itemtype number here and set the itemType to it.
-                randomItemType = r.Next(-1, 3);
+                randomItemType = (DungeonEnum)r.Next(-1, 3);
 
                 //hasAnItem = true;
                 // Console.WriteLine("True." + r);
-            }
+            //}
 
 
-
+            /*
             if (randomItemType == (int)DungeonEnum.NULL)
                 tile = new NullTile(); // 
             if (randomItemType == (int)DungeonEnum.FREESPACE)
@@ -55,7 +55,7 @@ namespace CSGameSystem
                 tile = new ItemTile();
             if (randomItemType == (int)DungeonEnum.DRAGON)
                 tile = new DragonTile();
-
+            */
 
             /*
             if (tileType == "NULL")
@@ -71,7 +71,7 @@ namespace CSGameSystem
             if (tileType == "DRAGON")
                 return new DragonTile();
                          * */
-            return tile;
+            return new Tile(randomItemType);
 
         }
     }

@@ -8,13 +8,13 @@ using System.Drawing;
 
 namespace CSGameSystem
 {
-    public abstract class Tile
+    public class Tile
     {
         // Attributes
         protected Brush backgroundColor;
         protected Brush borderColor;
         protected Boolean hasAnItem;
-        protected int itemType;
+        protected DungeonEnum itemType;
         protected int size;
        // private Item[] items;
 
@@ -22,7 +22,7 @@ namespace CSGameSystem
         // is it a null tile, a freespace, a item, a wall, a dragon tile?
 
         // Default Constructor
-        public Tile()
+        public Tile(DungeonEnum type)
         {
             // Can have up to 3 items;
             //items = new Item[3];
@@ -37,13 +37,13 @@ namespace CSGameSystem
             //ResourceItem item1 = new ResourceItem("Treasure", Properties.Resources, 1);
             //items[0] = item1;
             hasAnItem = false;
-            itemType = 0;
+            itemType = type;
 
             
         }
 
         // 
-        public Tile(Brush bgcolor, Brush bColor, int size, int type)
+        public Tile(Brush bgcolor, Brush bColor, int size, DungeonEnum type)
         {
             backgroundColor = bgcolor;
             borderColor = bColor;
@@ -68,10 +68,10 @@ namespace CSGameSystem
             this.size = s;
         }
 
-        public void SetItemType(int type)
-        {
-            this.itemType = type;
-        }
+      //  public void SetItemType(DungeonEnum type)
+      //  {
+      //      this.itemType = type;
+      //  }
 
         //public void SetItems(Item[] items)
         //{
@@ -80,10 +80,29 @@ namespace CSGameSystem
 
         // getter methods
 
-        public int getItemType()
-        {
-            return this.itemType;
-        }
+     //   public DungeonEnum getItemType()
+      //  {
+       //     return this.itemType;
+       // }
+
+        public DungeonEnum TileType
+        {/* start TileType property */
+
+            get
+            {/* start accessor */
+
+                return itemType;
+
+            }/* end accessor */
+
+            set
+            {/* start mutator */
+
+                itemType = value;
+
+            }/* end mutator */
+
+        }/* end TileType property */
 
         public Boolean hasItem()
         {

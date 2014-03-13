@@ -57,13 +57,11 @@
     <Compile Include="Character.cs" />
     <Compile Include="CharacterEnumerations.cs" />
     <Compile Include="CharacterFactory.cs" />
-    <Compile Include="DragonTile.cs" />
     <Compile Include="Dungeon.cs" />
     <Compile Include="DungeonENUM.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyFactory.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="FreespaceTile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameWindow.cs">
       <SubType>Form</SubType>
@@ -81,9 +79,7 @@
     <Compile Include="Grid.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemAction.cs" />
-    <Compile Include="ItemTile.cs" />
     <Compile Include="LevelTract.cs" />
-    <Compile Include="NullTile.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Program.cs" />
@@ -95,7 +91,6 @@
     <Compile Include="DisplayView.cs" />
     <Compile Include="TileFactory.cs" />
     <Compile Include="View.cs" />
-    <Compile Include="WallTile.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="WeaponFactory.cs" />
     <EmbeddedResource Include="GameWindow.resx">

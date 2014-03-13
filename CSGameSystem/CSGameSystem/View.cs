@@ -30,13 +30,13 @@ namespace CSGameSystem
 
           void drawTiles(Tile[,] tiles, Graphics g);
 
-          void MovePartyRight();
+       //   void MovePartyRight();
 
-          void MovePartyLeft();
+         // void MovePartyLeft();
 
-          void MovePartyUp();
+         // void MovePartyUp();
 
-          void MovePartyDown();
+         // void MovePartyDown();
 
 
     }/* end View interface */

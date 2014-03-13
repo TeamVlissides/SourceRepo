@@ -87,7 +87,7 @@ namespace CSGameSystem
 
                     // Needs to get the itemType and based on that draw an item
                     //Item[] items = tiles[indexX, indexY].getItems();
-                    int itemType = tiles[indexX, indexY].getItemType();
+                    DungeonEnum itemType = tiles[indexX, indexY].TileType;
                     Boolean hasItem = tiles[indexX, indexY].hasItem();
 
                     //Console.WriteLine("APPLES " + indexX + " " + indexY + " " + tiles[indexX, indexY].getBorderColor().ToString());
@@ -108,13 +108,13 @@ namespace CSGameSystem
                            // Image image = Image.FromFile(items[0].getItemImagePath());
                             //graphics.DrawImage(image, ((height + 10) * x) + 20, ((width + 10) * y) + 20, 20, 20); // Gem size
 
-                            if (itemType == (int)DungeonEnum.WALL)
+                            if (itemType == DungeonEnum.WALL)
                             {
                                 image = wall2;
                                 graphics.DrawImage(image, ((height + 10) * x) + 20, ((width + 10) * y) + 20, 75, 75);
                             }
 
-                            if (itemType == (int)DungeonEnum.ITEM)
+                            if (itemType == DungeonEnum.ITEM)
                             {
                                 image = treasureItemImage;
                                 graphics.DrawImage(image, ((height + 10) * x) + 20, ((width + 10) * y) + 20, 30, 30);
@@ -122,7 +122,7 @@ namespace CSGameSystem
 
                         }
 
-                        if (itemType == (int)DungeonEnum.DRAGON)
+                        if (itemType == DungeonEnum.DRAGON)
                         {
                             image = dragonImage;
                             graphics.DrawImage(image, ((height + 10) * x) + 20, ((width + 10) * y) + 20, 75, 75);
@@ -208,6 +208,7 @@ namespace CSGameSystem
 
         }
 
+        /*
         public void MovePartyRight()
         {
             if (imageX <= 300)
@@ -253,6 +254,7 @@ namespace CSGameSystem
             }
 
         }
+         * */
 
         // Screen Size;
         //

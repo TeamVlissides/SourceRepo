@@ -1,4 +1,4 @@
-﻿using Character_System;
+﻿﻿using Character_System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,9 +29,9 @@ namespace BattleSystem
         {
             int cost = usedAbility.Cost;
             actingCharacter.useMana(cost);
-            
-            if(usedAbility.isSingleTarget)
-            { 
+
+            if (usedAbility.isSingleTarget)
+            {
                 spreadAbility(actingCharacter, combatants);
             }
             else
@@ -86,3 +86,4 @@ namespace BattleSystem
         }
     }
 }
+

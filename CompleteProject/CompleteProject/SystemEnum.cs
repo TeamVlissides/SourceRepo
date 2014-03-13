@@ -27,12 +27,4 @@ namespace Game_System
 
     }/* end TypeEnum */
 
-    public enum EnemyType : int
-    {/* start EnemyType enum */
-
-        NULL = -1,
-        DRAGON = 0
-
-    }/* end EnemyType enum */
-
 }/* end Game_System */

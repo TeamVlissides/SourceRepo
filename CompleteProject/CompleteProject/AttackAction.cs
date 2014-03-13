@@ -19,7 +19,7 @@ namespace BattleSystem
             target = targetedCharacter;
         }
 
-        private void specificAction(Character actingCharacter, Character[] combatants)
+        public void specificAction(Character actingCharacter, Character[] combatants)
         {
             
             int attack = actingCharacter.getStat(StatEnum.STRENGTH);

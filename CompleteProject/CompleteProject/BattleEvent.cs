@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BattleSystem
 {
-    class BattleEvent
+    public class BattleEvent
     {
 
         private Character mActor;
@@ -25,7 +25,7 @@ namespace BattleSystem
 
         public String toString()
         {
-            return mActor.toString() + actionOutcome + mActee.toString();
+            return mActor.Name + actionOutcome + mActee.Name;
         }
         
     }

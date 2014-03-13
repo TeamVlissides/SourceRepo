@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BattleSystem
 {
-    interface BattleAction
+    public interface BattleAction
     {
-        private void specificAction(Character actingCharacter, Character[] combatants);
-        public String toString();
-        public ArrayList getBattleEvents();
+        void specificAction(Character actingCharacter, Character[] combatants);
+        String toString();
+        ArrayList getBattleEvents();
     }
 }

@@ -42,14 +42,14 @@ namespace BattleSystem
 
         public void startBattle()
         {
-            mBadGuys = new EnemyFactory().getEnemyParty(mGoodGuys.getLevel());
+            mBadGuys = EnemyFactory.getInstance().getEnemyParty(mGoodGuys.Level);
 
             turnOrder = mGoodGuys.getTurnOrder(mBadGuys);
             selectFirstCharacter();
 
             while(!battleOver())
             {
-                if (currentActor.mIsPlayer)
+                if (currentActor.isPlayer)
                 {
                     executeAction(mGame.getPlayerAction(currentActor));
                 }
@@ -64,7 +64,7 @@ namespace BattleSystem
 
         public void startBattle(EnemyType type)
         {
-            mBadGuys = new EnemyFactory().getSpecificParty(type);
+            mBadGuys = EnemyFactory.getInstance().getSpecificParty(type);
 
             turnOrder = mGoodGuys.getTurnOrder(mBadGuys);
             selectFirstCharacter();
@@ -74,7 +74,7 @@ namespace BattleSystem
 
             while (!battleOver())
             {
-                if (currentActor.mIsPlayer)
+                if (currentActor.isPlayer)
                 {
                     executeAction(mGame.getPlayerAction( currentActor ));
                 }
@@ -89,7 +89,7 @@ namespace BattleSystem
         public ArrayList getFriendlyTargets()
         {
             ArrayList targetlist = new ArrayList();
-            for (int i = 0; i < mGoodGuys.mPartySize; i++)
+            for (int i = 0; i < mGoodGuys.Size; i++)
             {
                 if(mGoodGuys.getCharacter(i).isDead == false)
                 {
@@ -102,7 +102,7 @@ namespace BattleSystem
         public ArrayList getHostileTargets()
         {
             ArrayList targetlist = new ArrayList();
-            for (int i = 0; i < mBadGuys.mPartySize; i++)
+            for (int i = 0; i < mBadGuys.Size; i++)
             {
                 if (mBadGuys.getCharacter(i).isDead == false)
                 {
@@ -127,7 +127,7 @@ namespace BattleSystem
             ArrayList targetlist = new ArrayList();
             for (int i = 0; i < turnOrder.Length; i++)
             {
-                if (turnOrder[i].mIsPlayer && !selectedAbility.AffectEnemy || !turnOrder[i].mIsPlayer && selectedAbility.AffectEnemy)
+                if (turnOrder[i].isPlayer && !selectedAbility.AffectEnemy || !turnOrder[i].isPlayer && selectedAbility.AffectEnemy)
                 {
                     targetlist.Add(turnOrder[i]);
                 }

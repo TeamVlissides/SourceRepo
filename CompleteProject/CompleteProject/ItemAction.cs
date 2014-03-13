@@ -11,22 +11,22 @@ namespace BattleSystem
 {
     class ItemAction : BattleAction
     {
-        Item usedItem;
+        Ability usedItem;
         public Character specificTarget;
         private ArrayList battleEvents;
 
         public ItemAction(Item itemToUse)
         {
-            usedItem = itemToUse;
+            usedItem = (Ability)itemToUse;
         }
 
         public ItemAction(Item itemToUse, Character targetedCharacter)
         {
-            usedItem = itemToUse;
+            usedItem = (Ability)itemToUse;
             specificTarget = targetedCharacter;
         }
 
-        private void specificAction(Character actingCharacter, Character[] combatants)
+        public void specificAction(Character actingCharacter, Character[] combatants)
         {
             if(usedItem.isSingleTarget)
             { 
@@ -47,7 +47,7 @@ namespace BattleSystem
         {
             for (int i = 0; i < combatants.Length; i++)
             {
-                if (combatants[i].mIsPlayer && !usedItem.AffectEnemy || !combatants[i].mIsPlayer && usedItem.AffectEnemy)
+                if (combatants[i].isPlayer && !usedItem.AffectEnemy || !combatants[i].isPlayer && usedItem.AffectEnemy)
                 {
                     //TODO: Figure out exact application of item
                 }

@@ -123,6 +123,7 @@ namespace Character_System
     public enum EnemyType : int
     {/* start EnemyType enum */
 
+        NULL = -1,
         DRAGON = 0,
         SPIDER = 1,
         BAT = 2,

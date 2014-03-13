@@ -250,7 +250,7 @@ namespace Character_System
 
         }/* end setThePredator */
 
-        public Enemy getDragon()
+        private Enemy getDragon()
         {/* start getDragon */
 
             Random random = new Random();
@@ -274,6 +274,18 @@ namespace Character_System
             return new Enemy(mArmor, mName, mStats, mWeapon, mExperienceWorth, mAi, mType);
 
         }/* end getDragon */
+
+        public Party getSpecificParty(EnemyType type)
+        {/* start getSpecificParty */
+
+            Party badGuys = null;
+
+            if( type == EnemyType.DRAGON )
+                badGuys = new Party( new Character[] { getDragon() } );
+
+           return badGuys;
+
+        }/* end getSpecificParty */
 
     }/* end EnemyFactory */
 

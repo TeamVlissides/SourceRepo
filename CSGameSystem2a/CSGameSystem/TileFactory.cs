@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 // TileFactory: 
 //
+// Not finsihed yet. 
 // 
 // Need to create tile classes that are created when 
 // createTile is called. 
@@ -27,11 +28,10 @@ namespace CSGameSystem
             //Random r = new Random();
             // Dont know but passing in the reference works.
             // But does not seem like a good thing to do.
-           // int rand = r.Next() % 100;
-            //Console.WriteLine("The Random Number is " + rand);
+            int rand = r.Next() % 100;
 
             // Put an item here.
-           // if (rand % 2 != 0)
+            if (rand % 2 != 0)
             {
                 // decide what type of item to put here.
                 // generate random itemtype number here and set the itemType to it.

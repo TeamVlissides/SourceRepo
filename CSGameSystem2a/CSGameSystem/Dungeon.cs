@@ -6,20 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /*
- * UPDATE YOUR UML!!!... UML UPDATE.... UPDATE THE UML...
- * 
- * Possible apply the decorator pattern to the tiles to add color for background and borders
- * 
- * Use Singleton on the dungeon.
- * 
- * Add ability on GUI to attack and defend.
- * 
- * Make treasure image disapear after player moves over it.
- * 
- * Using the Null Object pattern with the Tiles.
- * 
- * **Create a static map for the dungeon so that you can get to the dungeon**
- * 
  * Need a ship battle event to the view system. 
  * 
  * Do a seperate window to put the stats sheet on instead of putting it

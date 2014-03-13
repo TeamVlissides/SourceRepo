@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace CSGameSystem
 {
-    public class DisplayView : View
+    class DisplayView : View
     {
         // Attributes
         // Input input;
@@ -140,8 +140,6 @@ namespace CSGameSystem
 
         // Methods
 
-        
-
         public void increment()
         {
             count1 += 1;
@@ -155,11 +153,6 @@ namespace CSGameSystem
             //Dungeon d = new Dungeon();
             drawTiles(d.GetGrid().GetTiles(), g);
             DrawPartyCharacter();
-        }
-
-        public void BattleEventNotify()
-        {
-
         }
 
         public void setGraphicsObject(Graphics g)
@@ -257,6 +250,10 @@ namespace CSGameSystem
         // Screen Size;
         //
         //
+
+
+
+
 
         public DirectionEnum getDirection()
         {

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
+/* Implement Armor/Weapon acquirement and removal. R.F. : 3/7/2014 */
+
 namespace Character_System
 {/* start Character_System namespace */
 
@@ -23,7 +25,7 @@ namespace Character_System
         protected int[] mStats;
         protected Weapon mWeapon = WeaponFactory.NullWeapon();
         protected AbilitiesHolder mAbilities;
-        public bool mIsPlayer;
+        protected bool mIsPlayer;
 
         protected Character( Armor[] armor, string name, int[] stats, Weapon weapon, AbilitiesHolder abilities)
         {/* start constructor */
@@ -111,6 +113,25 @@ namespace Character_System
 
         }/* end MaximumMana property */
 
+        public Weapon Weapon
+        {/* start Weapon property */
+
+            get
+            {/* start accessor */
+
+                return mWeapon;
+
+            }/* end accessor */
+
+            set
+            {/* start mutator */
+
+                mWeapon = value;
+
+            }/* end mutator */
+
+        }/* end Weapon property */
+
         public int MaximumHealth
         {/* start MaximumHealth property */
 
@@ -134,6 +155,18 @@ namespace Character_System
             }/* end accessor */
 
         }/* end Name property */
+
+        public int WeaponDamage
+        {/* start WeaponDamage property */
+
+            get
+            {/* start accessor */
+
+                return mWeapon.Damage;
+
+            }/* end accessor */
+
+        }/* end WeaponDamage property */
 
         public int getStat(StatEnum stat)
         {/* start getStat */
@@ -163,6 +196,9 @@ namespace Character_System
             int i;
             int totalArmor = 0;
 
+            if (mArmor == null)
+                return 0;
+
             for (i = 0; i < Armor.MAXARMOR; i++)
                 totalArmor += mArmor[i].ArmorStat;
 
@@ -175,6 +211,9 @@ namespace Character_System
 
             mHealth -= damage;
 
+            if (mHealth < 0)
+                mHealth = 0;
+
         }/* end takeDamage */
 
         public void useMana(int mana)
@@ -182,7 +221,30 @@ namespace Character_System
 
             mMana -= mana;
 
+            if (mMana < 0)
+                mMana = 0;
+
         }/* end useMana */
+
+        public void restoreMana(int mana)
+        {/* start restoreMana */
+
+            mMana += mana;
+
+            if (mMana > MaximumMana)
+                mMana = MaximumMana;
+
+        }/* end restoreMana */
+
+        public void restoreHealth(int health)
+        {/* start restoreHealth */
+
+            mHealth += health;
+
+            if (mHealth > MaximumHealth)
+                mHealth = MaximumHealth;
+
+        }/* end restoreHealth */
 
         public Armor getArmor(ArmorEnum armor)
         {/* start getArmor */
@@ -197,11 +259,6 @@ namespace Character_System
             return this.getStat(StatEnum.AGILITY) < character.getStat(StatEnum.AGILITY);
 
         }/* end CompareTo */
-
-        public String toString()
-        {/*Begin toString*/
-            return mName;
-        }/*end toString*/
 
     }/* end Character class */
 

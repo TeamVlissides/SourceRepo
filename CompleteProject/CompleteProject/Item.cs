@@ -4,61 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dungeon_System
-{
-    public class Item
-    {
+namespace Character_System
+{/* start Character_System */
 
-        // Attributes
-        private String itemName;
-        private String itemImagePath;
-        private int itemType;
+    public abstract class Item
+    {/* start Item interface */
 
-        // Constructors
-        public Item()
-        {
-            this.itemName = "Generic Item";
-            this.itemImagePath = "";
-            this.itemType = 0;
-        }
+        private ItemType mType;
+        private bool mIsManaPotion = false;
 
-        public Item(String name, String path, int type)
-        {
-            this.itemName = name;
-            this.itemImagePath = path;
-            this.itemType = type;
-        }
+        public Item(ItemType type)
+        {/* start constructor */
 
-        // getters Methods
-        public String getItemName()
-        {
-            return this.itemName;
-        }
+            mType = type;
 
-        public String getItemImagePath()
-        {
-            return this.itemImagePath;
-        }
+        }/* end constructor */
 
-        public int getItemType()
-        {
-            return this.itemType;
-        }
+        public bool IsMana
+        {/* start IsMana property */
 
-        // setter Methods
-        public void setItemName(String name)
-        {
-            this.itemName = name;
-        }
+            get
+            {/* start accessor */
 
-        public void setItemImagePath(String path)
-        {
-            this.itemImagePath = path;
-        }
+                return mIsManaPotion;
 
-        public void setItemType(int type)
-        {
-            this.itemType = type;
-        }
-    }
-}
+            }/* end accessor */
+
+            set
+            {/* start mutator */
+
+                mIsManaPotion = value;
+
+            }/* end mutator */
+
+        }/* end IsMana property */
+
+        public ItemType Type
+        {/* start Type property */
+
+            get
+            {/* start accessor */
+
+                return mType;
+
+            }/* end accessor */
+
+        }/* end Type property */
+
+    }/* end Item interface */
+
+}/* end Character_System */

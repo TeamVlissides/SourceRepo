@@ -13,49 +13,17 @@ namespace Character_System
         public const int MAXPARTY = 3;
 
         private Character[] mParty;
-        public int mPartySize;
+        private int mPartySize;
+        private List<Item> mInventory;
 
         public Party( Character[] party )
         {/* start constructor */
 
             mParty = party;
+            mPartySize = party.Length;
+            mInventory = new List<Item>();
 
         }/* end constructor */
-
-        public int Level
-        {/* start Level property */
-
-            get
-            {/* start accessor */
-
-                int i, level;
-
-                /* Check if the array is null */
-                if( mParty == null )
-                    return 0;
-
-                /* Check if the first character is null */
-                if( mParty[ 0 ]  == null )
-                    return 0;
-
-                /* Check if the first character is a player character */
-                if (!(mParty[0] is PlayerCharacter))
-                    return 0;
-
-                /* Initialize Level */
-                level = ((PlayerCharacter)mParty[ 0 ]).Level;
-
-                /* Check if any other character has a higher level */
-                for( i = 1; i < mParty.Length; i++ )
-                    if( mParty[ i ] != null )
-                        if( ( (PlayerCharacter) mParty[ i ] ).Level > level )
-                            level = ( ( PlayerCharacter )mParty[ i ] ).Level;
-
-                return level;
-
-            }/* end accessor */
-
-        }/* end Level property */
 
         public bool isDead
         {/* start isDead property */
@@ -75,8 +43,8 @@ namespace Character_System
 
         }/* end isDead property */
 
-        public int GetSize
-        {/* start GetSize property */
+        public int Size
+        {/* start Size property */
 
             get
             {/* start accessor */
@@ -85,7 +53,7 @@ namespace Character_System
 
             }/* end accessor */
 
-        }/* end GetSize property */
+        }/* end Size property */
 
         public Character getCharacter( int index )
         {/* start getCharacter */
@@ -126,11 +94,75 @@ namespace Character_System
 
         }/* end getTurnOrder */
 
+        public int Level
+        {/* start Level property */
 
-        internal int getLevel()
-        {
-            throw new NotImplementedException();
-        }
+            get
+            {/* start accessor */
+
+                int i, level;
+
+                /* Check if the array is null */
+                if (mParty == null)
+                    return 0;
+
+                /* Check if the first character is null */
+                if (mParty[0] == null)
+                    return 0;
+
+                /* Check if the first character is a player character */
+                if (!(mParty[0] is PlayerCharacter))
+                    return 0;
+
+                /* Initialize Level */
+                level = ((PlayerCharacter)mParty[0]).Level;
+
+                /* Check if any other character has a higher level */
+                for (i = 1; i < mParty.Length; i++)
+                    if (mParty[i] != null)
+                        if (((PlayerCharacter)mParty[i]).Level > level)
+                            level = ((PlayerCharacter)mParty[i]).Level;
+
+                return level;
+
+            }/* end accessor */
+
+        }/* end Level property */
+
+        public void giveItem( Item item )
+        {/* start giveItem */
+
+            mInventory.Add( item );
+
+        }/* end giveItem */
+
+        public IEnumerator<Item> Inventory
+        {/* start Inventory property */
+
+            get
+            {/* start accessor */
+
+                return mInventory.GetEnumerator();
+
+            }/* end accessor */
+
+        }/* end Inventory property */
+
+        public void equipItem( Item item, Character target )
+        {/* start equipItem */
+
+            mInventory.Remove( item );
+
+            if (item.Type == ItemType.WEAPON)
+            {/* start if */
+
+                mInventory.Add(target.Weapon);
+                target.Weapon = (Weapon)item;
+
+            }/* end if */
+
+        }/* end equipItem */
+
     }/* end Party class */
 
 }/* end Character_System namespace */

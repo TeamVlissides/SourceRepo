@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Character_System
 {/* start Character_System namespace */
 
-    public class Ability
+    public class Ability : Item
     {/* start Ability class */
 
         /* Constants */
@@ -26,7 +26,7 @@ namespace Character_System
         private int mBaseDamage;
         private int mCost;
 
-        public Ability( String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseDamage, int cost )
+        public Ability(String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseDamage, int cost, ItemType itemType) : base(itemType)
         {/* start constructor */
 
             mDescription = description;

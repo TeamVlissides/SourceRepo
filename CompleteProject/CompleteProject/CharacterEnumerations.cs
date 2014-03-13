@@ -120,4 +120,38 @@ namespace Character_System
 
     }/* end ActionEnum */
 
+    public enum EnemyType : int
+    {/* start EnemyType enum */
+
+        DRAGON = 0,
+        SPIDER = 1,
+        BAT = 2,
+        BEAR = 3,
+        LION = 4,
+        TROLL = 5,
+        GOBLIN = 6,
+        THEPREDATOR = 7
+
+    }/* end EnemyType enum */
+
+    public enum ItemType : int
+    {/* start ItemType */
+
+        WEAPON = 0,
+        ABILITY = 1,
+        ARMOR = 2,
+        
+    }/* end ItemType */
+
+    public enum ItemEnum : int
+    {/* start Item enum */
+
+        HEALTHPOTION = 1,
+        MANAPOTION = 2,
+        UBERSWORD = 3,
+        GANDALFSSTAFF = 4,
+        BOMB = 5
+
+    }/* end Item enum */
+
 }/* end Character_System namespace */

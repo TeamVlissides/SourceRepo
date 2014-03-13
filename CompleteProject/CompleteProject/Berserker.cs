@@ -15,14 +15,13 @@ namespace Character_System
         {/* start constructor */
         }/* end constructor */
 
-        public override BattleEvent ai(Party goodGuys)
+        public override BattleAction ai(Party goodGuys)
         {/* start ai */
 
             Random random = new Random();
-            int target = random.Next( Party.MAXPARTY );
-            BattleAction action = new BattleAction(ActionEnum.ATTACK, null);
+            int target = random.Next( goodGuys.Size );
 
-            return new BattleEvent(mEnemy, action, goodGuys.getCharacter(target), 0);
+            return new AttackAction(goodGuys.getCharacter(target));
 
         }/* end ai */
 

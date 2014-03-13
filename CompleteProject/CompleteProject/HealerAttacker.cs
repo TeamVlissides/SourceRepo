@@ -15,7 +15,7 @@ namespace Character_System
         {/* start constructor */
         }/* end constructor */
 
-        public override BattleEvent ai(Party goodGuys)
+        public override BattleAction ai(Party goodGuys)
         {/* start ai */
 
             Random random = new Random();

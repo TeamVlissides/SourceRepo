@@ -127,10 +127,10 @@ namespace Dungeon_System
             Tile[,] sTiles = mGrid.GetTiles();
 
             // Set the dragon image on last tile
-            sTiles[4, 4].SetItemType(3);
+            sTiles[4, 4].TileType = DungeonEnum.DRAGON;
 
             // Make sure that the first tile is a freespace
-            sTiles[0, 0].SetItemType(0);
+            sTiles[0, 0].TileType = DungeonEnum.FREESPACE;
             
 
         }
@@ -372,8 +372,8 @@ namespace Dungeon_System
                 col = 0;
 
             Tile[,] tmpTiles = mGrid.GetTiles();
-            int item = tmpTiles[row, col].getItemType();
-            if (item == (int)DungeonEnum.WALL)
+            DungeonEnum item = tmpTiles[row, col].TileType;
+            if (item == DungeonEnum.WALL)
                 return true;
             return false;
         }
@@ -387,8 +387,8 @@ namespace Dungeon_System
         {
             // Check if tile has an item
             Tile[,] tmpTiles = mGrid.GetTiles();
-            int tileHasItem = tmpTiles[PlayerLocationRow, PlayerLocationColumn].getItemType();
-            if (tileHasItem == (int)DungeonEnum.ITEM)
+            DungeonEnum tileHasItem = tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType;
+            if (tileHasItem == DungeonEnum.ITEM)
                 return true; // view.sendOutput("Tile has item.");
 
             return false;
@@ -397,8 +397,8 @@ namespace Dungeon_System
         public bool checkIfDragon()
         {
             Tile[,] tmpTiles = mGrid.GetTiles();
-            int item = tmpTiles[PlayerLocationRow, PlayerLocationColumn].getItemType();
-            if (item == (int)DungeonEnum.DRAGON)
+            DungeonEnum item = tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType;
+            if (item == DungeonEnum.DRAGON)
                 return true;
             return false;
         }

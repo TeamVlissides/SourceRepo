@@ -15,10 +15,10 @@ namespace Character_System
         {/* start constructor */
         }/* end constructor */
 
-        public override BattleEvent ai(Party goodGuys)
+        public override BattleAction ai(Party goodGuys)
         {/* start ai */
 
-            Character target = goodGuys.getCharacter(0);
+            Character target = getTarget();
             BattleAction action;
             int i;
             AbilitiesIterator abilities;
@@ -35,9 +35,7 @@ namespace Character_System
                         if (ability.BaseDamage > theAbility.BaseDamage)
                             theAbility = ability;
 
-                for (i = 0; i < goodGuys.Size; i++)
-                    if (goodGuys.getCharacter(i).CurrentHealth < target.CurrentHealth)
-                        target = goodGuys.getCharacter(i);
+                
 
                 if (theAbility.Cost > mEnemy.CurrentMana)
                     action = new BattleAction(ActionEnum.ATTACK, null);
@@ -55,6 +53,20 @@ namespace Character_System
             return new BattleEvent(mEnemy, action, target, 0);
 
         }/* end ai */
+
+        private Character getTarget(Party goodGuys)
+        {/* start getTarget */
+
+            Character target = goodGuys.getCharacter(0);
+            int i;
+
+            for (i = 0; i < goodGuys.Size; i++)
+                if (goodGuys.getCharacter(i).CurrentHealth < target.CurrentHealth)
+                    target = goodGuys.getCharacter(i);
+
+            return target;
+
+        }/* end getTarget */
 
     }/* end Striker class */
 

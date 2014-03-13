@@ -157,6 +157,7 @@ namespace CSGameSystem
             }
         }
 
+        // Returns an array that contains the [row, col]
         public int[] getCurrentPartyLocation()
         {
             int[] tempArray = new int[2];

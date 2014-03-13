@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>56</x>
+      <y>32</y>
+      <w>296</w>
+      <h>328</h>
+    </coordinates>
+    <panel_attributes>Dungeon
+--
+-mGrid: Grid
+-mName: String
+-tiles: Tile[,]
+-playerLocationRow: int
+-playerLocationColumn: int
++ property PlayerLocationRow: int
++ property PlayerLocationColumn: int
+-mGame: Game
+-mGoodGuyParty : Party
+-itemLocations: int[,]
+-view: view
+--
++GetGrid() : Grid
++SetView(View v): void
++SetGame(Game g): void
++checkForItem(): bool
++checkIfDragon(): bool
++isWall(DirectionEnum directionEnum): Boolean
+-MovePlayerLocation(DirectionEnum locationEnum): void
++getGetDungeonName() : String
++SetDungeonName( name : String )
++getDirection( direction : DirectionEnum ) : void
++getCurrentPartyLocation(): int[]
++RollBattleDice(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>104</x>
+      <y>480</y>
+      <w>176</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Grid
+--
+-mNumRows: int
+-mNumColumns: int
+-mPartyRow: int
+-mPartyColumn: int
+-tiles: Tile[,]
+-mTiles: Tile
++ property NumRows: int
++ property NumColumns: int
+--
++createGrid(): void
++SetPartyRow(int row): void
++SetPartyColumn(int n): void
++GetTiles(): Tile[,]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>560</x>
+      <y>112</y>
+      <w>216</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>Tile
+--
+#backgroundColor: Brush
+#borderColor: Brush
+#hasAnItem: Boolean
+#itemType: int
+#size: int
+--
++SetBackgroundColor(Brush color): void
++SetBorderColor(Brush color): void
++SetSize(int s): void
++SetItemType(int type): void
++getItemType(): int
++hasItem(): Boolean
++getSize(): int
++getBackgroundColor(): Brush
++getBorderColor(): Brush
++getItem(): Item[]
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>840</w>
+      <h>688</h>
+    </coordinates>
+    <panel_attributes>Dungeon System</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>112</x>
+      <y>336</y>
+      <w>64</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;48;144</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>224</x>
+      <y>88</y>
+      <w>352</w>
+      <h>408</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;392;336;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>632</x>
+      <y>408</y>
+      <w>104</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Type Enum
+--
+int: -1: NULL
+int: 0: FREESPACE
+int: 1: WALL
+int: 2: ITEM
+int: 3: DRAGON</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>424</x>
+      <y>464</y>
+      <w>144</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+-itemName: String
+-itemImagePath: String
+-itemType: int
+--
++getItemName(): String
++getItemImagePath(): String
++getItemType(): int
++setItemName(): void
++setItemImagePath(): void
++setItemType(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>472</x>
+      <y>320</y>
+      <w>144</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;144;128;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>560</x>
+      <y>40</y>
+      <w>208</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>TileFactory
+--
++createTile(int type): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

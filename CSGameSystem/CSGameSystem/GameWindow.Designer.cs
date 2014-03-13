@@ -119,7 +119,10 @@
             "White Magic",
             "Black Magic",
             "Summon",
-            "E. Skill"});
+            "E. Skill",
+            "Defend",
+            "Block",
+            "Back Hand"});
             this.comboBox1.Location = new System.Drawing.Point(82, 181);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(136, 21);

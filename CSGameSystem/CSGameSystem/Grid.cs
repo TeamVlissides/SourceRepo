@@ -11,10 +11,10 @@ namespace CSGameSystem
         // Attributes
         private int mNumRows;
         private int mNumColumns;
-        private int mPartyRow;
-        private int mPartyColumn;
+      //  private int mPartyRow;
+       // private int mPartyColumn;
         private Tile[,] tiles;
-        private Tile mTiles;
+        //private Tile mTiles;
 
         // Images on the tiles
         // not here in the view.
@@ -34,6 +34,13 @@ namespace CSGameSystem
              mNumRows = row;
              mNumColumns = col;
              createGrid();
+        }
+
+        public Grid(int row, int col, DungeonEnum[,] grid)
+        {
+            mNumRows = row;
+            mNumColumns = col;
+            createStaticGrid(grid);
         }
 
 
@@ -59,6 +66,22 @@ namespace CSGameSystem
             set
             {
                 mNumColumns = value;
+            }
+        }
+
+        public void createStaticGrid(DungeonEnum[,] grid)
+        {
+            tiles = new Tile[mNumRows, mNumColumns];
+
+            // Rows
+            for (int i = 0; i < mNumRows; i++)
+            {
+                // Columns
+                for (int j = 0; j < mNumColumns; j++)
+                {
+                    // tiles[i, j] = new Tile(rand);
+                    tiles[i, j] = new Tile(grid[j,i]);
+                }
             }
         }
 

@@ -4,24 +4,28 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>390</x>
-      <y>310</y>
+      <x>250</x>
+      <y>140</y>
       <w>400</w>
-      <h>100</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>/View/
 --
-+ getDirection() : DirectionEnum 
-+ getInput(TypeEnum type) : Object 
-+ sendOutput(IEnumerator enumerator, TypeEnum type) : void 
-+ sendOutput( String theString ) : void</panel_attributes>
+getDirection() : DirectionEnum 
+getInput(TypeEnum type) : Object 
+sendOutput(IEnumerator enumerator, TypeEnum type) : void 
+sendOutput( String theString ) : void
+View_Paint(Graphics g): void
+setGraphicsObject(Graphics g): void
+DrawPartyCharacter(): void
+drawTiles(Tile[,] tiles, Graphics g): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>680</x>
-      <y>210</y>
+      <x>570</x>
+      <y>20</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -31,8 +35,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>390</x>
-      <y>210</y>
+      <x>200</x>
+      <y>30</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -42,34 +46,80 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>410</x>
-      <y>210</y>
-      <w>80</w>
-      <h>120</h>
+      <x>220</x>
+      <y>30</y>
+      <w>130</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>60;100;30;30</additional_attributes>
+    <additional_attributes>110;110;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>670</x>
-      <y>210</y>
-      <w>80</w>
-      <h>120</h>
+      <x>530</x>
+      <y>20</y>
+      <w>110</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>30;100;60;30</additional_attributes>
+    <additional_attributes>30;120;90;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>360</x>
-      <y>180</y>
-      <w>450</w>
-      <h>260</h>
+      <x>140</x>
+      <y>0</y>
+      <w>600</w>
+      <h>800</h>
     </coordinates>
     <panel_attributes>View</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>170</x>
+      <y>360</y>
+      <w>560</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>SimpleClass
+--
+-grid: Grid
+-graphics: Graphics
+-viewWindow: GUIWindow
+-d: dungeon
+-imageX: int
+-imageY: int
+-partyImage: Image
+-treasureItemImage: Image
+-dragonImage: Image
+-wall: Image
+-wall2: Image
+-count1: int
+--
++drawTiles(Tile[,] tiles, Graphics g): void
++View_Paint(Graphics g): void
++setGraphicsObject(Graphics g): void
++DrawPartyCharacter(): void
++PartyMoveUpdate(): void
++getDirection(): DirectionEnum
++getInput(TypeEnum type): object
++sendOutput(System.Collections.IEnumerator enumerator, TypeEnum type): void
++sendOutput(string theString): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>430</x>
+      <y>270</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;90;30;30</additional_attributes>
   </element>
 </diagram>

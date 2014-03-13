@@ -15,21 +15,22 @@ namespace CSGameSystem
         // Input input;
         // Output output;
         // GUISystem guiSystem;
-        Grid grid;
-        Graphics graphics;
-        GUIWindow viewWindow;
-        Dungeon d;
+        private Grid grid;
+        private Graphics graphics;
+        private GUIWindow viewWindow;
+        private Dungeon d;
 
 
-        public int imageX;
-        int imageY;
+        private int imageX;
+        private int imageY;
 
-        Image partyImage;
-        Image treasureItemImage;
-        Image dragonImage;
-        Image wall, wall2;
+        private Image partyImage;
+        private Image treasureItemImage;
+        private Image dragonImage;
+        private Image wall, wall2;
+        private Party mGoodGuyParty;
 
-        public int count1;
+        private int count1;
 
         // Load the images from the Resource here to put into the tiles.
 
@@ -63,6 +64,7 @@ namespace CSGameSystem
             viewWindow = form;
             //d = new Dungeon();
             d = dungeon;
+      
 
         }
 

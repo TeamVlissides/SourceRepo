@@ -5,20 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Dungeon has Singleton feel.
+
 /*
- * UPDATE YOUR UML!!!... UML UPDATE.... UPDATE THE UML...
+ * UPDATE YOUR UML!!!... UML UPDATE.... UPDATE THE UML... Looks like it's almost complete.
  * 
  * Possible apply the decorator pattern to the tiles to add color for background and borders
  * 
- * Use Singleton on the dungeon.
+ * Use Singleton on the dungeon. done.
  * 
- * Add ability on GUI to attack and defend.
+ * Add ability on GUI to attack and defend. done.
  * 
- * Make treasure image disapear after player moves over it.
+ * Make treasure image disapear after player moves over it. done.
  * 
- * Using the Null Object pattern with the Tiles.
+ * Using the Null Object pattern with the Tiles. - not anymore.
  * 
- * **Create a static map for the dungeon so that you can get to the dungeon**
+ * **Create a static map for the dungeon so that you can get to the dungeon** done.
  * 
  * Need a ship battle event to the view system. 
  * 
@@ -27,17 +29,17 @@ using System.Windows.Forms;
  * 
  * 1. Make the location of the treasure static.
 - once game starts the first location of treasure stay 
-  where it started.
+  where it started. done.
 2. How to handle what class type they want?
 How to handle :
 3. Stats for each player
 4. Display how many goodguys and bad guys there are.
 5. giving the items to the characters and then
-   removing the item from the screen.
+   removing the item from the screen. done. subverted.
 6. Create the TileFactory which will create tiles
 for walls, freespace, treasure, dragon,
 these will have images, need to get a wall image,
-a freespace iamge, a dragon image.
+a freespace iamge, a dragon image. done. 
 7. Complete Checkfor/item/dragon, getdirection methods.
  * 
  * Dungeon:
@@ -86,28 +88,43 @@ namespace CSGameSystem
 {
     public class Dungeon
     {
+
+        // Singleton feel.
+        private static Dungeon mDungeon;
+
         // Attributes
         private Grid mGrid;
         private String mName;
-        private Tile[,] tiles;
+       // private Tile[,] tiles;
        // public int[,] playerLocation;
         private int playerLocationRow;
         private int playerLocationColumn;
         private Game mGame;
-        private int[,] itemLocations;
+        private DungeonEnum[,] staticGrid;
+        //private int[,] itemLocations;
 
         // reference needed to give items to party;
-        private Party mGoodGuyParty;
+        //private Party mGoodGuyParty;
 
         private View view;
 
-
-
         // Constructors
-        public Dungeon()
+        private Dungeon()
         {
             // This is going to be a set size for the grid.
-            mGrid = new Grid(5, 5);
+            //mGrid = new Grid(5, 5);
+
+            // DungeonEnum.FREESPACE
+
+            // Create static grid array.
+            staticGrid = new DungeonEnum[5, 5] { {DungeonEnum.FREESPACE, DungeonEnum.WALL, DungeonEnum.ITEM, DungeonEnum.ITEM, DungeonEnum.ITEM},
+                                                 {DungeonEnum.ITEM, DungeonEnum.FREESPACE, DungeonEnum.WALL, DungeonEnum.FREESPACE, DungeonEnum.WALL},
+                                                 {DungeonEnum.FREESPACE, DungeonEnum.FREESPACE, DungeonEnum.ITEM, DungeonEnum.FREESPACE, DungeonEnum.ITEM},
+                                                 {DungeonEnum.WALL, DungeonEnum.ITEM, DungeonEnum.WALL, DungeonEnum.FREESPACE, DungeonEnum.WALL},
+                                                 {DungeonEnum.ITEM, DungeonEnum.FREESPACE, DungeonEnum.ITEM, DungeonEnum.ITEM, DungeonEnum.FREESPACE}}; 
+
+            mGrid = new Grid(5, 5, staticGrid);
+
 
             // Keeps track of the location of players on 5 by 5 gird.
             //playerLocation = new int[5, 5];
@@ -127,6 +144,14 @@ namespace CSGameSystem
             sTiles[0, 0].TileType = DungeonEnum.FREESPACE;
             
 
+        }
+
+        public static Dungeon getInstance()
+        {
+            if (mDungeon == null)
+                mDungeon = new Dungeon();
+
+            return mDungeon;
         }
 
         // Methods
@@ -313,6 +338,7 @@ namespace CSGameSystem
                 // mGoodGuyParty
                 view.sendOutput("Give item to party.");
 
+
             }
 
             if (checkIfDragon())
@@ -383,7 +409,11 @@ namespace CSGameSystem
             Tile[,] tmpTiles = mGrid.GetTiles();
             DungeonEnum tileHasItem = tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType;
             if (tileHasItem == DungeonEnum.ITEM)
+            {
+                // Remove item from tile.
+                tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType = 0;
                 return true; // view.sendOutput("Tile has item.");
+            }
 
             return false;
         }

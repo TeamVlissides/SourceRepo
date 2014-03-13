@@ -35,7 +35,9 @@ namespace CSGameSystem
             imageX = 30;
             imageY = 30;
             game = new Game();
-            dungeon = new Dungeon();
+           // dungeon = new Dungeon();
+            dungeon = Dungeon.getInstance();
+
             v = new DisplayView(this, dungeon);
             battle = new BattleSystem(v);
             dungeon.SetView(v);

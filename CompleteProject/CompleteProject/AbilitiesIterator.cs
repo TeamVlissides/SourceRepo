@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Character_System
 {/* start Character_System namespace */
-    
-    public class AbilitiesIterator : IEnumerator< Ability >
+
+    /* Bad OO Warning Flag going off here */
+    public class AbilitiesIterator : IEnumerator<Ability>, IEnumerable
     {/* start AbilitiesIterator class */
 
         private List<Ability> mAbilities;
@@ -75,6 +76,13 @@ namespace Character_System
             return mAbilities[index];
 
         }/* end getAbilityAtIndex */
+
+        public IEnumerator GetEnumerator()
+        {/* start GetEnumerator */
+
+            return this;
+
+        }/* end GetEnumerator */
 
     }/* end AbilitiesIterator class*/
 

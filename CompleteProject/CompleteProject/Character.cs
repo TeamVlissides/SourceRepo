@@ -198,6 +198,11 @@ namespace Character_System
 
         }/* end CompareTo */
 
+        public String toString()
+        {/*Begin toString*/
+            return mName;
+        }/*end toString*/
+
     }/* end Character class */
 
 }/* end Character_System namespace */

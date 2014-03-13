@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Character_System;
+using Dungeon_System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,7 @@ namespace BattleSystem
 
         private void specificAction(Character actingCharacter, Character[] combatants)
         {
-            if(usedItem.isSingleTarget())
+            if(usedItem.isSingleTarget)
             { 
                 spreadItem(actingCharacter, combatants);
             }
@@ -38,16 +40,16 @@ namespace BattleSystem
 
         private void singleTargetItem(Character actingCharacter, Character target)
         {
-            //TODO: Figure out exact application of ability
+            //TODO: Figure out exact application of item
         }
 
         private void spreadItem(Character actingCharacter, Character[] combatants)
         {
             for (int i = 0; i < combatants.Length; i++)
             {
-                if (combatants[i].mIsPlayer && !usedItem.mAffectEnemy || !combatants[i].mIsPlayer && usedAbility.mAffectEnemy)
+                if (combatants[i].mIsPlayer && !usedItem.AffectEnemy || !combatants[i].mIsPlayer && usedItem.AffectEnemy)
                 {
-                    //TODO: Figure out exact application of ability
+                    //TODO: Figure out exact application of item
                 }
             }
         }

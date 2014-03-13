@@ -1,4 +1,5 @@
 ﻿using Character_System;
+using Dungeon_System;
 using Game_System;
 using System;
 using System.Collections;
@@ -54,7 +55,8 @@ namespace BattleSystem
                 }
                 else
                 {
-                    executeAction(currentActor.mAI.ai(turnOrder));
+                    Enemy current_enemy = (Enemy)currentActor;
+                    executeAction(current_enemy.takeTurn(mGoodGuys));
                 }
             }
 
@@ -78,7 +80,8 @@ namespace BattleSystem
                 }
                 else
                 {
-                    executeAction(currentActor.mAI.ai(turnOrder));
+                    Enemy current_enemy = (Enemy) currentActor;
+                    executeAction(current_enemy.takeTurn(mGoodGuys));
                 }
             }
         }
@@ -108,6 +111,29 @@ namespace BattleSystem
             }
             return targetlist;
         }
+
+        public ArrayList getItemTargets(Item selectedItem)
+        {
+            ArrayList targetlist = new ArrayList();
+            for (int i = 0; i < turnOrder.Length; i++)
+            {
+                targetlist.Add(turnOrder[i]);
+            }
+            return targetlist;
+        }
+
+        public ArrayList getAbilityTargets(Ability selectedAbility)
+        {
+            ArrayList targetlist = new ArrayList();
+            for (int i = 0; i < turnOrder.Length; i++)
+            {
+                if (turnOrder[i].mIsPlayer && !selectedAbility.AffectEnemy || !turnOrder[i].mIsPlayer && selectedAbility.AffectEnemy)
+                {
+                    targetlist.Add(turnOrder[i]);
+                }
+            }
+            return targetlist;
+        } 
 
         public void executeAction(BattleAction actionToExecute)
         {

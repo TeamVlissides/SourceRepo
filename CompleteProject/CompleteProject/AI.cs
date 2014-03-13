@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Battle_System;
+using BattleSystem;
 
 namespace Character_System
 {/* start Character_System */
@@ -18,7 +18,7 @@ namespace Character_System
 
         }/* end addAbility */
 
-        public abstract BattleEvent ai(Character[] goodGuys);
+        public abstract BattleAction ai(Character[] goodGuys);
 
     }/* end AI class */
 

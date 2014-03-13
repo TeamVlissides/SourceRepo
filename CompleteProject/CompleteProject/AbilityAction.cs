@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Character_System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace BattleSystem
         public AbilityAction(Ability abilityToUse, Character targetedCharacter)
         {
             usedAbility = abilityToUse;
-            specificTarget = target;
+            specificTarget = targetedCharacter;
         }
 
         private void specificAction(Character actingCharacter, Character[] combatants)
@@ -29,7 +30,7 @@ namespace BattleSystem
             int cost = usedAbility.Cost;
             actingCharacter.useMana(cost);
             
-            if(usedAbility.isSingleTarget())
+            if(usedAbility.isSingleTarget)
             { 
                 spreadAbility(actingCharacter, combatants);
             }
@@ -41,16 +42,35 @@ namespace BattleSystem
 
         private void singleTargetAbility(Character actingCharacter, Character target)
         {
-            //TODO: Figure out exact application of ability
+            int base_stat = 1;
+            if (usedAbility.isMagic)
+            {
+                base_stat = actingCharacter.getStat(StatEnum.MAGIC);
+            }
+            else
+            {
+                base_stat = actingCharacter.getStat(StatEnum.STRENGTH);
+            }
+            target.takeDamage(base_stat * usedAbility.BaseDamage);
         }
 
         private void spreadAbility(Character actingCharacter, Character[] combatants)
         {
+            int base_stat = 1;
+            if (usedAbility.isMagic)
+            {
+                base_stat = actingCharacter.getStat(StatEnum.MAGIC);
+            }
+            else
+            {
+                base_stat = actingCharacter.getStat(StatEnum.STRENGTH);
+            }
+
             for (int i = 0; i < combatants.Length; i++)
             {
-                if (combatants[i].mIsPlayer && !usedAbility.mAffectEnemy || !combatants[i].mIsPlayer && usedAbility.mAffectEnemy)
+                if (combatants[i].mIsPlayer && !usedAbility.AffectEnemy || !combatants[i].mIsPlayer && usedAbility.AffectEnemy)
                 {
-                    //TODO: Figure out exact application of ability
+                    combatants[i].takeDamage(base_stat * usedAbility.BaseDamage);
                 }
             }
         }

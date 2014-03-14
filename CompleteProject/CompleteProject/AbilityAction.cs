@@ -1,4 +1,4 @@
-﻿﻿using Character_System;
+﻿using Character_System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace BattleSystem
             int cost = usedAbility.Cost;
             actingCharacter.useMana(cost);
 
-            if (usedAbility.isSingleTarget)
+            if (!usedAbility.isSingleTarget)
             {
                 spreadAbility(actingCharacter, combatants);
             }
@@ -51,7 +51,7 @@ namespace BattleSystem
             {
                 base_stat = actingCharacter.getStat(StatEnum.STRENGTH);
             }
-            target.takeDamage(base_stat * usedAbility.BaseDamage);
+            applyAbility(actingCharacter, target, base_stat);
         }
 
         private void spreadAbility(Character actingCharacter, Character[] combatants)
@@ -70,9 +70,22 @@ namespace BattleSystem
             {
                 if (combatants[i].isPlayer && !usedAbility.AffectEnemy || !combatants[i].isPlayer && usedAbility.AffectEnemy)
                 {
-                    combatants[i].takeDamage(base_stat * usedAbility.BaseDamage);
+                    applyAbility(actingCharacter, combatants[i], base_stat);
                 }
             }
+        }
+
+        private void applyAbility(Character actingCharacter, Character target, int base_stat)
+        {
+            if (!usedAbility.AffectEnemy)
+            {
+                target.restoreHealth(usedAbility.BaseDamage * base_stat);
+            }
+            else
+            {
+                target.takeDamage(usedAbility.BaseDamage * base_stat);
+            }
+            battleEvents.Add(new BattleEvent(actingCharacter, this, target));
         }
 
         public string toString()

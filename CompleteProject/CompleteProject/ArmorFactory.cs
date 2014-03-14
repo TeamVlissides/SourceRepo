@@ -92,7 +92,7 @@ namespace Character_System
         private void setBasicWhiteMageArmor()
         {/* start getBasicWhiteMageArmor */
 
-            Armor[] set = new Armor[Armor.MAXARMOR];
+            mArmorSet = new Armor[Armor.MAXARMOR];
 
             mArmorSet[(int)ArmorEnum.HEAD] = WeTriedHat();
             mArmorSet[(int)ArmorEnum.CHEST] = WeTriedRobe();
@@ -104,7 +104,7 @@ namespace Character_System
         private void setBasicBlackMageArmor()
         {/* start getBasicBlackMageArmor */
 
-            Armor[] set = new Armor[Armor.MAXARMOR];
+            mArmorSet = new Armor[Armor.MAXARMOR];
 
             mArmorSet[(int)ArmorEnum.HEAD] = WeTriedHat();
             mArmorSet[(int)ArmorEnum.CHEST] = WeTriedRobe();
@@ -116,7 +116,7 @@ namespace Character_System
         private void setBasicWarriorArmor()
         {/* start getBasicWarriorArmor */
 
-            Armor[] set = new Armor[Armor.MAXARMOR];
+            mArmorSet = new Armor[Armor.MAXARMOR];
 
             mArmorSet[(int)ArmorEnum.HEAD] = WeTriedHelm();
             mArmorSet[(int)ArmorEnum.CHEST] = WeTriedPlate();

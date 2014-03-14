@@ -591,7 +591,7 @@ namespace Character_System
             mName = "Apply Band-Aid®";
             mType = Ability.MAGIC;
             mTargetSpread = Ability.SINGLETARGET;
-            mAffectEnemy = Ability.DAMAGING;
+            mAffectEnemy = Ability.HEALING;
             mBaseDamage = 3;
             mCost = 3;
 
@@ -604,7 +604,7 @@ namespace Character_System
             mName = "Sooth";
             mType = Ability.MAGIC;
             mTargetSpread = Ability.SINGLETARGET;
-            mAffectEnemy = Ability.DAMAGING;
+            mAffectEnemy = Ability.HEALING;
             mBaseDamage = 10;
             mCost = 10;
 
@@ -617,7 +617,7 @@ namespace Character_System
             mName = "Regenerate";
             mType = Ability.MAGIC;
             mTargetSpread = Ability.SINGLETARGET;
-            mAffectEnemy = Ability.DAMAGING;
+            mAffectEnemy = Ability.HEALING;
             mBaseDamage = 40;
             mCost = 40;
 

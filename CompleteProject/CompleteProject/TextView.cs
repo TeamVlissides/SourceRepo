@@ -100,7 +100,7 @@ namespace View_System
             Console.WriteLine("2. White Mage." );
             Console.WriteLine("3. Black Mage." );
             Console.WriteLine("4. Warrior." );
-            Console.WriteLine("5. Theif." );
+            Console.WriteLine("5. Thief." );
             Console.WriteLine("6. Monk." );
 
             /* A LOT of faith in this line. If there's time, do exception handling. */

@@ -15,21 +15,21 @@ namespace BattleSystem
         public Character specificTarget;
         private ArrayList battleEvents = new ArrayList();
 
-        public ItemAction(Item itemToUse)
+        public ItemAction(Ability itemToUse)
         {
-            usedItem = (Ability)itemToUse;
+            usedItem = itemToUse;
         }
 
-        public ItemAction(Item itemToUse, Character targetedCharacter)
+        public ItemAction(Ability itemToUse, Character targetedCharacter)
         {
-            usedItem = (Ability)itemToUse;
+            usedItem = itemToUse;
             specificTarget = targetedCharacter;
         }
 
         public void specificAction(Character actingCharacter, Character[] combatants)
         {
-            if(usedItem.isSingleTarget)
-            { 
+            if (usedItem.isSingleTarget)
+            {
                 spreadItem(actingCharacter, combatants);
             }
             else
@@ -40,7 +40,7 @@ namespace BattleSystem
 
         private void singleTargetItem(Character actingCharacter, Character target)
         {
-            //TODO: Figure out exact application of item
+            applyItem(actingCharacter, target);
         }
 
         private void spreadItem(Character actingCharacter, Character[] combatants)
@@ -49,14 +49,31 @@ namespace BattleSystem
             {
                 if (combatants[i].isPlayer && !usedItem.AffectEnemy || !combatants[i].isPlayer && usedItem.AffectEnemy)
                 {
-                    //TODO: Figure out exact application of item
+                    applyItem(actingCharacter, combatants[i]);
                 }
             }
         }
 
+        private void applyItem(Character actingCharacter, Character target)
+        {
+            if (!usedItem.IsMana)
+            {
+                target.restoreHealth((int)((usedItem.BaseDamage/ 100) * target.MaximumHealth));
+            }
+            else if (usedItem.IsMana)
+            {
+                target.restoreMana((int)((usedItem.BaseDamage/100.0) * target.MaximumHealth));
+            }
+            else /*This assumes that the default/only other consumable item is a bomb. v___v*/
+            {
+                target.takeDamage((int)(usedItem.BaseDamage / 100.0 * target.MaximumHealth));
+            }
+            battleEvents.Add(new BattleEvent(actingCharacter, this, target));
+        }
+
         public string toString()
         {
-            return " used " + usedItem.ToString() + " on ";
+            return " used " + usedItem.Name + " on ";
         }
 
         public ArrayList getBattleEvents()

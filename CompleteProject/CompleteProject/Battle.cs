@@ -166,7 +166,10 @@ namespace BattleSystem
             while (!currentActor.isDead)
             {
                 i++;
-                /* Index Out of Bounds exception keeps happening here */
+                /* Index Out of Bounds exception keeps happening here (R.F.)*/
+                if (i > turnOrder.Length)
+                    i = 0;
+
                 currentActor = turnOrder[i];
                 currentActorIndex = i;
             }

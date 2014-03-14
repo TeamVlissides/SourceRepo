@@ -114,9 +114,9 @@ namespace Character_System
     public enum ActionEnum : int
     {/* start ActionEnum */
 
-        ATTACK = 0,
-        ABILITY = 1,
-        ITEM = 2
+        ATTACK = 1,
+        ABILITY = 2,
+        ITEM = 3
 
     }/* end ActionEnum */
 

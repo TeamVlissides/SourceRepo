@@ -159,20 +159,30 @@ namespace BattleSystem
             return turnOrder[charIndex];
         }
 
+        /* Get the first alive character. R.F. 3/13/2014 */
         private void selectFirstCharacter()
         {
             int i = 0;
             currentActor = turnOrder[i];
-            while (!currentActor.isDead)
-            {
-                i++;
-                /* Index Out of Bounds exception keeps happening here (R.F.)*/
-                if (i > turnOrder.Length)
-                    i = 0;
+            currentActorIndex = i;
+            //while (!currentActor.isDead)
+            //{
+            //    i++;
+            //    /* Index Out of Bounds exception keeps happening here (R.F.)*/
+            //    currentActor = turnOrder[i];
+            //    currentActorIndex = i;
+            //}
+
+            for (i = 0; i < turnOrder.Length; i++)
+            {/* start loop */
+
+                if (!currentActor.isDead)
+                    break;
 
                 currentActor = turnOrder[i];
                 currentActorIndex = i;
-            }
+
+            }/* end loop */
         }
 
         private void selectNextCharacter()

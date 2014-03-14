@@ -88,6 +88,7 @@ namespace View_System
         {/* start DeclineMovement */
 
             Console.WriteLine("You can't go that way!");
+            DisplayDungeon();
 
         }/* end DeclineMovement */
 
@@ -118,7 +119,7 @@ namespace View_System
         public BattleSystem.BattleAction getPlayerAction(Character character, Party badGuys)
         {/* start getPlayerAction */
 
-            Console.WriteLine("It's " + character.Name + "'s turn to attack!");
+            Console.WriteLine("It's " + character.Name + "'s turn!");
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Attack.");
             Console.WriteLine("2. Ability.");

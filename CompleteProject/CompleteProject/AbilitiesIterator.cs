@@ -37,7 +37,7 @@ namespace Character_System
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
 
         object IEnumerator.Current

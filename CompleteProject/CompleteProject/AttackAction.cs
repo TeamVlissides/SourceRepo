@@ -12,7 +12,7 @@ namespace BattleSystem
     {
         String attackResult;
         Character target;
-        ArrayList battleEvents;
+        ArrayList battleEvents = new ArrayList();
         
         public AttackAction(Character targetedCharacter)
         {

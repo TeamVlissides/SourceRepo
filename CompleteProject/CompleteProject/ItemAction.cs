@@ -13,7 +13,7 @@ namespace BattleSystem
     {
         Ability usedItem;
         public Character specificTarget;
-        private ArrayList battleEvents;
+        private ArrayList battleEvents = new ArrayList();
 
         public ItemAction(Item itemToUse)
         {

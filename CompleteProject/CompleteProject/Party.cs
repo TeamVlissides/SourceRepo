@@ -33,7 +33,7 @@ namespace Character_System
 
                 bool isDead = true;
 
-                for (int i = 0; i < MAXPARTY; i++)
+                for (int i = 0; i < mPartySize; i++)
                     if (mParty[i] != null)
                         isDead = isDead && mParty[i].isDead;
 
@@ -58,7 +58,7 @@ namespace Character_System
         public Character getCharacter( int index )
         {/* start getCharacter */
 
-            if (index <= 0)
+            if (index < 0)
                 throw new IndexOutOfRangeException( "Tried to get a character in getCharacter method outside of the array." );
 
             return mParty[index];

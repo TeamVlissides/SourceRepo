@@ -13,6 +13,7 @@ namespace BattleSystem
         public Ability usedAbility;
         public Character specificTarget;
         private ArrayList battleEvents = new ArrayList();
+        private int damage;
 
         public AbilityAction(Ability abilityToUse)
         {
@@ -77,20 +78,31 @@ namespace BattleSystem
 
         private void applyAbility(Character actingCharacter, Character target, int base_stat)
         {
+
+            damage = usedAbility.BaseDamage * base_stat;
+
             if (!usedAbility.AffectEnemy)
             {
-                target.restoreHealth(usedAbility.BaseDamage * base_stat);
+                target.restoreHealth(damage);
             }
             else
             {
-                target.takeDamage(usedAbility.BaseDamage * base_stat);
+                target.takeDamage(damage);
             }
             battleEvents.Add(new BattleEvent(actingCharacter, this, target));
         }
 
         public string toString()
-        {
-            return " used " + usedAbility.Name + " on ";
+        {   
+
+            String mString;
+
+            if (usedAbility.AffectEnemy)
+                mString = "damage";
+            else
+                mString = "healing";
+
+            return " used " + usedAbility.Name + " and did " + damage + " " + mString + " on ";
         }
 
         public ArrayList getBattleEvents()

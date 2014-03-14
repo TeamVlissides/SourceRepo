@@ -54,16 +54,43 @@ namespace Character_System
         private Character getTarget(Party goodGuys)
         {/* start getTarget */
 
-            Character target = goodGuys.getCharacter(0);
+            Character target;
             int i;
 
-            for (i = 0; i < goodGuys.Size; i++)
-                if (goodGuys.getCharacter(i).CurrentHealth < target.CurrentHealth)
-                    target = goodGuys.getCharacter(i);
+            Character[] alivePlayers = getAliveCharacters(goodGuys);
+
+            for (i = 0, target = alivePlayers[ 0 ]; i < alivePlayers.Length; i++)
+                if (alivePlayers[ i ].CurrentHealth < target.CurrentHealth)
+                    target = alivePlayers[ i ];
 
             return target;
 
         }/* end getTarget */
+
+        private Character[] getAliveCharacters(Party goodGuys)
+        {/* start getAliveCharacters */
+
+            int i, j, count = 0;
+            Character[] alivePlayers;
+
+            for (i = 0; i < goodGuys.Size; i++)
+                if (!goodGuys.getCharacter(i).isDead)
+                    count++;
+
+            alivePlayers = new Character[count];
+
+            for( i = 0,j = 0; i < goodGuys.Size; i++ )
+                if (!goodGuys.getCharacter(i).isDead)
+                {/* start if */
+
+                    alivePlayers[j] = goodGuys.getCharacter(i);
+                    j++;
+
+                }/* end if */
+
+            return alivePlayers;
+
+        }/* end getAliveCharacters */
 
     }/* end Striker class */
 

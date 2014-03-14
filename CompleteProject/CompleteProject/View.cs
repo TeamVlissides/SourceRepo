@@ -17,6 +17,7 @@ namespace Game_System
         /* For Dungeon System */
         DirectionEnum getDirection();
 
+        #region Text View
         void updatePlayerLocation(int row, int column);
 
         void DeclineMovement();
@@ -53,6 +54,7 @@ namespace Game_System
             set;
 
         }/* end Dungeon property */
+        #endregion
 
     }/* end View interface */
 

@@ -21,6 +21,9 @@ namespace Character_System
             Random random = new Random();
             int target = random.Next( goodGuys.Size );
 
+            while( goodGuys.getCharacter(target).isDead )
+                target = random.Next(goodGuys.Size);
+
             return new AttackAction(goodGuys.getCharacter(target));
 
         }/* end ai */

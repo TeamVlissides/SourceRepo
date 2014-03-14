@@ -63,7 +63,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 20;
             mStats[(int)StatEnum.MAGIC] = 1;
-            mStats[(int)StatEnum.STAMINA] = 30;
+            mStats[(int)StatEnum.STAMINA] = 3;
             mStats[(int)StatEnum.STRENGTH] = 20;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.MONK);
@@ -79,7 +79,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 30;
             mStats[(int)StatEnum.MAGIC] = 1;
-            mStats[(int)StatEnum.STAMINA] = 30;
+            mStats[(int)StatEnum.STAMINA] = 3;
             mStats[(int)StatEnum.STRENGTH] = 15;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.THEIF); ;
@@ -95,7 +95,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 15;
             mStats[(int)StatEnum.MAGIC] = 10;
-            mStats[(int)StatEnum.STAMINA] = 25;
+            mStats[(int)StatEnum.STAMINA] = 2;
             mStats[(int)StatEnum.STRENGTH] = 10;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.REDMAGE);
@@ -111,7 +111,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 1;
             mStats[(int)StatEnum.MAGIC] = 20;
-            mStats[(int)StatEnum.STAMINA] = 20;
+            mStats[(int)StatEnum.STAMINA] = 2;
             mStats[(int)StatEnum.STRENGTH] = 1;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.WHITEMAGE);
@@ -127,7 +127,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 1;
             mStats[(int)StatEnum.MAGIC] = 30;
-            mStats[(int)StatEnum.STAMINA] = 10;
+            mStats[(int)StatEnum.STAMINA] = 1;
             mStats[(int)StatEnum.STRENGTH] = 1;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.BLACKMAGE);
@@ -143,7 +143,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 15;
             mStats[(int)StatEnum.MAGIC] = 1;
-            mStats[(int)StatEnum.STAMINA] = 50;
+            mStats[(int)StatEnum.STAMINA] = 5;
             mStats[(int)StatEnum.STRENGTH] = 30;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.WARRIOR);

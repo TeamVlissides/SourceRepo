@@ -158,7 +158,7 @@ namespace View_System
             foreach (Ability candidate in character.Abilities)
             {/* start loop */
 
-                Console.WriteLine(i + ". " + candidate.Name);
+                Console.WriteLine(i + ". " + candidate.Name + "-Mana Cost: " + candidate.Cost);
                 i++;
 
             }/* end loop */
@@ -184,7 +184,7 @@ namespace View_System
                 Console.WriteLine("Who would you like to damage?");
 
             for (i = 0; i < party.Size; i++)
-                Console.WriteLine(i + ". " + party.getCharacter(i).Name);
+                Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana );
 
             return party.getCharacter(int.Parse(Console.ReadLine()));
 
@@ -276,7 +276,8 @@ namespace View_System
         public void notifyGameOver()
         {/* start notifyGameOver */
 
-            Console.WriteLine("Your party has died! Game over!");
+            Console.WriteLine("Your party has died! Game over! Enter any button to end the game.");
+            Console.ReadLine();
 
         }/* end notifyGameOver */
 

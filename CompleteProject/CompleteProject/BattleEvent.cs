@@ -27,6 +27,30 @@ namespace BattleSystem
         {
             return mActor.Name + actionOutcome + mActee.Name;
         }
-        
+
+        public Character User
+        {/* start User property */
+
+            get
+            {/* start accessor */
+
+                return mActor;
+
+            }/* end accessor */
+
+        }/* end User property */
+
+        public Character Target
+        {/* start Target property */
+
+            get
+            {/* start accessor */
+
+                return mActee;
+
+            }/* end accessor */
+
+        }/* end Target property */
+
     }
 }

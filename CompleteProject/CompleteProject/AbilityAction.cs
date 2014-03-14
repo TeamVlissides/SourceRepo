@@ -77,7 +77,7 @@ namespace BattleSystem
 
         public string toString()
         {
-            return " used " + usedAbility.ToString() + " on ";
+            return " used " + usedAbility.Name + " on ";
         }
 
         public ArrayList getBattleEvents()

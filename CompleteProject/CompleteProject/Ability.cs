@@ -15,8 +15,8 @@ namespace Character_System
         public const bool PHYSICAL = false;
         public const bool SINGLETARGET = true;
         public const bool PARTYTARGET = false;
-        public const bool HEALING = true;
-        public const bool DAMAGING = false;
+        public const bool HEALING = false;
+        public const bool DAMAGING = true;
 
         private String mDescription;
         private String mName;

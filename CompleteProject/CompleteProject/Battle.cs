@@ -58,6 +58,8 @@ namespace BattleSystem
                     Enemy current_enemy = (Enemy)currentActor;
                     executeAction(current_enemy.takeTurn(mGoodGuys));
                 }
+
+                mGame.notifyBattleOutcome(!mGoodGuys.isDead);
             }
 
         }

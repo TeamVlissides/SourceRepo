@@ -27,7 +27,7 @@ namespace BattleSystem
             if (damage > 0)
             {
                 target.takeDamage(damage);
-                attackResult = " attacked and did " + damage + " to ";
+                attackResult = " attacked and did " + damage + " damage to ";
             }
             else
             {

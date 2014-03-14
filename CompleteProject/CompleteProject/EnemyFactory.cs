@@ -129,7 +129,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 10 + random.Next(STATVARIANCE);
             mStats[(int)StatEnum.MAGIC] = 2 + random.Next(STATVARIANCE);
-            mStats[(int)StatEnum.STRENGTH] = 3 + random.Next(STATVARIANCE);
+            mStats[(int)StatEnum.STRENGTH] = 900 + random.Next(STATVARIANCE);
             mStats[(int)StatEnum.STAMINA] = 1 + random.Next(STATVARIANCE);
 
         }/* end setSpider */
@@ -148,7 +148,7 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 20 + random.Next(STATVARIANCE);
             mStats[(int)StatEnum.MAGIC] = 4 + random.Next(STATVARIANCE);
-            mStats[(int)StatEnum.STRENGTH] = 6 + random.Next(STATVARIANCE);
+            mStats[(int)StatEnum.STRENGTH] = 900 + random.Next(STATVARIANCE);
             mStats[(int)StatEnum.STAMINA] = 2 + random.Next(STATVARIANCE);
 
         }/* end setBat */

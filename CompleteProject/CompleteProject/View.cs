@@ -38,6 +38,8 @@ namespace Game_System
 
         void FoundItem( Item item );
 
+        void notifyGameOver();
+
         Party GoodGuys
         {/* start GoodGuys property */
 

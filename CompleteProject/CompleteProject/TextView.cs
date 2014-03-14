@@ -120,7 +120,7 @@ namespace View_System
         {/* start getPlayerAction */
 
             Console.WriteLine("It's " + character.Name + "'s turn!");
-            Console.WriteLine(character.Name + " has " + character.CurrentHealth + " health and " + character.CurrentMana + " current mana.");
+            Console.WriteLine(character.Name + " has " + character.CurrentHealth + " health and " + character.CurrentMana + " mana.");
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Attack.");
             Console.WriteLine("2. Ability.");
@@ -194,6 +194,12 @@ namespace View_System
         {/* start RecieveBattleOutput */
 
             Console.WriteLine(ourEvent.toString());
+            Console.WriteLine(ourEvent.User.Name + " has " + ourEvent.User.CurrentHealth + " health and " + ourEvent.User.CurrentMana + " mana.");
+
+            if (!ourEvent.Target.isDead)
+                Console.WriteLine(ourEvent.Target.Name + " has " + ourEvent.Target.CurrentHealth + " health and " + ourEvent.Target.CurrentMana + " mana.");
+            else
+                Console.WriteLine(ourEvent.Target.Name + " has died!");
 
         }/* end RecieveBattleOutput */
 
@@ -266,6 +272,13 @@ namespace View_System
             Console.WriteLine();
 
         }/* end DisplayDungeon */
+
+        public void notifyGameOver()
+        {/* start notifyGameOver */
+
+            Console.WriteLine("Your party has died! Game over!");
+
+        }/* end notifyGameOver */
 
         private void printSpot(DungeonEnum spot)
         {/* start printSpot */

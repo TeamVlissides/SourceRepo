@@ -256,7 +256,7 @@ namespace Character_System
         public bool CompareTo(Character character)
         {/* start CompareTo */
 
-            return this.getStat(StatEnum.AGILITY) < character.getStat(StatEnum.AGILITY);
+            return this.getStat(StatEnum.AGILITY) > character.getStat(StatEnum.AGILITY);
 
         }/* end CompareTo */
 

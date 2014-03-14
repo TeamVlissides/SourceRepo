@@ -24,16 +24,23 @@ namespace Character_System
 
             /* Should modularize these loops */
             for (i = 0; i < goodGuys.Size; i++)
-                if (((PlayerCharacter)goodGuys.getCharacter(i)).Class == ClassEnum.WHITEMAGE)
+                if (((PlayerCharacter)goodGuys.getCharacter(i)).Class == ClassEnum.WHITEMAGE && !goodGuys.getCharacter(i).isDead)
                     target = goodGuys.getCharacter(i);
 
             if( target == null )
                 for (i = 0; i < goodGuys.Size; i++)
-                    if (((PlayerCharacter)goodGuys.getCharacter(i)).Class == ClassEnum.REDMAGE)
+                    if (((PlayerCharacter)goodGuys.getCharacter(i)).Class == ClassEnum.REDMAGE && !goodGuys.getCharacter(i).isDead)
                         target = goodGuys.getCharacter(i);
 
             if (target == null)
+            {/* start if */
+
                 target = goodGuys.getCharacter(random.Next(Party.MAXPARTY));
+
+                while( target.isDead )
+                    target = goodGuys.getCharacter(random.Next(Party.MAXPARTY));
+
+            }/* end if */
 
             return new AttackAction(target);
 

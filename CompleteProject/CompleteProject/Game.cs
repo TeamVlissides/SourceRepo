@@ -40,6 +40,9 @@ namespace Game_System
 
             }/* end loop */
 
+            if (!mVictory)
+                mView.notifyGameOver();
+
         }/* end run */
 
         public void DungeonGo()

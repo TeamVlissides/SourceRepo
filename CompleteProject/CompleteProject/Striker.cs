@@ -35,9 +35,12 @@ namespace Character_System
                             theAbility = ability;
 
                 if (theAbility.Cost > mEnemy.CurrentMana)
-                    action = new AttackAction( target );
+                    action = new AttackAction(target);
                 else
-                    action = new AbilityAction( theAbility, target );
+                    if (theAbility.isSingleTarget)
+                        action = new AbilityAction(theAbility, target);
+                    else
+                        action = new AbilityAction(theAbility);
 
             }/* end if */
             else

@@ -67,11 +67,18 @@ namespace BattleSystem
                 base_stat = actingCharacter.getStat(StatEnum.STRENGTH);
             }
 
+            /* This loop does not take into account that enemies can have abilities as well. Maybe I didn't communicate that */
             for (int i = 0; i < combatants.Length; i++)
             {
-                if (combatants[i].isPlayer && !usedAbility.AffectEnemy || !combatants[i].isPlayer && usedAbility.AffectEnemy)
+                if (actingCharacter.isPlayer)
                 {
-                    applyAbility(actingCharacter, combatants[i], base_stat);
+                    if ((combatants[i].isPlayer && !usedAbility.AffectEnemy) || (!combatants[i].isPlayer && usedAbility.AffectEnemy))
+                        applyAbility(actingCharacter, combatants[i], base_stat);
+                }
+                else
+                {
+                    if ((!combatants[i].isPlayer && !usedAbility.AffectEnemy) || (combatants[i].isPlayer && usedAbility.AffectEnemy))
+                        applyAbility(actingCharacter, combatants[i], base_stat);
                 }
             }
         }

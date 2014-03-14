@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F69BCD65-C875-44CB-B64E-DE6C37C7B329}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{F187ACA0-4677-4CB0-B2A5-890A5121F31C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Character_System</RootNamespace>
-    <AssemblyName>Character System</AssemblyName>
+    <RootNamespace>BattleSystem</RootNamespace>
+    <AssemblyName>BattleSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,46 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbilitiesFactory.cs" />
-    <Compile Include="AbilitiesHolder.cs" />
-    <Compile Include="AbilitiesIterator.cs" />
-    <Compile Include="Armor.cs" />
-    <Compile Include="ArmorFactory.cs" />
+    <Compile Include="AbilityAction.cs" />
+    <Compile Include="AttackAction.cs" />
+    <Compile Include="Battle.cs" />
     <Compile Include="BattleAction.cs" />
     <Compile Include="BattleEvent.cs" />
-    <Compile Include="Berserker.cs" />
-    <Compile Include="Character.cs" />
-    <Compile Include="CharacterEnumerations.cs" />
-    <Compile Include="Ability.cs" />
-    <Compile Include="CharacterFactory.cs" />
-    <Compile Include="BlackMage.cs" />
-    <Compile Include="EnemyFactory.cs" />
-    <Compile Include="HealerAttacker.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="ItemFactory.cs" />
-    <Compile Include="Striker.cs" />
-    <Compile Include="Theif.cs" />
-    <Compile Include="Monk.cs" />
-    <Compile Include="Warrior.cs" />
-    <Compile Include="WhiteMage.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="AI.cs" />
-    <Compile Include="LevelTract.cs" />
-    <Compile Include="Party.cs" />
-    <Compile Include="PlayerCharacter.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RedMage.cs" />
-    <Compile Include="Weapon.cs" />
-    <Compile Include="WeaponFactory.cs" />
+    <Compile Include="ItemAction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

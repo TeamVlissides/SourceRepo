@@ -17,11 +17,6 @@ namespace Character_System
         protected override void levelOne()
         {/* start levelOne */
 
-            mStats[(int)StatEnum.AGILITY] = 17;
-            mStats[(int)StatEnum.MAGIC] = 6;
-            mStats[(int)StatEnum.STAMINA] = 18;
-            mStats[(int)StatEnum.STRENGTH] = 15;
-
             mAbilities = AbilitiesFactory.getInstance().getBasicAbilities(ClassEnum.MONK);
 
         }/* end levelOne */

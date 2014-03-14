@@ -84,7 +84,7 @@ namespace Character_System
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.THEIF); ;
             mWeapon = WeaponFactory.getWeapon( WeaponEnum.WETRIEDKNIFE );
-            mClass = new Theif( mStats );
+            mClass = new Thief( mStats );
 
         }/* end setTheif */
 

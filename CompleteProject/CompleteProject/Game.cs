@@ -43,7 +43,22 @@ namespace Game_System
             if (!mVictory)
                 mView.notifyGameOver();
 
+            if (mDragonDead)
+                mView.notifyUltimateVictory();
+
         }/* end run */
+
+        public bool Dragon
+        {/* start Dragon property */
+
+            set
+            {/* start mutator */
+
+                mDragonDead = value;
+
+            }/* end mutator */
+
+        }/* end Dragon property */
 
         public void DungeonGo()
         {/* start DungeonLoop */
@@ -83,8 +98,8 @@ namespace Game_System
             mGoodGuys = new Party(characters);
             mView.GoodGuys = mGoodGuys;
             mBattle = new Battle(this, mGoodGuys);
-            mDungeon = new Dungeon(this);
-            mView.Dungeon = mDungeon.Grid;
+            mDungeon = Dungeon.getInstance(this, mView);
+            mView.Dungeon = mDungeon.GetGrid();
 
         }/* end initialize */
 

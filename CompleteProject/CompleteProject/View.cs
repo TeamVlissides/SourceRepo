@@ -41,6 +41,8 @@ namespace Game_System
 
         void notifyGameOver();
 
+        void notifyUltimateVictory();
+
         Party GoodGuys
         {/* start GoodGuys property */
 

@@ -86,6 +86,11 @@ namespace BattleSystem
                     executeAction(current_enemy.takeTurn(mGoodGuys));
                 }
             }
+
+
+            mGame.notifyBattleOutcome(!mGoodGuys.isDead);
+            mGame.Dragon = mBadGuys.getCharacter(0).isDead;
+
         }
 
         #region Dead Code Thus Far

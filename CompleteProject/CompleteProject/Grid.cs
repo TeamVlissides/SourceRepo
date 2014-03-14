@@ -33,6 +33,29 @@ namespace Dungeon_System
              createGrid();
         }
 
+        public Grid(int row, int col, DungeonEnum[,] grid)
+        {
+            mNumRows = row;
+            mNumColumns = col;
+            createStaticGrid(grid);
+        }
+
+        private void createStaticGrid(DungeonEnum[,] grid)
+        {
+            tiles = new Tile[mNumRows, mNumColumns];
+
+            // Rows
+            for (int i = 0; i < mNumRows; i++)
+            {
+                // Columns
+                for (int j = 0; j < mNumColumns; j++)
+                {
+                    // tiles[i, j] = new Tile(rand);
+                    tiles[i, j] = new Tile(grid[j, i]);
+                }
+            }
+        }
+
 
         // Methods
 

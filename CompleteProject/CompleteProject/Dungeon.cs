@@ -88,24 +88,40 @@ namespace Dungeon_System
 {
     public class Dungeon
     {
+
+        private static Dungeon mDungeon;
+
         // Attributes
         private Grid mGrid;
         private String mName;
-       // public int[,] playerLocation;
+        // public int[,] playerLocation;
         private int playerLocationRow;
         private int playerLocationColumn;
         private Game mGame;
+        private View view;
+        private DungeonEnum[,] staticGrid;
 
         // reference needed to give items to party;
 
         // Constructors
-        public Dungeon( Game game )
+        private Dungeon(Game game, View views)
         {
 
             mGame = game;
+            view = views;
 
             // This is going to be a set size for the grid.
-            mGrid = new Grid(5, 5);
+            // mGrid = new Grid(5, 5);
+
+
+            // Create static grid array.
+            staticGrid = new DungeonEnum[5, 5] { {DungeonEnum.FREESPACE, DungeonEnum.WALL, DungeonEnum.ITEM, DungeonEnum.ITEM, DungeonEnum.ITEM},
+                                                 {DungeonEnum.ITEM, DungeonEnum.FREESPACE, DungeonEnum.WALL, DungeonEnum.FREESPACE, DungeonEnum.WALL},
+                                                 {DungeonEnum.FREESPACE, DungeonEnum.FREESPACE, DungeonEnum.ITEM, DungeonEnum.FREESPACE, DungeonEnum.ITEM},
+                                                 {DungeonEnum.WALL, DungeonEnum.ITEM, DungeonEnum.WALL, DungeonEnum.FREESPACE, DungeonEnum.WALL},
+                                                 {DungeonEnum.ITEM, DungeonEnum.FREESPACE, DungeonEnum.ITEM, DungeonEnum.ITEM, DungeonEnum.FREESPACE}};
+
+            mGrid = new Grid(5, 5, staticGrid);
 
             // Keeps track of the location of players on 5 by 5 gird.
             //playerLocation = new int[5, 5];
@@ -123,11 +139,19 @@ namespace Dungeon_System
 
             // Make sure that the first tile is a freespace
             sTiles[0, 0].TileType = DungeonEnum.FREESPACE;
-            
+
 
         }
 
         // Methods
+
+        public static Dungeon getInstance(Game game, View view)
+        {
+            if (mDungeon == null)
+                mDungeon = new Dungeon(game, view);
+
+            return mDungeon;
+        }
 
         public int PlayerLocationRow
         {
@@ -164,22 +188,20 @@ namespace Dungeon_System
 
             return tempArray;
         }
-       
-        public Grid Grid
-        {/* start Grid property */
 
-            get
-            {/* start accessor */
-
-                return mGrid;
-
-            }/* end accessor */
-
-        }/* end Grid property */
+        public Grid GetGrid()
+        {
+            return mGrid;
+        }
 
         public void SetGame(Game g)
         {
             mGame = g;
+        }
+
+        public void SetView(View v)
+        {
+            view = v;
         }
 
         /*
@@ -203,7 +225,7 @@ namespace Dungeon_System
                 //if (playerLocationColumn > 0)
                 PlayerLocationColumn -= 1;
 
-  
+
 
             }
             else if (locationEnum == DirectionEnum.DOWN)
@@ -249,26 +271,26 @@ namespace Dungeon_System
             if (direction == DirectionEnum.LEFT)
             {
                 if (!isWall(direction))
-                { 
-                /*...*/
-                // Check if direction is valid
-                //    The PlayerLocationRow/Columns already do this.
-                /*
-                 * getCurrentPartyLocation()
-                 * check if increment in that location is valid
-                 * if valid return true, else return false.
-                 * 
-                 */ 
-                //    but could setoutput that direction is invalid.
-                // Update party location.
+                {
+                    /*...*/
+                    // Check if direction is valid
+                    //    The PlayerLocationRow/Columns already do this.
+                    /*
+                     * getCurrentPartyLocation()
+                     * check if increment in that location is valid
+                     * if valid return true, else return false.
+                     * 
+                     */
+                    //    but could setoutput that direction is invalid.
+                    // Update party location.
                     MovePlayerLocation(DirectionEnum.LEFT);
-                //    check if item to give; 
-                //    part.GiveItem(ItemEnum)
-                // Check if dragon
-                // if so start battle
-                // if not step five
-                // roll to see if random battle occurs; start battle
-                // update view/ repaint.
+                    //    check if item to give; 
+                    //    part.GiveItem(ItemEnum)
+                    // Check if dragon
+                    // if so start battle
+                    // if not step five
+                    // roll to see if random battle occurs; start battle
+                    // update view/ repaint.
                 }
                 else
                 {
@@ -300,9 +322,9 @@ namespace Dungeon_System
                 else
                     mGame.HitAWall();
             }
-                           
-            
-           //  mGame.notifyDungeonUpdate();
+
+
+            //  mGame.notifyDungeonUpdate();
 
             // Check for item
             if (checkForItem())
@@ -316,11 +338,19 @@ namespace Dungeon_System
             if (checkIfDragon())
             {
                 mGame.startBattle(EnemyType.DRAGON);
+
             }
             else
-                if (!isWall(direction) && RollBattleDice())
-                    mGame.startBattle(EnemyType.NULL);
-             
+                if (!isWall(direction))
+                {
+                    if (RollBattleDice())
+                    {
+
+                        mGame.startBattle(EnemyType.NULL);
+
+                    }
+                }
+
 
         }/* end getDirection */
 
@@ -339,7 +369,7 @@ namespace Dungeon_System
             if (directionEnum == DirectionEnum.DOWN)
             {
                 if (col >= 0)
-                  col++;
+                    col++;
             }
 
             if (directionEnum == DirectionEnum.LEFT)
@@ -351,7 +381,7 @@ namespace Dungeon_System
             if (directionEnum == DirectionEnum.RIGHT)
             {
                 if (row >= 0)
-                 row++;
+                    row++;
             }
 
             // Dont let out of bounds conditions happen,
@@ -380,13 +410,17 @@ namespace Dungeon_System
             Tile[,] tmpTiles = mGrid.GetTiles();
             DungeonEnum tileHasItem = tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType;
             if (tileHasItem == DungeonEnum.ITEM)
+            {
+                tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType = DungeonEnum.FREESPACE;
                 return true; // view.sendOutput("Tile has item.");
+            }
 
             return false;
         }
 
         public bool checkIfDragon()
         {
+            //Console.WriteLine("DRAGON is being called.");
             Tile[,] tmpTiles = mGrid.GetTiles();
             DungeonEnum item = tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType;
             if (item == DungeonEnum.DRAGON)
@@ -397,7 +431,7 @@ namespace Dungeon_System
         public bool RollBattleDice()
         {
             Random randomDiceRoll = new Random();
-            int diceRollNumber = randomDiceRoll.Next(1,100);
+            int diceRollNumber = randomDiceRoll.Next(1, 100);
             // percentage, probability that I will roll, pick a number... 
             // if roll on a number start a battle else do notthing.
             // if roll > 50 go into battle, else no battle.
@@ -443,7 +477,7 @@ namespace Dungeon_System
          *  - How does the GUI get updates about the statistics for the characters?
          * 
          * 
-         */ 
+         */
 
         // get character location
 

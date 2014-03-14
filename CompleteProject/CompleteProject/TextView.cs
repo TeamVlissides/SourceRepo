@@ -27,7 +27,8 @@ namespace View_System
 
             Console.WriteLine("You and your party are in a deep dark cave with a dragon who is the keeper of the cave. The dragon is watcher of the large " +
                 "stash of gold and precious jewels. You and your party want to traverse the cave, defeat the dragon, and collect the loot. In the cave there are cave monsters and minions of the" +
-                " dragon. The monsters are under the dragons command to keep outsiders from getting the stash of goods that are in the cave, so be careful! ");
+                " dragon. The monsters are under the dragons command to keep outsiders from getting the stash of goods that are in the cave, so be careful! Thou MUST grind"+
+                "to be strong enough to face the dragon. ");
 
             mPartyRow = 0;
             mPartyColumn = 0;
@@ -54,8 +55,6 @@ namespace View_System
 
                 mDungeon = value;
 
-                DisplayDungeon();
-
             }/* end mutator */
 
         }/* end Dungeon property */
@@ -63,6 +62,9 @@ namespace View_System
         public DirectionEnum getDirection()
         {/* start getDirecton */
 
+            DisplayDungeon();
+
+            Console.WriteLine();
             Console.WriteLine("Which direction would you like to go?");
             Console.WriteLine("1. Left");
             Console.WriteLine("2. Right");
@@ -77,10 +79,8 @@ namespace View_System
         public void updatePlayerLocation(int row, int column)
         {/* start updatePlayerLocation */
 
-            mPartyColumn = column;
-            mPartyRow = row;
-
-            DisplayDungeon();
+            mPartyColumn = row;
+            mPartyRow = column;
 
         }/* end updatePlayerLocation */
 
@@ -88,7 +88,6 @@ namespace View_System
         {/* start DeclineMovement */
 
             Console.WriteLine("You can't go that way!");
-            DisplayDungeon();
 
         }/* end DeclineMovement */
 
@@ -179,12 +178,22 @@ namespace View_System
 
             int i;
             if (partyAlignment == GOODGUYS)
-                Console.WriteLine("Who would you like to heal?");
-            else
-                Console.WriteLine("Who would you like to damage?");
+            {/* start if */
 
-            for (i = 0; i < party.Size; i++)
-                Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana );
+                Console.WriteLine("Who would you like to heal?");
+                for (i = 0; i < party.Size; i++)
+                    Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana);
+
+            }/* end if */
+            else
+            {/* start else */
+
+                Console.WriteLine("Who would you like to damage?");
+                for (i = 0; i < party.Size; i++)
+                    if( !party.getCharacter( i ).isDead )
+                    Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana);
+
+            }/* end else */
 
             return party.getCharacter(int.Parse(Console.ReadLine()));
 
@@ -258,7 +267,7 @@ namespace View_System
                 for (column = 0; column < mDungeon.NumColumns; column++)
                 {/* start loop */
 
-                    spot = mDungeon.getTileType(row, column);
+                    spot = mDungeon.getTileType(column, row);
 
                     if (row == mPartyRow && column == mPartyColumn)
                         Console.Write("P");
@@ -280,6 +289,14 @@ namespace View_System
             Console.ReadLine();
 
         }/* end notifyGameOver */
+
+        public void notifyUltimateVictory()
+        {/* start notifyUltimateVictory */
+
+            Console.WriteLine("You and your party defeated the Dragon! You have enough gold here to go to Hawaii (Just one of you)! Congrats! Enter any button to end the game");
+            Console.ReadLine();
+
+        }/* end notifyUltimateVictory */
 
         private void printSpot(DungeonEnum spot)
         {/* start printSpot */

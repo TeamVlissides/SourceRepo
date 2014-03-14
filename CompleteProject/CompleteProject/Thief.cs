@@ -7,21 +7,16 @@ using System.Threading.Tasks;
 namespace Character_System
 {/* start Character_System namespace */
 
-    public class Theif : LevelTract
+    public class Thief : LevelTract
     {/* start Theif class */
 
-        public Theif(int[] stats)
+        public Thief(int[] stats)
             : base(stats)
         {/* start constructor */
         }/* end constructor */
 
         protected override void levelOne()
         {/* start levelOne */
-
-            mStats[(int)StatEnum.AGILITY] = 25;
-            mStats[(int)StatEnum.MAGIC] = 7;
-            mStats[(int)StatEnum.STAMINA] = 15;
-            mStats[(int)StatEnum.STRENGTH] = 10;
 
             mAbilities = AbilitiesFactory.getInstance().getBasicAbilities(ClassEnum.THEIF);
 

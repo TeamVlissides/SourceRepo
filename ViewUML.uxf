@@ -84,7 +84,7 @@ drawTiles(Tile[,] tiles, Graphics g): void</panel_attributes>
       <w>560</w>
       <h>390</h>
     </coordinates>
-    <panel_attributes>SimpleClass
+    <panel_attributes>DisplayView
 --
 -grid: Grid
 -graphics: Graphics

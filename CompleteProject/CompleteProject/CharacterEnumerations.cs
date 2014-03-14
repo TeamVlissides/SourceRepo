@@ -21,12 +21,12 @@ namespace Character_System
     public enum ClassEnum : int
     {/* start ClassEnum */
 
-        REDMAGE = 0,
-        WHITEMAGE = 1,
-        BLACKMAGE = 2,
-        WARRIOR = 3,
-        THEIF = 4,
-        MONK = 5
+        REDMAGE = 1,
+        WHITEMAGE = 2,
+        BLACKMAGE = 3,
+        WARRIOR = 4,
+        THEIF = 5,
+        MONK = 6
 
     }/* end ClassEnum */
 

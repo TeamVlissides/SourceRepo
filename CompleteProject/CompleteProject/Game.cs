@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Character_System;
 using Dungeon_System;
 using BattleSystem;
+using View_System;
 
 namespace Game_System
 {/* start Game_System namespace */
@@ -63,6 +64,8 @@ namespace Game_System
             String name;
             Character[] characters = new Character[ Party.MAXPARTY ];
 
+            mView = new TextView();
+
             for (i = 0; i < Party.MAXPARTY; i++)
             {/* start loop */
 
@@ -78,6 +81,7 @@ namespace Game_System
             mView.GoodGuys = mGoodGuys;
             mBattle = new Battle(this, mGoodGuys);
             mDungeon = new Dungeon(this);
+            mView.Dungeon = mDungeon.Grid;
 
         }/* end initialize */
 
@@ -110,10 +114,10 @@ namespace Game_System
 
         }/* end startBattle */
 
-        public BattleAction getPlayerAction( Character character )
+        public BattleAction getPlayerAction( Character character, Party badGuys )
         {/* start getPlayerAction */
 
-            return mView.getPlayerAction(character);
+            return mView.getPlayerAction(character, badGuys);
 
         }/* end getPlayerAction */
 
@@ -135,7 +139,7 @@ namespace Game_System
         {/* start FoundItem */
 
             Random random = new Random();
-            ItemEnum itemSelection = (ItemEnum)random.Next(6);
+            ItemEnum itemSelection = (ItemEnum)random.Next(1,6);
             Item item = ItemFactory.getItem(itemSelection);
 
             mView.FoundItem(item);

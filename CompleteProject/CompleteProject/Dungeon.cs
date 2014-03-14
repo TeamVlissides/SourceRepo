@@ -165,10 +165,17 @@ namespace Dungeon_System
             return tempArray;
         }
        
-        public Grid GetGrid()
-        {
-            return mGrid;
-        }
+        public Grid Grid
+        {/* start Grid property */
+
+            get
+            {/* start accessor */
+
+                return mGrid;
+
+            }/* end accessor */
+
+        }/* end Grid property */
 
         public void SetGame(Game g)
         {

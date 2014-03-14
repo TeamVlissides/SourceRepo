@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Character_System;
 using BattleSystem;
+using Dungeon_System;
 
 namespace Game_System
 {/* start Game_System namespace */
@@ -26,7 +27,7 @@ namespace Game_System
         String getCharacterName();
 
         /* For Battle System */
-        BattleAction getPlayerAction( Character character );
+        BattleAction getPlayerAction( Character character, Party badGuys );
 
         void RecieveBattleOutput( BattleEvent ourEvent );
 
@@ -43,6 +44,13 @@ namespace Game_System
             set;
 
         }/* end GoodGuys property */
+
+        Grid Dungeon
+        {/* start Dungeon property */
+
+            set;
+
+        }/* end Dungeon property */
 
     }/* end View interface */
 

@@ -96,7 +96,12 @@ namespace Dungeon_System
 
        // }
 
+        public DungeonEnum getTileType(int row, int column)
+        {/* start getTileType */
 
+            return tiles[row, column].TileType;
+
+        }/* end getTileType */
 
         public void SetPartyRow(int row)
         {

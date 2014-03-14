@@ -13,7 +13,8 @@ namespace Game_System
         public static void Main(string[] args)
         {/* start main */
 
-
+            Game game = new Game();
+            game.run();
 
         }/* end main */
 

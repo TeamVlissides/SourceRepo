@@ -16,6 +16,7 @@ namespace Character_System
         private int mExperience;
         private LevelTract mClass;
         private ClassEnum mClassEnum;
+        private int mCurrentLevel;
 
         public PlayerCharacter( Armor[] armor, string name, int[] stats, Weapon weapon, LevelTract pclass, ClassEnum classes ) : base( armor,  name, stats, weapon, pclass )
         {/* start constructor */
@@ -24,8 +25,9 @@ namespace Character_System
             mClass = pclass;
             mIsPlayer = true;
             mClassEnum = classes;
+            mCurrentLevel = 1;
 
-            mClass.LevelUp(1);
+            mClass.LevelUp(mCurrentLevel);
 
         }/* end constructor */
 
@@ -47,7 +49,7 @@ namespace Character_System
             get
             {/* start accessor */
 
-                return mExperience / EXPERIENCEPERLEVEL;
+                return mCurrentLevel;
 
             }/* end accessor */
 
@@ -56,7 +58,15 @@ namespace Character_System
         public void gainExperience( int experience )
         {/* start gainExperience */
 
-            throw new NotImplementedException();
+            mExperience += experience;
+
+            if ((mExperience / EXPERIENCEPERLEVEL) > mCurrentLevel)
+            {/* start if */
+
+                mCurrentLevel++;
+                mClass.LevelUp(mCurrentLevel);
+
+            }/* end if */
 
         }/* end gainExperience */
 

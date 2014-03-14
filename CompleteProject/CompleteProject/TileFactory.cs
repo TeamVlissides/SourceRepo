@@ -35,7 +35,7 @@ namespace Dungeon_System
             {
                 // decide what type of item to put here.
                 // generate random itemtype number here and set the itemType to it.
-                randomItemType = (DungeonEnum)r.Next(-1, 3);
+                randomItemType = (DungeonEnum)r.Next(0, 3);
 
                 //hasAnItem = true;
                 // Console.WriteLine("True." + r);

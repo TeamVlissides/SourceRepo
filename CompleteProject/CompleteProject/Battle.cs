@@ -51,7 +51,7 @@ namespace BattleSystem
             {
                 if (currentActor.isPlayer)
                 {
-                    executeAction(mGame.getPlayerAction(currentActor));
+                    executeAction(mGame.getPlayerAction(currentActor, mBadGuys));
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace BattleSystem
             {
                 if (currentActor.isPlayer)
                 {
-                    executeAction(mGame.getPlayerAction( currentActor ));
+                    executeAction(mGame.getPlayerAction( currentActor, mBadGuys ));
                 }
                 else
                 {
@@ -166,6 +166,7 @@ namespace BattleSystem
             while (!currentActor.isDead)
             {
                 i++;
+                /* Index Out of Bounds exception keeps happening here */
                 currentActor = turnOrder[i];
                 currentActorIndex = i;
             }

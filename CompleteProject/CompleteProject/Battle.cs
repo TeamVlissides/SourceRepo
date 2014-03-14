@@ -185,16 +185,55 @@ namespace BattleSystem
             }/* end loop */
         }
 
+        /* Possible Infinite Loop Here. R.F. 3/13/2014 */
         private void selectNextCharacter()
         {
-            int i = (currentActorIndex + 1) % turnOrder.Length;
-            currentActor = turnOrder[i];
-            while (!currentActor.isDead)
-            {
-                i = (i + 1) % turnOrder.Length;
-                currentActor = turnOrder[i];
+
+            //int i = (currentActorIndex + 1) % turnOrder.Length;
+            //currentActor = turnOrder[i];
+            //while (!currentActor.isDead)
+            //{
+            //    i = (i + 1) % turnOrder.Length;
+            //    currentActor = turnOrder[i];
+            //    currentActorIndex = i;
+            //}
+
+            int i;
+            Character candidate;
+
+            /* If we can move further along the turnOrder array, then we shall. If not, we need to start over from the beginning,
+             * which selectFisrtCharacter can do. */
+            if (currentActorIndex + 1 < turnOrder.Length)
+                candidate = turnOrder[currentActorIndex + 1];
+            else
+            {/* start else */
+
+                selectFirstCharacter();
+                return;
+
+            }/* end else */
+
+            currentActorIndex++;
+
+            for (i = currentActorIndex; i < turnOrder.Length;)
+            {/* start loop */
+
+                if (!candidate.isDead)
+                    break;
+
+                i++;
+
+                if (i >= turnOrder.Length)
+                    i = 0;
+
+                candidate = turnOrder[i];
                 currentActorIndex = i;
-            }
+
+            }/* end loop */
+
+            currentActor = candidate;
+
         }
+
     }
 }

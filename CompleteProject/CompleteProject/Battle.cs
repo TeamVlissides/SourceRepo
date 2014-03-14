@@ -168,7 +168,7 @@ namespace BattleSystem
             //while (!currentActor.isDead)
             //{
             //    i++;
-            //    /* Index Out of Bounds exception keeps happening here (R.F.)*/
+            //    /* Index Out of Bounds exception keeps happening below (R.F.)*/
             //    currentActor = turnOrder[i];
             //    currentActorIndex = i;
             //}

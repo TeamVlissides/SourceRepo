@@ -19,7 +19,7 @@ namespace BattleSystem
         {
             mActor = currentActor;
             mAction = actorAction;
-            actionOutcome = mAction.ToString();
+            actionOutcome = mAction.toString();
             mActee = actorTarget;
         }
 

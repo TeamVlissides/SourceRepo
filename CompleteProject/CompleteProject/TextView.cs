@@ -120,6 +120,7 @@ namespace View_System
         {/* start getPlayerAction */
 
             Console.WriteLine("It's " + character.Name + "'s turn!");
+            Console.WriteLine(character.Name + " has " + character.CurrentHealth + " health and " + character.CurrentMana + " current mana.");
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Attack.");
             Console.WriteLine("2. Ability.");
@@ -192,7 +193,7 @@ namespace View_System
         public void RecieveBattleOutput(BattleSystem.BattleEvent ourEvent)
         {/* start RecieveBattleOutput */
 
-            Console.WriteLine(ourEvent.ToString());
+            Console.WriteLine(ourEvent.toString());
 
         }/* end RecieveBattleOutput */
 

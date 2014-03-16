@@ -15,7 +15,7 @@ namespace Character_System
         private int mBaseDamage;
         private int[] mStats;
 
-        public Weapon(String name, String description, int damage, int[] stats, ItemType type ) : base( type )
+        public Weapon(String name, String description, int damage, int[] stats, ItemType type ) : base( type, ItemEnum.NONITEM )
         {/* start constructor */
 
             mName = name;

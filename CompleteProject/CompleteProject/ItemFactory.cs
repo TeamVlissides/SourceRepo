@@ -16,12 +16,12 @@ namespace Character_System
             Item items = null;
 
             if (item == ItemEnum.HEALTHPOTION)
-                items = new Ability("Heals a character's health by 25%", "Health Potion", Ability.MAGIC, Ability.SINGLETARGET, Ability.HEALING, 25, 0, ItemType.ABILITY);
+                items = new Ability("Heals a character's health by 25%", "Health Potion", Ability.MAGIC, Ability.SINGLETARGET, Ability.HEALING, 25, 0, ItemType.ABILITY, item);
 
             if (item == ItemEnum.MANAPOTION)
             {/* start if */
 
-                items = new Ability("Restores a character's mana by 25%", "Mana Potion", Ability.MAGIC, Ability.HEALING, false, 25, 0, ItemType.ABILITY);
+                items = new Ability("Restores a character's mana by 25%", "Mana Potion", Ability.MAGIC, Ability.SINGLETARGET, Ability.HEALING, 25, 0, ItemType.ABILITY, item);
                 items.IsMana = true;
 
             }/* end if */
@@ -33,7 +33,7 @@ namespace Character_System
                 items = new Weapon("Uber Sword", "Used to PWN noobs.", 100, new int[Character.MAXSTATS] { 100, 15, 30, 30 }, ItemType.WEAPON);
 
             if (item == ItemEnum.BOMB)
-                items = new Ability("Blow up the enemy.", "Bomb", Ability.PHYSICAL, Ability.PARTYTARGET, Ability.DAMAGING, 25, 0, ItemType.ABILITY);
+                items = new Ability("Blow up the enemy.", "Bomb", Ability.PHYSICAL, Ability.PARTYTARGET, Ability.DAMAGING, 500, 0, ItemType.ABILITY, item);
 
             return items;
 

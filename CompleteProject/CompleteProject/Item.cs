@@ -11,12 +11,14 @@ namespace Character_System
     {/* start Item interface */
 
         private ItemType mType;
+        private ItemEnum mItem;
         private bool mIsManaPotion = false;
 
-        public Item(ItemType type)
+        public Item(ItemType type, ItemEnum item)
         {/* start constructor */
 
             mType = type;
+            mItem = item;
 
         }/* end constructor */
 
@@ -50,6 +52,18 @@ namespace Character_System
             }/* end accessor */
 
         }/* end Type property */
+
+        public ItemEnum WhichItem
+        {/* start Item property */
+
+            get
+            {/* start accessor */
+
+                return mItem;
+
+            }/* end accessor */
+
+        }/* end Item property */
 
     }/* end Item interface */
 

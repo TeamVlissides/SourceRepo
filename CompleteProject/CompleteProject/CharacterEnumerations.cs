@@ -151,7 +151,8 @@ namespace Character_System
         MANAPOTION = 2,
         UBERSWORD = 3,
         GANDALFSSTAFF = 4,
-        BOMB = 5
+        BOMB = 5,
+        NONITEM = 6
 
     }/* end Item enum */
 

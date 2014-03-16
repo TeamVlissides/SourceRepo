@@ -27,7 +27,7 @@ namespace View_System
 
             Console.WriteLine("You and your party are in a deep dark cave with a dragon who is the keeper of the cave. The dragon is watcher of the large " +
                 "stash of gold and precious jewels. You and your party want to traverse the cave, defeat the dragon, and collect the loot. In the cave there are cave monsters and minions of the" +
-                " dragon. The monsters are under the dragons command to keep outsiders from getting the stash of goods that are in the cave, so be careful! Thou MUST grind"+
+                " dragon. The monsters are under the dragons command to keep outsiders from getting the stash of goods that are in the cave, so be careful! Thou MUST grind "+
                 "to be strong enough to face the dragon. ");
 
             mPartyRow = 0;
@@ -118,14 +118,26 @@ namespace View_System
         public BattleSystem.BattleAction getPlayerAction(Character character, Party badGuys)
         {/* start getPlayerAction */
 
+            BattleAction action = null;
+
+            
             Console.WriteLine("It's " + character.Name + "'s turn!");
             Console.WriteLine(character.Name + " has " + character.CurrentHealth + " health and " + character.CurrentMana + " mana.");
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("1. Attack.");
-            Console.WriteLine("2. Ability.");
-            Console.WriteLine("3. Item.");
 
-            return CreateBattleAction((ActionEnum)int.Parse(Console.ReadLine()), character, badGuys);
+            while (action == null)
+            {/* start loop */
+
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("1. Attack.");
+                Console.WriteLine("2. Ability.");
+                Console.WriteLine("3. Item.");
+                Console.WriteLine("4. Menu.");
+
+                action = CreateBattleAction((ActionEnum)int.Parse(Console.ReadLine()), character, badGuys);
+
+            }/* end loop */
+
+            return action;
 
         }/* end getPlayerAction */
 
@@ -138,12 +150,42 @@ namespace View_System
             if (action == ActionEnum.ABILITY)
                 return HandleAbilitySelection(character, badGuys);
 
-            /* Will do this after Justin finishes implementing the ItemAction based on what I told him items will do */
-            //if (action == ActionEnum.ITEM)
+            if (action == ActionEnum.ITEM)
+                return HandleItemSelection(character, badGuys);
                 
             return null;
 
         }/* end CreateBattleAction */
+
+        private ItemAction HandleItemSelection(Character character, Party badGuys)
+        {/* start HandleItemSelection */
+
+            Console.WriteLine("Which item would you like to use?");
+            Ability[] items = mGoodGuys.Consumables;
+            Ability choice;
+            int i;
+
+            if (items != null)
+            {/* start if */
+
+                for (i = 0; i < items.Length; i++)
+                    Console.WriteLine(i + ". " + items[i].Name);
+
+                choice = items[int.Parse(Console.ReadLine())];
+
+                mGoodGuys.removeItem(choice);
+
+                if (choice.AffectEnemy)
+                    return new ItemAction(choice);
+                else
+                    return new ItemAction(choice, getTarget(mGoodGuys, GOODGUYS));
+
+            }/* end if */
+            
+            Console.WriteLine( "You have no items!" );
+            return null;
+
+        }/* end HandleItemSelection */
 
         private AbilityAction HandleAbilitySelection(Character character, Party badGuys)
         {/* start HandleAbilitySelection */
@@ -232,7 +274,7 @@ namespace View_System
             Weapon weapon;
             Ability ability;
 
-            /* Dependency Inversion needs to happen here. If I have time, I'll design inventory properly */
+            /* Dependency Inversion needs to happen here. If I have time, I'll design inventory properly. R.F. 3/14/2014 */
             if (item.Type == ItemType.ABILITY)
             {/* start if */
 

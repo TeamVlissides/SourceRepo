@@ -18,7 +18,7 @@ namespace Character_System
         private String mName;
         private String mDescription;
 
-        public Armor( int armorValue, String name, String description, ItemType type ) : base( type )
+        public Armor( int armorValue, String name, String description, ItemType type ) : base( type, ItemEnum.NONITEM )
         {/* start constructor */
 
             mArmorValue = armorValue;

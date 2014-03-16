@@ -26,7 +26,7 @@ namespace Character_System
         private int mBaseDamage;
         private int mCost;
 
-        public Ability(String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseDamage, int cost, ItemType itemType) : base(itemType)
+        public Ability(String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseDamage, int cost, ItemType itemType, ItemEnum item) : base(itemType, item)
         {/* start constructor */
 
             mDescription = description;

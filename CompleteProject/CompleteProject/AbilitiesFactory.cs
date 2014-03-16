@@ -190,7 +190,7 @@ namespace Character_System
             if (ability == AbilitesEnum.SLICE)
                 setSliceAbility();
 
-            return new Ability(mDescription, mName, mType, mTargetSpread, mAffectEnemy, mBaseDamage, mCost, ItemType.ABILITY);
+            return new Ability(mDescription, mName, mType, mTargetSpread, mAffectEnemy, mBaseDamage, mCost, ItemType.ABILITY, ItemEnum.NONITEM);
 
         }/* end getAbility */
 

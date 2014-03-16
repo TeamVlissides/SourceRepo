@@ -163,6 +163,54 @@ namespace Character_System
 
         }/* end equipItem */
 
+        public void removeItem(Item item)
+        {/* start removeItem */
+
+            mInventory.Remove(item);
+
+        }/* end removeItem */
+
+        public Ability[] Consumables
+        {/* start Consumables property */
+
+            get
+            {/* start accessor */
+
+                Ability[] consumables;
+                int count = 0, i = 0;
+
+                /* Count the amount of consumables in the inventory. This is a deodorant code smell */
+                foreach (Item item in mInventory)
+                    /* This is bad code. No time to fix it. */
+                    if (item.WhichItem == ItemEnum.BOMB || item.WhichItem == ItemEnum.HEALTHPOTION || item.WhichItem == ItemEnum.MANAPOTION)
+                        count++;
+
+                if (count == 0)
+                    return null;
+
+                consumables = new Ability[count];
+
+                /* Violating DRY here */
+                foreach (Item item in mInventory)
+                {/* start loop */
+
+                    if (item.WhichItem == ItemEnum.BOMB || item.WhichItem == ItemEnum.HEALTHPOTION || item.WhichItem == ItemEnum.MANAPOTION)
+                    {/* start if */
+
+                        consumables[i] = (Ability)item;
+                        i++;
+
+                    }/* end if */
+
+                }/* end loop */
+
+                /* Return the array, and SHAME. */
+                return consumables;
+
+            }/* end accessor */
+
+        }/* end consumables property */
+
     }/* end Party class */
 
 }/* end Character_System namespace */

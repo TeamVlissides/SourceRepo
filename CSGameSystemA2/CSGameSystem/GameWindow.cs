@@ -62,7 +62,8 @@ namespace CSGameSystem
            // g.DrawLine(new Pen(Brushes.Black, 5), 0, 0, 200, 200);
            // viewTextOutput.AppendText(Environment.NewLine + "The player has mod left.");
            // v.sendOutput("The player has moved left.");
-            testENUM(LocationA.UP);
+           // testENUM(LocationA.UP);
+            SetTextOutput("Test Output.");
         }
 
         public void testENUM(LocationA loc)

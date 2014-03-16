@@ -280,7 +280,8 @@ namespace CSGameSystem
 
         public void sendOutput(string theString)
         {
-            viewWindow.SetTextOutput(theString); //"The player has moved left."
+            viewWindow.SetTextOutput(theString); 
+            //"The player has moved left."
             //throw new NotImplementedException();
         }
 
@@ -297,14 +298,32 @@ namespace CSGameSystem
 
         public ClassEnum getClassChoice()
         {
+
+            sendOutput("Which class would you like a party memeber to be?");
+            sendOutput("1. Red Mage.");
+            sendOutput("2. White Mage.");
+            sendOutput("3. Black Mage.");
+            sendOutput("4. Warrior.");
+            sendOutput("5. Thief.");
+            sendOutput("6. Monk.");
+
+            /* A LOT of faith in this line. If there's time, do exception handling. */
+            return ClassEnum.REDMAGE;
+            //return (ClassEnum)int.Parse(Console.ReadLine());
+
            // throw new NotImplementedException();
-            return new ClassEnum();
+           // return new ClassEnum();
         }
 
         public string getCharacterName()
         {
             //throw new NotImplementedException();
-            return null;
+            Console.Write("Please enter the name for the party memeber. : ");
+
+            // Get input for name
+            return "Test";
+            //return Console.ReadLine();
+           // return null;
         }
 
         public BattleAction getPlayerAction(Character character)

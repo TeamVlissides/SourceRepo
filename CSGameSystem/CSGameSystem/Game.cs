@@ -73,8 +73,8 @@ namespace CSGameSystem
             for (i = 0; i < Party.MAXPARTY; i++)
             {/* start loop */
 
-                mView.sendOutput("What class type do you want? You get 3.");
-                mView.sendOutput(classes.GetEnumerator(), TypeEnum.STRING);
+                //mView.sendOutput("What class type do you want? You get 3.");
+               // mView.sendOutput(classes.GetEnumerator(), TypeEnum.STRING);
                // choice = (int)mView.getInput(TypeEnum.INT);
                // name = (string)mView.getInput(TypeEnum.STRING);
 

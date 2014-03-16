@@ -30,10 +30,7 @@ namespace CSGameSystem
           //BattleAction getPlayerAction(Character character);
 
           /* For Battle System */
-          BattleAction getPlayerAction(Character character, Party badGuys)
-          {
-
-          }
+          BattleAction getPlayerAction(Character character, Party badGuys);
 
 
           void RecieveBattleOutput(BattleEvent ourEvent);

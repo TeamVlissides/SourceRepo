@@ -38,6 +38,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.viewPanel = new System.Windows.Forms.Panel();
             this.exitButton = new System.Windows.Forms.Button();
+            this.inputButton = new System.Windows.Forms.Button();
+            this.testInputBox = new System.Windows.Forms.TextBox();
             this.viewPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             this.viewTextOutput.Multiline = true;
             this.viewTextOutput.Name = "viewTextOutput";
             this.viewTextOutput.ReadOnly = true;
+            this.viewTextOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.viewTextOutput.Size = new System.Drawing.Size(300, 139);
             this.viewTextOutput.TabIndex = 1;
             this.viewTextOutput.Text = "Welcome to the Dungeon Battle System Game\r\n\r\n";
@@ -104,7 +107,7 @@
             // 
             // executeActionButton
             // 
-            this.executeActionButton.Location = new System.Drawing.Point(102, 208);
+            this.executeActionButton.Location = new System.Drawing.Point(115, 251);
             this.executeActionButton.Name = "executeActionButton";
             this.executeActionButton.Size = new System.Drawing.Size(104, 20);
             this.executeActionButton.TabIndex = 8;
@@ -123,7 +126,7 @@
             "Defend",
             "Block",
             "Back Hand"});
-            this.comboBox1.Location = new System.Drawing.Point(82, 181);
+            this.comboBox1.Location = new System.Drawing.Point(95, 224);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(136, 21);
             this.comboBox1.TabIndex = 9;
@@ -132,6 +135,8 @@
             // viewPanel
             // 
             this.viewPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewPanel.Controls.Add(this.testInputBox);
+            this.viewPanel.Controls.Add(this.inputButton);
             this.viewPanel.Controls.Add(this.comboBox1);
             this.viewPanel.Controls.Add(this.executeActionButton);
             this.viewPanel.Location = new System.Drawing.Point(474, 22);
@@ -149,6 +154,22 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // inputButton
+            // 
+            this.inputButton.Location = new System.Drawing.Point(184, 177);
+            this.inputButton.Name = "inputButton";
+            this.inputButton.Size = new System.Drawing.Size(103, 23);
+            this.inputButton.TabIndex = 10;
+            this.inputButton.Text = "Submit";
+            this.inputButton.UseVisualStyleBackColor = true;
+            // 
+            // testInputBox
+            // 
+            this.testInputBox.Location = new System.Drawing.Point(36, 177);
+            this.testInputBox.Name = "testInputBox";
+            this.testInputBox.Size = new System.Drawing.Size(143, 20);
+            this.testInputBox.TabIndex = 11;
             // 
             // GUIWindow
             // 
@@ -173,6 +194,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GUIWindow_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GUIWindow_KeyUp);
             this.viewPanel.ResumeLayout(false);
+            this.viewPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +212,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel viewPanel;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.TextBox testInputBox;
+        private System.Windows.Forms.Button inputButton;
     }
 }
 

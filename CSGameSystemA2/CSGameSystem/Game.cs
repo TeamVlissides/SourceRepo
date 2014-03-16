@@ -69,14 +69,16 @@ namespace CSGameSystem
             mDungeon = Dungeon.getInstance(this);
             mView = new DisplayView(viewWindow, mDungeon);
 
-            for (i = 0; i < Party.MAXPARTY; i++)
+            //for (i = 0; i < Party.MAXPARTY; i++)
+            for (i = 0; i < 1; i++)
             {/* start loop */
 
 
                 choice = mView.getClassChoice();
                 name = mView.getCharacterName();
 
-                characters[ i ] = CharacterFactory.getInstance().getCharacter(ClassEnum.REDMAGE, "TEst");
+
+                characters[ i ] = CharacterFactory.getInstance().getCharacter(choice, name);
 
             }/* end loop */
 

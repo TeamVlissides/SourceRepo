@@ -420,7 +420,7 @@ namespace CSGameSystem
 
         public bool checkIfDragon()
         {
-            Console.WriteLine("DRAGON is being called.");
+            //Console.WriteLine("DRAGON is being called.");
             Tile[,] tmpTiles = mGrid.GetTiles();
             DungeonEnum item = tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType;
             if (item == DungeonEnum.DRAGON)

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>64</x>
+      <y>48</y>
+      <w>296</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>Dungeon
+--
+-mGrid: Grid
+-mName: String
+-mDungeon: Dungeon
+-tiles: Tile[,]
+-playerLocationRow: int
+-playerLocationColumn: int
++ property PlayerLocationRow: int
++ property PlayerLocationColumn: int
+-mGame: Game
+-mGoodGuyParty : Party
+-itemLocations: int[,]
+-view: view
+--
++GetGrid() : Grid
++SetView(View v): void
++SetGame(Game g): void
++getInstance(): Dungeon
++checkForItem(): bool
++checkIfDragon(): bool
++isWall(DirectionEnum directionEnum): Boolean
+-MovePlayerLocation(DirectionEnum locationEnum): void
++getGetDungeonName() : String
++SetDungeonName( name : String )
++getDirection( direction : DirectionEnum ) : void
++getCurrentPartyLocation(): int[]
++RollBattleDice(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>112</x>
+      <y>464</y>
+      <w>232</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>Grid
+--
+-mNumRows: int
+-mNumColumns: int
+-tiles: Tile[,]
++ property NumRows: int
++ property NumColumns: int
+--
++createGrid(): void
+-createStaticGrid(DungeonEnum[,] grid): void
++GetTiles(): Tile[,]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>568</x>
+      <y>128</y>
+      <w>216</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>Tile
+--
+#hasAnItem: Boolean
+#itemType: DungeonEnum
++ property TileType: DungeonEnum
+#size: int
+--
++SetSize(int s): void
++hasItem(): Boolean
++getSize(): int
++getItem(): Item[]
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>8</x>
+      <y>8</y>
+      <w>840</w>
+      <h>688</h>
+    </coordinates>
+    <panel_attributes>Dungeon System</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>120</x>
+      <y>376</y>
+      <w>40</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;88</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>192</x>
+      <y>168</y>
+      <w>392</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;296;24;256;272;256;272;24;376;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>640</x>
+      <y>424</y>
+      <w>104</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>DungeonEnum
+--
+int: -1: NULL
+int: 0: FREESPACE
+int: 1: WALL
+int: 2: ITEM
+int: 3: DRAGON</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>568</x>
+      <y>56</y>
+      <w>208</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>TileFactory
+--
++createTile(Random r): Tile
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>16</x>
+      <y>0</y>
+      <w>208</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>48;104;24;104;24;24;192;24;192;48</additional_attributes>
+  </element>
+</diagram>

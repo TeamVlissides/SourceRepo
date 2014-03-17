@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>4</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>772</x>
+      <y>576</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>/AbilitiesHolder/
+--
+# mAbilities : List&lt;Ability&gt;
+--
++ getAbilities() : AbilitiesIterator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1120</x>
+      <y>576</y>
+      <w>104</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>AbilitiesIterator
+--
+- mAbilities : List&lt;Ability&gt;
+- mCurrent : int 
+--
++ property Current : Ability
++ MoveNext() : bool
++ Reset() : void
++ getAbilityAtIndex( index : int ) : Ability
++ GetEnumerator() : IEnumerator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>992</x>
+      <y>576</y>
+      <w>84</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Ability
+--
++ const MAGIC : bool
++ const PHYSICAL : bool
++ const SINGLETARGET : bool
++ const PARTYTARGET : bool
++ const HEALING : bool
++ const DAMAGING : bool
+- mType : bool
+- mTargetSpread : bool
+- mAffectEnemy : bool
+- mBaseDamage : int
+- mCost : int
+--
++ property Cost : int
++ property BaseDamage : int
++ property isMagic : bool
++ property isSingleTarget : bool
++ property AffectEnemy : bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1048</x>
+      <y>504</y>
+      <w>104</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>/IEnumerator&lt;T&gt; ( .NET Framework )/
+--
++ property Current : T
++ MoveNext() : bool
++ Reset() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1088</x>
+      <y>524</y>
+      <w>76</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>12;12;12;36;68;36;68;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1144</x>
+      <y>768</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>/AI/
+--
++ const AMOUNTOFAI : int
+--
++ property Enemy : Enemy
++ addAbility( ability : Ability ) : void
++ abstract ai( goodGuys : Party ) : BattleEvent</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>816</x>
+      <y>588</y>
+      <w>404</w>
+      <h>188</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;160;396;160;396;180</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>220</x>
+      <y>724</y>
+      <w>80</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Armor
+--
++ const MAXARMOR : int
+- mArmorValue : int 
+
+--
++ property ArmorStat : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>460</x>
+      <y>476</y>
+      <w>108</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>/Character/
+--
++ const MAXSTATS : int
+# mHealth : int
+# mMana : int 
+# mArmor :  Armor[]
+# mName : String
+# mStats : int[]
+# mWeapon : Weapon = NullWeapon
+# mAbilities : AbilitiesHolder
+--
++ property CurrentMana : int
++ property CurrentHealth : int
++ property MaximumMana : int
++ property MaximumHealth: int
++ property Name : String
++ property Abilities : AbilitiesIterator
++ property isDead : bool
++ getStat( stat : StatEnum ) : int
++ getArmor( armor : ArmorEnum ) : Armor 
+- totalArmor() : int
++ takeDamage( damage : int ) : void
++ useMana( mana : int ) : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>372</x>
+      <y>652</y>
+      <w>128</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Enemy
+--
+- mExperienceWorth : int
+- mAI : AI
+- mType : EnemyType
+--
++ property Worth : int
++ property Type : EnemyType
++ takeTurn( goodGuys : Party ) : BattleEvent
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>728</x>
+      <y>652</y>
+      <w>80</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>/LevelTract/
+--
+# mStats : int[]
+--
++ sealed LevelUp( level : int ) : void
+# abstract levelOne() : void
+# abstract levelTwo() : void 
+# abstract levelThree() : void
+# abstract levelFour() : void
+# abstract levelFive() : void 
+# abstract levelSix() : void
+# abstract levelSeven() : void
+# abstract levelEight() : void
+# abstract levelNine() : void 
+# abstract levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>756</x>
+      <y>588</y>
+      <w>52</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>44;12;44;24;12;24;12;64</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>288</x>
+      <y>496</y>
+      <w>180</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=0..MAXARMOR</panel_attributes>
+    <additional_attributes>172;12;44;12;44;252;12;252</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>476</y>
+      <w>128</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Party
+--
++ const MAXPARTY : int
+- mParty : Character[]
+- mPartySize : int
+- mInventory : List&lt;Item&gt;
+--
++ property isDead : bool
++ property Size : int
++ property Level : int
++ Inventory : IEnumerator&lt;Item&gt;
++ getCharacter( index : int ) : Character
++ getTurnOrder( otherParty : Party ) : Character[]
++ giveItem( item : Item ) : void
++ equipItem( item : Item, target : Character ) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>200</x>
+      <y>484</y>
+      <w>268</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..MAXPARTY</panel_attributes>
+    <additional_attributes>12;12;260;12</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>524</x>
+      <y>652</y>
+      <w>108</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>PlayerCharacter
+--
+- mExperience : int
+- mClass : LevelTract
+--
++ property Level : int
++ gainExperience( experience : int ) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>424</x>
+      <y>616</y>
+      <w>80</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>72;12;72;24;12;24;12;36</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>520</x>
+      <y>616</y>
+      <w>68</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;24;60;24;60;36</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>556</x>
+      <y>524</y>
+      <w>264</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;32;12;32;36;256;36;256;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>844</x>
+      <y>576</y>
+      <w>156</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>12;12;148;12</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1064</x>
+      <y>576</y>
+      <w>64</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>56;12;12;12</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>116</x>
+      <y>724</y>
+      <w>84</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Weapon
+--
+- mName : String
+- mDescription : String
+- mBaseDamage : int
+- mStats : int[]
+--
++ property Damage : int
++ getStat( stat : StatEnum ) : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>188</x>
+      <y>516</y>
+      <w>280</w>
+      <h>244</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>272;12;100;12;100;188;24;188;24;236;12;236</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>620</x>
+      <y>660</y>
+      <w>116</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;108;12</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>488</x>
+      <y>660</y>
+      <w>664</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;24;12;24;100;564;100;564;120;656;120</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>244</x>
+      <y>392</y>
+      <w>56</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>StatEnum : int
+--
+STRENGTH = 0
+MAGIC = 1
+AGILITY = 2
+STAMINA = 3
+ARMOR = 4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>388</x>
+      <y>384</y>
+      <w>60</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>ClassEnum : int
+--
+REDMAGE = 0
+WHITEMAGE = 1
+BLACKMAGE = 2
+WARRIOR = 3
+THEIF = 4
+MONK = 5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>316</x>
+      <y>396</y>
+      <w>56</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>ArmorEnum : int
+--
+HEAD = 0
+CHEST = 1
+GLOVES = 2
+FEET = 3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>464</x>
+      <y>404</y>
+      <w>64</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>WeaponEnum : int
+--
+WETIREDSWORD = 0
+WETRIEDSTAFF = 1
+WETRIEDKNIFE = 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>568</x>
+      <y>288</y>
+      <w>156</w>
+      <h>148</h>
+    </coordinates>
+    <panel_attributes>ArmorFactory
+--
+- static mFactory : ArmorFactory 
+- mArmorSet : Armor[]
+--
++ static getInstance() : ArmorFactory
++ Armor[] getBasicArmorSet( classes : ClassEnum ) : Armor[]
+- setBasicMonkArmor() : void
+- setBasicRedMageArmor() : void
+- setBasicBlackMageArmor() : void
+- setBasicWhiteMageArmor() : void
+- setBasicWarriorArmor() : void
+- setBasicTheifArmor() : void
+- WeTriedHat() : Armor 
+- WeTriedMail() : Armor 
+- WeTriedGloves() : Armor 
+- WeTriedShoes() : Armor 
+- WeTriedRobe() : Armor 
+- WeTriedPlate() : Armor 
+- WeTriedHelm() : Armor 
+- WeTriedGauntlets() : Armor 
+- WeTriedBoots() : Armor 
+- WeTriedTunic() : Armor 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>744</x>
+      <y>392</y>
+      <w>144</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>WeaponFactory
+--
++ static getWeapon( WeaponEnum weapon ) : Weapon
+- static getWeTriedSword() : Weapon
+- static getWeTriedKnife() : Weapon
+- static getWeTriedStaff() : Weapon
++ static NullWeapon() : Weapon</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>908</x>
+      <y>336</y>
+      <w>168</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>CharacterFactory
+--
+- static CharacterFactory mFactory;
+- mStats : int[]
+- mArmor : Armor[]
+- mWeapon : Weapon
+- mClass : LevelTract
+--
++ static getInstance() : CharacterFactory
++ getCharacter( classes : ClassEnum, name : String ) : Character
+- setRedMage() : void
+- setWhiteMage() : void
+- setBlackMage() : void
+- setWarrior() : void
+- setTheif() : void
+- setMonk() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>768</x>
+      <y>788</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>RedMage
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>684</x>
+      <y>788</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>WhiteMage
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>936</x>
+      <y>788</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Warrior
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>852</x>
+      <y>788</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>BlackMage
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>516</x>
+      <y>788</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Monk
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>600</x>
+      <y>788</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Theif
+--
+# override levelOne() : void
+# override levelTwo() : void 
+# override levelThree() : void
+# override levelFour() : void
+# override levelFive() : void 
+# override levelSix() : void
+# override levelSeven() : void
+# override levelEight() : void
+# override levelNine() : void 
+# override levelTen() : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>544</x>
+      <y>736</y>
+      <w>200</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>192;12;192;32;12;32;12;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>628</x>
+      <y>736</y>
+      <w>128</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120;12;120;40;12;40;12;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>712</x>
+      <y>736</y>
+      <w>56</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>48;12;48;44;12;44;12;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>764</x>
+      <y>736</y>
+      <w>52</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;44;44;44;44;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>776</x>
+      <y>736</y>
+      <w>124</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;40;116;40;116;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>788</x>
+      <y>736</y>
+      <w>196</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;32;188;32;188;52</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>256</y>
+      <w>124</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>40;44;12;44;12;12;116;12;116;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>884</x>
+      <y>304</y>
+      <w>116</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;44;12;44;12;12;108;12;108;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1096</x>
+      <y>68</y>
+      <w>144</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>AbilitiesFactory
+--
+- static mFactory : AbilitiesFactory
+- mDescription : String
+- mName : String
+- mType : bool
+- mTargetSpread : bool
+- mAffectEnemy : bool
+- mBaseDamage : int
+- mCost : int
+--
++ static getInstance() : AbilitiesFactory
++ getBasicAbilities(ClassEnum classes) : List&lt;Ability&gt;
+- addRedMageBasicAbilities(List&lt;Ability&gt; abilities) : void
++ getAbility(AbilitesEnum ability) : Ability
+- setKissBooBooAbility() : void
+- setPatOnBackAbility() : void
+- setPrayAbility() : void
+- setMendAbility() : void
+- setHealAbility() : void
+- setFlashLightAbility() : void
+- setSparkAbility() : void
+- setSmiteAbility() : void
+- setConsecrateAbility() : void
+- setSanctifyAbility() : void
+- setBreezeAbility() : void
+- setCoolAbility() : void
+- setColdAbility() : void
+- setFreezeAbility() : void
+- setBlizzardAbility() : void
+- setPokeAbility() : void
+- setSlapAbility() : void
+- setSmackAbility() : void
+- setStrikeAbility() : void
+- setBludgeonAbility() : void
+- setPalmAbility() : void
+- setBackHandAbility() : void
+- setJudoChopAbility() : void
+- setPunchAbility() : void
+- setKickAbility() : void
+- setTripAbility() : void
+- setPounceAbility() : void
+- setBackStabAbility() : void
+- setFeintAbility() : void
+- setSliceThroatAbility() : void
+- setApplyBandAidAbility() : void
+- setSoothAbility() : void
+- setRegenerateAbility() : void
+- setLukeWarmAbility() : void
+- setHotAbility() : void
+- setBlazeAbility() : void
+- setFlailAbility() : void
+- setFlickAbility() : void
+- setSliceAbility() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1056</x>
+      <y>28</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>40;52;12;52;12;12;112;12;112;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1204</x>
+      <y>504</y>
+      <w>84</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>/IEnumerable( .NET Framework )/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1172</x>
+      <y>504</y>
+      <w>60</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>52;12;52;56;12;56;12;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1028</x>
+      <y>828</y>
+      <w>116</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Berserker
+--
++ override ai(Party goodGuys) : BattleEvent</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1156</x>
+      <y>828</y>
+      <w>116</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Striker
+--
++ override ai(Party goodGuys) : BattleEvent</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1284</x>
+      <y>828</y>
+      <w>116</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>HealerAttacker
+--
++ override ai(Party goodGuys) : BattleEvent</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1076</x>
+      <y>796</y>
+      <w>108</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100;12;100;24;12;24;12;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1200</x>
+      <y>796</y>
+      <w>20</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1236</x>
+      <y>796</y>
+      <w>116</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;24;108;24;108;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1268</x>
+      <y>276</y>
+      <w>112</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>EnemyFactory
+--
+- const STATVARIANCE : int
+- static mFactory : EnemyFactory 
+- mArmor : Armor[]
+- mName : string
+- mStats : int[]
+- mWeapon : Weapon
+- mExperienceWorth : int
+- mAi : AI
+- mType : EnemyType
+--
++ static getInstance() : EnemyFactory
++ getEnemyParty( level : int ) : Party
+- generateEnemy( level : int ) : Enemy
+- setAI() : void
+- setSpider() : void
+- setBat() : void
+- setBear() : void
+- setLion() : void
+- setTroll() : void
+- setGoblin() : void
+- setThePredator() : void
+- getDragon() : Enemy
+- getSpecificParty(EnemyType type) : Party</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1236</x>
+      <y>236</y>
+      <w>96</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>32;76;12;76;12;12;88;12;88;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>172</x>
+      <y>596</y>
+      <w>80</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+- mType : ItemType
+- mIsManaPotion : bool
+- mName : String
+- mDescription : String
+--
++ property IsMana : bool
++ Type : ItemType
++ property Name : String
++ property Description : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>200</x>
+      <y>656</y>
+      <w>68</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;12;12;40;60;40;60;68</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>148</x>
+      <y>656</y>
+      <w>52</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>44;12;44;40;12;40;12;68</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>220</x>
+      <y>448</y>
+      <w>824</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>12;220;12;240;124;240;124;12;816;12;816;128</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>764</x>
+      <y>352</y>
+      <w>108</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>ItemFactory
+--
++ static getItem( item : ItemEnum ) : Item</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>52</x>
+      <y>524</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>32;12;12;12;12;64;160;64;160;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>244</x>
+      <y>88</y>
+      <w>60</w>
+      <h>284</h>
+    </coordinates>
+    <panel_attributes>AbilitiesEnum : int
+--
+KISSBOOBOO = 0
+PATONBACK = 1
+PRAY = 2
+MEND = 3
+HEAL = 4
+FLASHLIGHT = 5
+SPARK = 6
+SMITE = 7
+CONSECRATE = 8
+SANCTIFY = 9
+BREEZE = 10
+COOL = 11
+COLD = 12
+FREEZE = 13
+BLIZZARD = 14
+POKE = 15
+SLAP = 16
+SMACK = 17
+STRIKE = 18
+BLUDGEON = 19
+PALM = 20
+BACKHAND = 21
+JUDOCHOP = 22
+PUNCH = 23
+KICK= 24
+TRIP = 25
+POUNCE = 26
+BACKSTAB = 27
+FEINT = 28
+SLICETHROAT = 29
+APPLYBANDAID = 30
+SOOTH = 31
+REGENERATE = 32
+LUKEWARM = 33
+HOT = 34
+BLAZE = 35
+FLAIL = 36
+FLICK = 37
+SLICE = 38</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>316</x>
+      <y>340</y>
+      <w>56</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>ActionEnum : int
+--
+ATTACK = 0
+ABILITY = 1
+ITEM = 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>388</x>
+      <y>300</y>
+      <w>60</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>EnemyType : int
+--
+NULL = -1
+DRAGON = 0
+SPIDER = 1
+BAT = 2
+BEAR = 3
+LION = 4
+TROLL = 5
+GOBLIN = 6
+THEPREDATOR = 7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>464</x>
+      <y>300</y>
+      <w>40</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>ItemType : int
+--
+WEAPON = 0
+ABILITY = 1
+ARMOR = 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>464</x>
+      <y>344</y>
+      <w>64</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>ItemEnum : int
+--
+HEALTHPOTION = 1
+MANAPOTION = 2,
+UBERSWORD = 3
+GANDALFSSTAFF = 4
+BOMB = 5</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

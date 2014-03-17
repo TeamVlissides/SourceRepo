@@ -304,6 +304,9 @@ namespace View_System
         {/* start getTarget */
 
             int i;
+            bool dead = true;
+            Character candidate = null;
+
             if (partyAlignment == GOODGUYS)
             {/* start if */
 
@@ -311,18 +314,32 @@ namespace View_System
                 for (i = 0; i < party.Size; i++)
                     Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana);
 
+                candidate = party.getCharacter(sanitizeInput( 0, party.Size - 1));
+
             }/* end if */
             else
             {/* start else */
 
-                Console.WriteLine("Who would you like to damage?");
-                for (i = 0; i < party.Size; i++)
-                    if( !party.getCharacter( i ).isDead )
-                    Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana);
+                while (dead)
+                {/* start loop */
+
+                    Console.WriteLine("Who would you like to damage?");
+                    for (i = 0; i < party.Size; i++)
+                        if (!party.getCharacter(i).isDead)
+                            Console.WriteLine(i + ". " + party.getCharacter(i).Name + "-Health: " + party.getCharacter(i).CurrentHealth + " -Mana : " + party.getCharacter(i).CurrentMana);
+
+                    candidate = party.getCharacter(sanitizeInput(0, party.Size - 1));
+
+                    dead = candidate.isDead;
+
+                    if (dead)
+                        Console.WriteLine("INVALID INPUT! Pick one that's alive!");
+
+                }/* end loop */
 
             }/* end else */
 
-            return party.getCharacter(sanitizeInput( 0, party.Size - 1));
+            return candidate;
 
         }/* end getTarget */
 

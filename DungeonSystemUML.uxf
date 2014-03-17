@@ -5,14 +5,15 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>64</x>
-      <y>64</y>
+      <y>48</y>
       <w>296</w>
-      <h>328</h>
+      <h>352</h>
     </coordinates>
     <panel_attributes>Dungeon
 --
 -mGrid: Grid
 -mName: String
+-mDungeon: Dungeon
 -tiles: Tile[,]
 -playerLocationRow: int
 -playerLocationColumn: int
@@ -26,6 +27,7 @@
 +GetGrid() : Grid
 +SetView(View v): void
 +SetGame(Game g): void
++getInstance(): Dungeon
 +checkForItem(): bool
 +checkIfDragon(): bool
 +isWall(DirectionEnum directionEnum): Boolean
@@ -42,24 +44,20 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>112</x>
-      <y>480</y>
-      <w>176</w>
-      <h>184</h>
+      <y>464</y>
+      <w>232</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>Grid
 --
 -mNumRows: int
 -mNumColumns: int
--mPartyRow: int
--mPartyColumn: int
 -tiles: Tile[,]
--mTiles: Tile
 + property NumRows: int
 + property NumColumns: int
 --
 +createGrid(): void
-+SetPartyRow(int row): void
-+SetPartyColumn(int n): void
+-createStaticGrid(DungeonEnum[,] grid): void
 +GetTiles(): Tile[,]
 </panel_attributes>
     <additional_attributes/>
@@ -68,26 +66,20 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>568</x>
-      <y>144</y>
+      <y>128</y>
       <w>216</w>
-      <h>232</h>
+      <h>136</h>
     </coordinates>
     <panel_attributes>Tile
 --
-#backgroundColor: Brush
-#borderColor: Brush
 #hasAnItem: Boolean
 #itemType: DungeonEnum
 + property TileType: DungeonEnum
 #size: int
 --
-+SetBackgroundColor(Brush color): void
-+SetBorderColor(Brush color): void
 +SetSize(int s): void
 +hasItem(): Boolean
 +getSize(): int
-+getBackgroundColor(): Brush
-+getBorderColor(): Brush
 +getItem(): Item[]
 
 </panel_attributes>
@@ -96,8 +88,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>0</x>
-      <y>16</y>
+      <x>8</x>
+      <y>8</y>
       <w>840</w>
       <h>688</h>
     </coordinates>
@@ -108,18 +100,18 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>120</x>
-      <y>368</y>
+      <y>376</y>
       <w>40</w>
-      <h>128</h>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;24;112</additional_attributes>
+    <additional_attributes>24;24;24;88</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>192</x>
-      <y>184</y>
+      <y>168</y>
       <w>392</w>
       <h>312</h>
     </coordinates>
@@ -130,7 +122,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>640</x>
-      <y>440</y>
+      <y>424</y>
       <w>104</w>
       <h>88</h>
     </coordinates>
@@ -147,7 +139,7 @@ int: 3: DRAGON</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>568</x>
-      <y>72</y>
+      <y>56</y>
       <w>208</w>
       <h>32</h>
     </coordinates>
@@ -161,11 +153,11 @@ int: 3: DRAGON</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>16</x>
-      <y>8</y>
-      <w>200</w>
-      <h>112</h>
+      <y>0</y>
+      <w>208</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>48;96;24;96;24;24;184;24;184;56</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>48;104;24;104;24;24;192;24;192;48</additional_attributes>
   </element>
 </diagram>

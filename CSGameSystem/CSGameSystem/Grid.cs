@@ -105,15 +105,15 @@ namespace CSGameSystem
         }
 
         // setter methods
-        public void SetNumberRows(int n)
-        {
+        //public void SetNumberRows(int n)
+        //{
 
-        }
+        //}
 
-        public void SetNumberColumns(int n)
-        {
+        //public void SetNumberColumns(int n)
+        //{
 
-        }
+        //}
 
         // getter methods
 
@@ -124,15 +124,15 @@ namespace CSGameSystem
 
 
 
-        public void SetPartyRow(int row)
-        {
+        //public void SetPartyRow(int row)
+        //{
 
-        }
+        //}
 
-        public void SetPartyColumn(int n)
-        {
+        //public void SetPartyColumn(int n)
+        //{
 
-        }
+        //}
 
         public Tile[,] GetTiles()
         {

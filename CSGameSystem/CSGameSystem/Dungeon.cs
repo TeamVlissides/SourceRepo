@@ -358,38 +358,40 @@ namespace CSGameSystem
         {
             int row = PlayerLocationRow;
             int col = PlayerLocationColumn;
+            int largestIndex = 4;
+            int smallestIndex = 0;
 
             if (directionEnum == DirectionEnum.UP)
             {
-                if (col >= 0)
+                if (col >= smallestIndex)
                     col--;
             }
 
             if (directionEnum == DirectionEnum.DOWN)
             {
-                if (col >= 0)
+                if (col >= smallestIndex)
                   col++;
             }
 
             if (directionEnum == DirectionEnum.LEFT)
             {
-                if (row >= 0)
+                if (row >= smallestIndex)
                     row--;
             }
 
             if (directionEnum == DirectionEnum.RIGHT)
             {
-                if (row >= 0)
+                if (row >= smallestIndex)
                  row++;
             }
 
             // Dont let out of bounds conditions happen,
             // and prevent negative numbers.
-            if (row < 0 || row > 4)
-                row = 0;
+            if (row < smallestIndex || row > largestIndex)
+                row = smallestIndex;
 
-            if (col < 0 || col > 4)
-                col = 0;
+            if (col < smallestIndex || col > largestIndex)
+                col = smallestIndex;
 
             Tile[,] tmpTiles = mGrid.GetTiles();
             DungeonEnum item = tmpTiles[row, col].TileType;
@@ -411,7 +413,7 @@ namespace CSGameSystem
             if (tileHasItem == DungeonEnum.ITEM)
             {
                 // Remove item from tile.
-                tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType = 0;
+                tmpTiles[PlayerLocationRow, PlayerLocationColumn].TileType = (int)DungeonEnum.FREESPACE;
                 return true; // view.sendOutput("Tile has item.");
             }
 
@@ -430,6 +432,9 @@ namespace CSGameSystem
         public bool RollBattleDice()
         {
             Random randomDiceRoll = new Random();
+
+            // Attempt to create a percentage 1 to 100, and if
+            // roll < 50 do not battle, if roll > 50 percent have a battle. 
             int diceRollNumber = randomDiceRoll.Next(1,100);
             // percentage, probability that I will roll, pick a number... 
             // if roll on a number start a battle else do notthing.

@@ -88,7 +88,7 @@ namespace CSGameSystem
 
         private void GUIWindow_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GUIWindow_KeyUp(object sender, KeyEventArgs e)

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>12</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>144</x>
+      <y>72</y>
+      <w>492</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>Battle
+--
+-mGoodGuys: Party
+-mBadGuys: Party
+-currentActor: Character
+-currentActorIndex: int
+--
+&lt;&lt;constructor&gt;&gt; Battle(currentGame:Game, goodGuyParty:Party)
++startbattle() : void
++startbattle(specificEnemyType:EnemyType) : void
++getFriendlyTargets() : ArrayList
++getHostileTargets() : ArrayList
++getItemTargets(selectedItem:Item) : ArrayList
++getAbilityTargets(selectedItem:Item) : ArrayList
++ExecuteAction(actionToExecute:BattleAction) : void
++getCharacter(index:int) : Character
++getCurrentCharacter() : Character
+-battleOver() : boolean
+-selectFirstCharacter() : void
+-selectNextCharacter() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>732</x>
+      <y>72</y>
+      <w>612</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+BattleAction
+--
++specificAction(actingCharacter:Character, combatants:Character[]) : void
++toString() : String
++getBattleEvents() : ArrayList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>108</y>
+      <w>156</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>132;36;36;36</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>144</x>
+      <y>468</y>
+      <w>564</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>AttackAction
+--
+-attackResult : String
+-target : Character
+-battleEvents : ArrayList
+--
+&lt;&lt;Constructor&gt;&gt; AttackAction(targetedCharacter:Character)
++specificAction(actingCharacter:Character, combatants:Character[]) : void
++toString() : String
++getBattleEvents() : ArrayList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>144</x>
+      <y>660</y>
+      <w>564</w>
+      <h>276</h>
+    </coordinates>
+    <panel_attributes>AbilityAction
+--
+-usedAbility : Ability
+-specificTarget : Character
+-battleEvents : ArrayList
+--
+&lt;&lt;Constructor&gt;&gt; AbilityAction(abilityToUse:Ability)
+&lt;&lt;Constructor&gt;&gt; AbilityAction(abilityToUse:Ability, 
+targetedCharacter:Character)
++specificAction(actingCharacter:Character, combatants:Character[]) : void
+-singleTargetAbility(actingCharacter:Character, target:Character) : void
+-spreadAbility(actingCharacter:Character, target:Character) : void
+-applyAbility(actingCharacter:Character, target:Character, base_stat:int)
++toString() : String
++getBattleEvents() : ArrayList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>672</x>
+      <y>156</y>
+      <w>132</w>
+      <h>396</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>108;36;108;372;36;372</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>672</x>
+      <y>156</y>
+      <w>180</w>
+      <h>576</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>156;36;156;444;84;444;84;552;36;552</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>780</x>
+      <y>672</y>
+      <w>564</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>ItemyAction
+--
+-usedItem : Ability
+-specificTarget : Character
+-battleEvents : ArrayList
+--
+&lt;&lt;Constructor&gt;&gt; ItemAction(itemToUse:item)
+&lt;&lt;Constructor&gt;&gt; ItemAction(itemToUse:item, targetedCharacter:Character)
++specificAction(actingCharacter:Character, combatants:Character[]) : void
+-singleTargetItem(actingCharacter:Character, target:Character) : void
+-spreadItem(actingCharacter:Character, target:Character) : void
+-applyItem(actingCharacter:Character, target:Character)
++toString() : String
++getBattleEvents() : ArrayList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>876</x>
+      <y>156</y>
+      <w>60</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>36;36;36;516</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>936</x>
+      <y>372</y>
+      <w>408</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>BattleEvent
+--
+-mActor:Character
+-actionOutcome:String
+-mActee:Character
+--
++&lt;&lt;Constructor&gt;&gt; BattleEvent(currentActor:Character, 
+actorAction:BattleAction,actorTarget:Character)
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1080</x>
+      <y>156</y>
+      <w>60</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>36;36;36;216</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>0</y>
+      <w>876</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>816;456;852;456;852;36;36;36;36;72</additional_attributes>
+  </element>
+</diagram>

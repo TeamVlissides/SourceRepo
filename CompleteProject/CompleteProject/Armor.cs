@@ -15,15 +15,11 @@ namespace Character_System
 
         /* Attributes */
         private int mArmorValue;
-        private String mName;
-        private String mDescription;
 
-        public Armor( int armorValue, String name, String description, ItemType type ) : base( type, ItemEnum.NONITEM )
+        public Armor( int armorValue, String name, String description, ItemType type ) : base( type, ItemEnum.NONITEM, name, description )
         {/* start constructor */
 
             mArmorValue = armorValue;
-            mName = name;
-            mDescription = description;
 
         }/* end constructor */
 
@@ -38,30 +34,6 @@ namespace Character_System
             }/* end accessor */
             
         }/* end Armor property */
-
-        public String Name
-        {/* start Name property */
-
-            get
-            {/* start accessor */
-
-                return mName;
-
-            }/* end accessor */
-
-        }/* end Name property */
-
-        public String Description
-        {/* start Description property */
-
-            get
-            {/* start accessor */
-
-                return mDescription;
-
-            }/* end accessor */
-
-        }/* end Description property */
 
     }/* end Armor class */
 

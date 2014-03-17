@@ -43,6 +43,36 @@ namespace Character_System
 
         }/* end Class propertry */
 
+        public String ClassToString
+        {/* start ClassToString */
+
+            get
+            {/* start get */
+
+                if (Class == ClassEnum.REDMAGE)
+                    return "Red Mage";
+
+                if (Class == ClassEnum.WHITEMAGE)
+                    return "White Mage";
+
+                if (Class == ClassEnum.BLACKMAGE)
+                    return "Black Mage";
+
+                if (Class == ClassEnum.MONK)
+                    return "Monk";
+
+                if (Class == ClassEnum.THIEF)
+                    return "Theif";
+
+                if (Class == ClassEnum.WARRIOR)
+                    return "Warrior";
+
+                return "";
+
+            }/* end get*/
+
+        }/* end ClassToString */
+
         public int Level
         {/* start Level property */
 
@@ -60,11 +90,15 @@ namespace Character_System
 
             mExperience += experience;
 
-            if ((mExperience / EXPERIENCEPERLEVEL) > mCurrentLevel)
+            if ((mExperience / EXPERIENCEPERLEVEL) > mCurrentLevel && mCurrentLevel != 10)
             {/* start if */
 
                 mCurrentLevel++;
                 mClass.LevelUp(mCurrentLevel);
+
+                /* Full Resources Upon Leveling Up */
+                mHealth = MaximumHealth;
+                mMana = MaximumMana;
 
             }/* end if */
 

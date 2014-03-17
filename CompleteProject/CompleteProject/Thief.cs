@@ -18,7 +18,7 @@ namespace Character_System
         protected override void levelOne()
         {/* start levelOne */
 
-            mAbilities = AbilitiesFactory.getInstance().getBasicAbilities(ClassEnum.THEIF);
+            mAbilities = AbilitiesFactory.getInstance().getBasicAbilities(ClassEnum.THIEF);
 
         }/* end levelOne */
 

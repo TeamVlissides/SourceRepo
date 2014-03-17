@@ -190,6 +190,25 @@ namespace Character_System
 
         }/* end getStat */
 
+        public static String statToString(StatEnum stat)
+        {/* start statToString */
+
+            if (stat == StatEnum.STRENGTH)
+                return "Strength";
+
+            if (stat == StatEnum.MAGIC)
+                return "Magic";
+
+            if (stat == StatEnum.AGILITY)
+                return "Agility";
+
+            if (stat == StatEnum.STAMINA)
+                return "Stamina";
+
+            return "";
+
+        }/* end statToString */
+
         private int getTotalArmor()
         {/* start getTotalArmor */
 

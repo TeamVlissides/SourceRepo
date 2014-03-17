@@ -51,7 +51,7 @@ namespace Character_System
             if (classes == ClassEnum.WARRIOR)
                 abilities.Add(getAbility(AbilitesEnum.POKE));
 
-            if (classes == ClassEnum.THEIF)
+            if (classes == ClassEnum.THIEF)
                 abilities.Add(getAbility(AbilitesEnum.TRIP));
 
             if(classes == ClassEnum.MONK)

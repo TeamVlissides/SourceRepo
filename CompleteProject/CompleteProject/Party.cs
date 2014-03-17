@@ -43,6 +43,73 @@ namespace Character_System
 
         }/* end isDead property */
 
+        /* Should just have seperate lists for each type of item so I can stop doing these query like methods. */
+        public Weapon[] Weapons
+        {/* start Weapons property */
+
+            get
+            {/* start accessor */
+
+                int count = 0, i = 0;
+                Weapon[] weapons;
+
+                foreach (Item item in Inventory)
+                    if (item.Type == ItemType.WEAPON)
+                        count++;
+
+                if (count == 0)
+                    return null;
+
+                weapons = new Weapon[count];
+
+                foreach( Item item in Inventory)
+                    if (item.Type == ItemType.WEAPON)
+                    {/* start if */
+
+                        weapons[i] = (Weapon)item;
+                        i++;
+
+                    }/* end if */
+
+                return weapons;
+
+            }/* end accessor */
+
+        }/* end Weapons property */
+
+        public Ability[] Potions
+        {/* start Potions property */
+
+            get
+            {/* start accessor */
+
+                int count = 0, i = 0;
+                Ability[] potions;
+
+                foreach (Item item in Inventory)
+                    if (item.Type == ItemType.ABILITY)
+                        count++;
+
+                if (count == 0)
+                    return null;
+
+                potions = new Ability[count];
+
+                foreach (Item item in Inventory)
+                    if (item.Type == ItemType.ABILITY)
+                    {/* start if */
+
+                        potions[i] = (Ability)item;
+                        i++;
+
+                    }/* end if */
+
+                return potions;
+
+            }/* end accessor */
+
+        }/* end Potions property */
+
         public int Size
         {/* start Size property */
 
@@ -136,13 +203,14 @@ namespace Character_System
 
         }/* end giveItem */
 
-        public IEnumerator<Item> Inventory
+        public List<Item> Inventory
         {/* start Inventory property */
 
             get
             {/* start accessor */
 
-                return mInventory.GetEnumerator();
+                /* Don't like this because they can now add and remove items and will. No encapsulation. R.F. 3/16/2014 */
+                return mInventory;
 
             }/* end accessor */
 
@@ -162,6 +230,18 @@ namespace Character_System
             }/* end if */
 
         }/* end equipItem */
+
+        public void usePotion(Ability potion, PlayerCharacter target)
+        {/* start usePotion */
+
+            mInventory.Remove(potion);
+
+            if (potion.IsMana)
+                target.restoreMana((int)(potion.BaseDamage / 100.0) * target.MaximumMana);
+            else
+                target.restoreHealth((int)(potion.BaseDamage / 100.0) * target.MaximumHealth);
+
+        }/* end usePotion */
 
         public void removeItem(Item item)
         {/* start removeItem */

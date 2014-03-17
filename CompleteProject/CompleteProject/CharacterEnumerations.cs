@@ -25,7 +25,7 @@ namespace Character_System
         WHITEMAGE = 2,
         BLACKMAGE = 3,
         WARRIOR = 4,
-        THEIF = 5,
+        THIEF = 5,
         MONK = 6
 
     }/* end ClassEnum */

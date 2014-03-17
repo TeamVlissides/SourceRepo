@@ -46,7 +46,7 @@ namespace Character_System
             if (classes == ClassEnum.WARRIOR)
                 setWarrior();
 
-            if (classes == ClassEnum.THEIF)
+            if (classes == ClassEnum.THIEF)
                 setTheif();
 
             if (classes == ClassEnum.MONK)
@@ -82,7 +82,7 @@ namespace Character_System
             mStats[(int)StatEnum.STAMINA] = 3;
             mStats[(int)StatEnum.STRENGTH] = 15;
 
-            mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.THEIF); ;
+            mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.THIEF); ;
             mWeapon = WeaponFactory.getWeapon( WeaponEnum.WETRIEDKNIFE );
             mClass = new Thief( mStats );
 
@@ -95,8 +95,8 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 15;
             mStats[(int)StatEnum.MAGIC] = 10;
-            mStats[(int)StatEnum.STAMINA] = 2;
-            mStats[(int)StatEnum.STRENGTH] = 10;
+            mStats[(int)StatEnum.STAMINA] = 3;
+            mStats[(int)StatEnum.STRENGTH] = 13;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.REDMAGE);
             mWeapon = WeaponFactory.getWeapon(WeaponEnum.WETIREDSWORD);
@@ -110,9 +110,9 @@ namespace Character_System
             mStats = new int[Character.MAXSTATS];
 
             mStats[(int)StatEnum.AGILITY] = 1;
-            mStats[(int)StatEnum.MAGIC] = 20;
-            mStats[(int)StatEnum.STAMINA] = 2;
-            mStats[(int)StatEnum.STRENGTH] = 1;
+            mStats[(int)StatEnum.MAGIC] = 4;
+            mStats[(int)StatEnum.STAMINA] = 3;
+            mStats[(int)StatEnum.STRENGTH] = 10;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.WHITEMAGE);
             mWeapon = WeaponFactory.getWeapon(WeaponEnum.WETRIEDSTAFF);
@@ -127,8 +127,8 @@ namespace Character_System
 
             mStats[(int)StatEnum.AGILITY] = 1;
             mStats[(int)StatEnum.MAGIC] = 30;
-            mStats[(int)StatEnum.STAMINA] = 1;
-            mStats[(int)StatEnum.STRENGTH] = 1;
+            mStats[(int)StatEnum.STAMINA] = 3;
+            mStats[(int)StatEnum.STRENGTH] = 10;
 
             mArmor = ArmorFactory.getInstance().getBasicArmorSet(ClassEnum.BLACKMAGE);
             mWeapon = WeaponFactory.getWeapon(WeaponEnum.WETRIEDSTAFF);

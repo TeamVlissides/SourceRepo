@@ -43,7 +43,7 @@ namespace Character_System
                 throw new ArgumentOutOfRangeException("Level cannot be less than 1 or greater than 10.");
 
             Random random = new Random();
-            int amountOfEnemies = random.Next(Party.MAXPARTY) + 1;
+            int amountOfEnemies = random.Next(1, Party.MAXPARTY + 1) ;
             int i, lower, upper;
 
             Enemy[] enemyParty = new Enemy[ amountOfEnemies ];
@@ -60,6 +60,8 @@ namespace Character_System
                 if (level == 10)
                     upper = 10;
 
+                setAI();
+
                 enemyParty[i] = generateEnemy(random.Next(lower, upper + 1));
 
             }/* end loop */
@@ -70,8 +72,6 @@ namespace Character_System
 
         private Enemy generateEnemy(int level)
         {/* start generateEnemy */
-
-            setAI();
 
             if (level == 1)
                 setSpider();
@@ -102,7 +102,7 @@ namespace Character_System
         {/* start setAI */
 
             Random random = new Random();
-            int choice = random.Next(AI.AMOUNTOFAI);
+            int choice = random.Next(0, AI.AMOUNTOFAI);
 
             if (choice == 0)
                 mAi = new Berserker();
@@ -123,7 +123,7 @@ namespace Character_System
             mName = "Spider";
             mType = EnemyType.SPIDER;
             mWeapon = WeaponFactory.NullWeapon();
-            mExperienceWorth = 25;
+            mExperienceWorth = 500;
 
             mStats = new int[Character.MAXSTATS];
 
@@ -142,7 +142,7 @@ namespace Character_System
             mName = "Bat";
             mType = EnemyType.BAT;
             mWeapon = WeaponFactory.NullWeapon();
-            mExperienceWorth = 50;
+            mExperienceWorth = 500;
 
             mStats = new int[Character.MAXSTATS];
 
@@ -161,7 +161,7 @@ namespace Character_System
             mName = "Bear";
             mType = EnemyType.BEAR;
             mWeapon = WeaponFactory.NullWeapon();
-            mExperienceWorth = 75;
+            mExperienceWorth = 750;
 
             mStats = new int[Character.MAXSTATS];
 
@@ -180,7 +180,7 @@ namespace Character_System
             mName = "Lion";
             mType = EnemyType.LION;
             mWeapon = WeaponFactory.NullWeapon();
-            mExperienceWorth = 125;
+            mExperienceWorth = 750;
 
             mStats = new int[Character.MAXSTATS];
 
@@ -199,7 +199,7 @@ namespace Character_System
             mName = "Troll";
             mType = EnemyType.TROLL;
             mWeapon = WeaponFactory.getWeapon( WeaponEnum.WETIREDSWORD );
-            mExperienceWorth = 150;
+            mExperienceWorth = 800;
 
             mStats = new int[Character.MAXSTATS];
 
@@ -220,7 +220,7 @@ namespace Character_System
             mName = "Goblin";
             mType = EnemyType.GOBLIN;
             mWeapon = WeaponFactory.getWeapon(WeaponEnum.WETIREDSWORD);
-            mExperienceWorth = 250;
+            mExperienceWorth = 800;
 
             mStats = new int[Character.MAXSTATS];
 
@@ -239,7 +239,7 @@ namespace Character_System
             mName = "The Predator";
             mType = EnemyType.THEPREDATOR;
             mWeapon = WeaponFactory.getWeapon(WeaponEnum.WETIREDSWORD);
-            mExperienceWorth = 250;
+            mExperienceWorth = 1000;
 
             mStats = new int[Character.MAXSTATS];
 

@@ -18,19 +18,15 @@ namespace Character_System
         public const bool HEALING = false;
         public const bool DAMAGING = true;
 
-        private String mDescription;
-        private String mName;
         private bool mType;
         private bool mTargetSpread;
         private bool mAffectEnemy;
         private int mBaseDamage;
         private int mCost;
 
-        public Ability(String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseDamage, int cost, ItemType itemType, ItemEnum item) : base(itemType, item)
+        public Ability(String description, String name, bool type, bool targetSpread, bool affectEnemy, int baseDamage, int cost, ItemType itemType, ItemEnum item) : base(itemType, item, name, description)
         {/* start constructor */
 
-            mDescription = description;
-            mName = name;
             mType = type;
             mTargetSpread = targetSpread;
             mAffectEnemy = affectEnemy;
@@ -62,30 +58,6 @@ namespace Character_System
             }/* end accessor */
             
         }/* end BaseStat property */
-
-        public String Name
-        {/* start Name property */
-
-            get
-            {/* start accessor */
-
-                return mName;
-
-            }/* end accessor */
-
-        }/* end Name property */
-
-        public String Description
-        {/* start Description property */
-
-            get
-            {/* start accessor */
-
-                return mDescription;
-
-            }/* end accessor */
-
-        }/* end Description property */
 
         public bool isMagic
         {/* start isMagic property */

@@ -12,15 +12,43 @@ namespace Character_System
 
         private ItemType mType;
         private ItemEnum mItem;
+        private String mName;
+        private String mDescription;
         private bool mIsManaPotion = false;
 
-        public Item(ItemType type, ItemEnum item)
+        public Item(ItemType type, ItemEnum item, String name, String description)
         {/* start constructor */
 
             mType = type;
             mItem = item;
+            mName = name;
+            mDescription = description;
 
         }/* end constructor */
+
+        public String Name
+        {/* start Name property */
+
+            get
+            {/* start accessor */
+
+                return mName;
+
+            }/* end accessor */
+
+        }/* end Name property */
+
+        public String Description
+        {/* start Description property */
+
+            get
+            {/* start accessor */
+
+                return mDescription;
+
+            }/* end accessor */
+
+        }/* end Description property */
 
         public bool IsMana
         {/* start IsMana property */

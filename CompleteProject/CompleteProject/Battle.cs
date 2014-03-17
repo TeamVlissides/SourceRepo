@@ -172,6 +172,7 @@ namespace BattleSystem
             int i = 0;
             currentActor = turnOrder[i];
             currentActorIndex = i;
+
             //while (!currentActor.isDead)
             //{
             //    i++;

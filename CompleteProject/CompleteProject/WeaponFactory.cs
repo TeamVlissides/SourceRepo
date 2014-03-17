@@ -54,7 +54,7 @@ namespace Character_System
         {/* start getWeTriedKnife */
 
             String name = "We Tried Knife";
-            String description = "It you jab someone with this metal toothpick...I'm sure that you'll be okay.";
+            String description = "If you jab someone with this metal toothpick...I'm sure that you'll be okay.";
             int damage = 10;
 
             int[] stats = new int[Character.MAXSTATS];

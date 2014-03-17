@@ -62,17 +62,28 @@ namespace View_System
         public DirectionEnum getDirection()
         {/* start getDirecton */
 
-            DisplayDungeon();
+            int choice = 5;
 
-            Console.WriteLine();
-            Console.WriteLine("Which direction would you like to go?");
-            Console.WriteLine("1. Left");
-            Console.WriteLine("2. Right");
-            Console.WriteLine("3. Up");
-            Console.WriteLine("4. Down");
+            while (choice == 5)
+            {/* start loop */
 
-            /* A LOT of faith in this line. If there's time, do exception handling. */
-            return (DirectionEnum)int.Parse(Console.ReadLine());
+                DisplayDungeon();
+                Console.WriteLine();
+                Console.WriteLine("Which direction would you like to go?");
+                Console.WriteLine("1. Left");
+                Console.WriteLine("2. Right");
+                Console.WriteLine("3. Up");
+                Console.WriteLine("4. Down");
+                Console.WriteLine("5. Menu.");
+
+                choice = sanitizeInput(1,5);
+
+                if (choice == 5)
+                    Menu();
+
+            }/* end loop */
+
+            return (DirectionEnum)choice;
 
         }/* end getDirection */
 
@@ -102,8 +113,7 @@ namespace View_System
             Console.WriteLine("5. Thief." );
             Console.WriteLine("6. Monk." );
 
-            /* A LOT of faith in this line. If there's time, do exception handling. */
-            return (ClassEnum)int.Parse(Console.ReadLine());
+            return (ClassEnum)sanitizeInput(1, 6);
 
         }/* end getClassChoice */
 
@@ -115,7 +125,7 @@ namespace View_System
 
         }/* end getCharacterName */
 
-        public BattleSystem.BattleAction getPlayerAction(Character character, Party badGuys)
+        public BattleAction getPlayerAction(Character character, Party badGuys)
         {/* start getPlayerAction */
 
             BattleAction action = null;
@@ -131,9 +141,8 @@ namespace View_System
                 Console.WriteLine("1. Attack.");
                 Console.WriteLine("2. Ability.");
                 Console.WriteLine("3. Item.");
-                Console.WriteLine("4. Menu.");
 
-                action = CreateBattleAction((ActionEnum)int.Parse(Console.ReadLine()), character, badGuys);
+                action = CreateBattleAction((ActionEnum)sanitizeInput( 1, 3 ), character, badGuys);
 
             }/* end loop */
 
@@ -141,7 +150,83 @@ namespace View_System
 
         }/* end getPlayerAction */
 
-        private BattleSystem.BattleAction CreateBattleAction(ActionEnum action,Character character, Party badGuys )
+        public void RecieveBattleOutput(BattleSystem.BattleEvent ourEvent)
+        {/* start RecieveBattleOutput */
+
+            Console.WriteLine(ourEvent.toString());
+            Console.WriteLine(ourEvent.User.Name + " has " + ourEvent.User.CurrentHealth + " health and " + ourEvent.User.CurrentMana + " mana.");
+            Console.WriteLine(ourEvent.Target.Name + " has " + ourEvent.Target.CurrentHealth + " health and " + ourEvent.Target.CurrentMana + " mana.");
+
+        }/* end RecieveBattleOutput */
+
+        public void NotifyFinalBattleStart()
+        {/* start NotifyFinalBattleStart */
+
+            Console.WriteLine("The final battle with the Dragon has started!");
+
+        }/* end NotifyFinalBattleStart */
+
+        public void NotifyBattleStart()
+        {/* start NotifyBattleStart */
+
+            Console.WriteLine("A battle has started!");
+
+        }/* end NotifyBattleStart */
+
+        public void notifyGameOver()
+        {/* start notifyGameOver */
+
+            Console.WriteLine("Your party has died! Game over! Enter any button to end the game.");
+            Console.ReadLine();
+
+        }/* end notifyGameOver */
+
+        public void notifyUltimateVictory()
+        {/* start notifyUltimateVictory */
+
+            Console.WriteLine("You and your party defeated the Dragon! You have enough gold here to go to Hawaii (Just one of you)! Congrats! Enter any button to end the game");
+            Console.ReadLine();
+
+        }/* end notifyUltimateVictory */
+
+        public void FoundItem(Character_System.Item item)
+        {/* start FoundItem */
+
+            Console.WriteLine("You found a " + item.Name + "! It'll be added to your inventory.");
+
+        }/* end FoundItem */
+
+        private int sanitizeInput(int lowerLimit, int upperLimit)
+        {/* start sanitizeInput */
+
+            int choice = upperLimit + 1;
+
+            while (choice > upperLimit || choice < lowerLimit)
+            {/* start loop */
+
+                try
+                {/* start try */
+
+                    choice = int.Parse(Console.ReadLine());
+
+                }/* end try */
+                catch (FormatException exception)
+                {/* start catch */
+
+                    Console.WriteLine("INVALID INPUT! Try again.");
+
+                }/* end catch */
+
+                if (choice < lowerLimit || choice > upperLimit)
+                    Console.WriteLine("INVALID INPUT! Try again.");
+
+            }/* end loop */
+
+            return choice;
+
+        }/* end sanitizeInput */
+
+        private BattleAction CreateBattleAction(ActionEnum action,Character character, Party badGuys )
         {/* start CreateBattleAction */
 
             if (action == ActionEnum.ATTACK)
@@ -171,7 +256,7 @@ namespace View_System
                 for (i = 0; i < items.Length; i++)
                     Console.WriteLine(i + ". " + items[i].Name);
 
-                choice = items[int.Parse(Console.ReadLine())];
+                choice = items[sanitizeInput(0,items.Length - 1)];
 
                 mGoodGuys.removeItem(choice);
 
@@ -204,7 +289,7 @@ namespace View_System
 
             }/* end loop */
 
-            ability = character.Abilities.getAbilityAtIndex(int.Parse(Console.ReadLine()));
+            ability = character.Abilities.getAbilityAtIndex(sanitizeInput(0,character.Abilities.Count - 1));
 
             if (ability.AffectEnemy)
                 target = getTarget(badGuys, BADGUYS);
@@ -237,63 +322,9 @@ namespace View_System
 
             }/* end else */
 
-            return party.getCharacter(int.Parse(Console.ReadLine()));
+            return party.getCharacter(sanitizeInput( 0, party.Size - 1));
 
         }/* end getTarget */
-
-        public void RecieveBattleOutput(BattleSystem.BattleEvent ourEvent)
-        {/* start RecieveBattleOutput */
-
-            Console.WriteLine(ourEvent.toString());
-            Console.WriteLine(ourEvent.User.Name + " has " + ourEvent.User.CurrentHealth + " health and " + ourEvent.User.CurrentMana + " mana.");
-
-            if (!ourEvent.Target.isDead)
-                Console.WriteLine(ourEvent.Target.Name + " has " + ourEvent.Target.CurrentHealth + " health and " + ourEvent.Target.CurrentMana + " mana.");
-            else
-                Console.WriteLine(ourEvent.Target.Name + " has died!");
-
-        }/* end RecieveBattleOutput */
-
-        public void NotifyFinalBattleStart()
-        {/* start NotifyFinalBattleStart */
-
-            Console.WriteLine("The final battle with the Dragon has started!");
-
-        }/* end NotifyFinalBattleStart */
-
-        public void NotifyBattleStart()
-        {/* start NotifyBattleStart */
-
-            Console.WriteLine("A battle has started!");
-
-        }/* end NotifyBattleStart */
-
-        public void FoundItem(Character_System.Item item)
-        {/* start FoundItem */
-
-            Weapon weapon;
-            Ability ability;
-
-            /* Dependency Inversion needs to happen here. If I have time, I'll design inventory properly. R.F. 3/14/2014 */
-            if (item.Type == ItemType.ABILITY)
-            {/* start if */
-
-                ability = (Ability)item;
-                Console.WriteLine("You found a " + ability.Name + "! It'll be added to your inventory.");
-
-            }/* end if */
-
-            if (item.Type == ItemType.WEAPON)
-            {/* start if */
-
-                weapon = (Weapon)item;
-                Console.WriteLine("You found " + weapon.Name + "! It'll be added to your inventory.");
-
-            }/* end if */
-
-            mGoodGuys.giveItem(item);
-
-        }/* end FoundItem */
 
         private void DisplayDungeon()
         {/* start DisplayDungeon */
@@ -324,22 +355,6 @@ namespace View_System
 
         }/* end DisplayDungeon */
 
-        public void notifyGameOver()
-        {/* start notifyGameOver */
-
-            Console.WriteLine("Your party has died! Game over! Enter any button to end the game.");
-            Console.ReadLine();
-
-        }/* end notifyGameOver */
-
-        public void notifyUltimateVictory()
-        {/* start notifyUltimateVictory */
-
-            Console.WriteLine("You and your party defeated the Dragon! You have enough gold here to go to Hawaii (Just one of you)! Congrats! Enter any button to end the game");
-            Console.ReadLine();
-
-        }/* end notifyUltimateVictory */
-
         private void printSpot(DungeonEnum spot)
         {/* start printSpot */
 
@@ -359,6 +374,188 @@ namespace View_System
                 Console.Write("N");
 
         }/* end printSpot */
+
+        private void Menu()
+        {/* start Menu */
+
+            int choice = 0;
+
+            while (choice != 5)
+            {/* start loop */
+
+                Console.WriteLine();
+                Console.WriteLine("Menu: ");
+                Console.WriteLine("1. Check Character stats.");
+                Console.WriteLine("2. Check Inventory.");
+                Console.WriteLine("3. Equip Weapons.");
+                Console.WriteLine("4. Use Restortaion Items.");
+                Console.WriteLine("5. Exit");
+
+                choice = sanitizeInput(1, 5);
+
+                if (choice == 1)
+                    displayCharacterStats();
+
+                if (choice == 2)
+                    displayInventory();
+
+                if (choice == 3)
+                    equipWeapon();
+
+                if (choice == 4)
+                    useItem();
+
+            }/* end loop */
+
+        }/* end Menu */
+
+        private void useItem()
+        {/* start if */
+
+            int i, choice;
+            Ability[] potions;
+            PlayerCharacter player = whichPlayer();
+
+            if (inventoryIsEmpty())
+                return;
+
+            Console.WriteLine();
+            Console.WriteLine("Which potion would you like to use?");
+
+            potions = mGoodGuys.Potions;
+
+            if (potions != null)
+            {/* start if */
+
+                for( i = 0; i < potions.Length; i++ )
+                    Console.WriteLine( i + ". -Name : " + potions[ i ].Name + " -Description : " + potions[ i ].Description );
+
+                choice = sanitizeInput(0, potions.Length - 1);
+
+                mGoodGuys.usePotion(potions[choice], player);
+
+            }/* end if */
+            else
+                Console.WriteLine("You have no potions!");
+
+        }/* end if */
+
+        private void equipWeapon()
+        {/* start equipWeapon */
+
+            int i, choice;
+            Weapon[] weapons;
+
+            Console.WriteLine();
+
+            if (inventoryIsEmpty())
+                return;
+
+            PlayerCharacter player = whichPlayer();
+            Console.WriteLine("Which weapon would you like to equip?");
+
+            weapons = mGoodGuys.Weapons;
+
+            if (weapons != null)
+            {/* start if */
+
+                for (i = 0; i < weapons.Length; i++)
+                    Console.WriteLine(i + ". " + weapons[i].Name + " -Description : " + weapons[i].Description);
+
+                choice = sanitizeInput(0, weapons.Length - 1);
+
+                mGoodGuys.equipItem(weapons[choice], player);
+
+            }/* end if */
+            else
+                Console.WriteLine("You got no weapons!");
+
+        }/* end equipWeapon */
+
+        private void displayInventory()
+        {/* start displayInventory */
+
+            Console.WriteLine();
+
+            if (inventoryIsEmpty())
+                return;
+
+            foreach (Item item in mGoodGuys.Inventory)
+                Console.WriteLine("-Name : " + item.Name + " -Description : " + item.Description);
+
+        }/* end displayInventory */
+
+        private bool inventoryIsEmpty()
+        {/* start inventoryIsEmpty */
+
+            if (mGoodGuys.Inventory.Count == 0)
+            {/* start if */
+
+                Console.WriteLine("You got nothing!");
+                return true;
+
+            }/* end if */
+
+            return false;
+
+        }/* end inventoryIsEmpty */
+
+        private void displayCharacterStats()
+        {/* start displayCharacterStats */
+
+            PlayerCharacter player = whichPlayer();
+            int i;
+            Armor armor;
+
+            Console.WriteLine();
+
+            Console.WriteLine("-Name : " + player.Name + " -Class : " + player.ClassToString + " -Level : " + player.Level);
+            Console.WriteLine("-Current Heatlh : " + player.CurrentHealth + " -Maximum Health : " + player.MaximumHealth );
+            Console.WriteLine("-Current Mana : " + player.CurrentMana + " -Maximum Mana : " + player.MaximumMana);
+            Console.WriteLine("-Weapon : " + player.Weapon.Name + " -Description : " + player.Weapon.Description);
+
+            Console.WriteLine();
+            for( i = 0; i < Character.MAXSTATS; i++ )
+                Console.WriteLine( "-Stat : " + Character.statToString((StatEnum)i) + " - " + player.getStat((StatEnum)i));
+
+            Console.WriteLine();
+            Console.WriteLine("Armor : " );
+
+            for (i = 0; i < Armor.MAXARMOR; i++)
+            {/* start loop */
+
+                armor = player.getArmor((ArmorEnum)i);
+
+                Console.WriteLine("-Name : " + armor.Name + " -Description : " + armor.Description);
+                Console.WriteLine("-Armor Value : " + armor.ArmorStat);
+
+            }/* end loop */
+
+            Console.WriteLine();
+            Console.WriteLine("Abilities : ");
+
+            foreach (Ability ability in player.Abilities)
+            {/* start loop */
+
+                Console.WriteLine("-Name : " + ability.Name + " -Description : " + ability.Description);
+                Console.WriteLine("-Cost : " + ability.Cost + " -Power : " + ability.BaseDamage);
+
+            }/* end loop */
+
+        }/* end displayCharacterStats */
+
+        private PlayerCharacter whichPlayer()
+        {/* start whichPlayer */
+
+            int i;
+
+            Console.WriteLine("Who would you like?");
+            for (i = 0; i < mGoodGuys.Size; i++)
+                Console.WriteLine(i + ". " + mGoodGuys.getCharacter(i).Name + " Current Health : " + mGoodGuys.getCharacter(i).CurrentHealth + " Current Mana : " + mGoodGuys.getCharacter(i).CurrentMana);
+
+            return (PlayerCharacter)mGoodGuys.getCharacter(sanitizeInput( 0, mGoodGuys.Size - 1));
+
+        }/* end whichPlayer*/
 
     }/* end TextView */
 

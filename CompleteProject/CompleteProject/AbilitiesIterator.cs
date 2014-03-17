@@ -23,6 +23,18 @@ namespace Character_System
 
         }/* end constructor */
 
+        public int Count
+        {/* start Count */
+
+            get
+            {/* start get */
+
+                return mAbilities.Count;
+
+            }/* end get */
+
+        }/* end Count */
+
         public Ability Current
         {/* start Current property */
 

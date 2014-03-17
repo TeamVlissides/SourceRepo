@@ -10,44 +10,16 @@ namespace Character_System
     public class Weapon : Item
     {/* start Weapon class */
 
-        private String mName;
-        private String mDescription;
         private int mBaseDamage;
         private int[] mStats;
 
-        public Weapon(String name, String description, int damage, int[] stats, ItemType type ) : base( type, ItemEnum.NONITEM )
+        public Weapon(String name, String description, int damage, int[] stats, ItemType type ) : base( type, ItemEnum.NONITEM, name, description )
         {/* start constructor */
 
-            mName = name;
-            mDescription = description;
             mBaseDamage = damage;
             mStats = stats;
 
         }/* end constructor */
-
-        public String Name
-        {/* start Name property */
-
-            get
-            {/* start accessor */
-
-                return mName;
-
-            }/* end accessor */
-
-        }/* end Name property */
-
-        public String Description
-        {/* start Description property */
-
-            get
-            {/* start accessor */
-
-                return mDescription;
-
-            }/* end accessor */
-
-        }/* end Description property */
 
         public int Damage
         {/* start Damage property */

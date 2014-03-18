@@ -117,12 +117,12 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>444</x>
-      <y>414</y>
-      <w>132</w>
-      <h>552</h>
+      <y>162</y>
+      <w>144</w>
+      <h>804</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>120;540;18;540;18;18;84;18</additional_attributes>
+    <additional_attributes>120;792;18;792;18;18;132;18</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>

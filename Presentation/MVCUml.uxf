@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>520</x>
+      <y>420</y>
+      <w>470</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>Game
+--
+- mDungeon : Dungeon
+- mGoodGuys : Party
+- mBattle : Battle
+- mDragonDead : bool
+- mVictory : bool
+- mView : View
+--
++ property Dragon : bool
++ run() : void
++ DungeonGo() : void
++ notifyBattleOutcome( victory : bool ) : void
+- initialize() : void
++ giveBattleOutput( ourEvent : BattleEvent ) : void
++ startBattle( type : EnemyType ) : void
++ getPlayerAction( character : Character, badGuys : Party ) : BattleAction
++ updatePlayerLocation( row : int, column : int ) : void
++ HitAWall() : void
++ FoundItem() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>530</x>
+      <y>90</y>
+      <w>450</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>/View/
+--
++ getDirection() : DirectionEnum
++ updatePlayerLocation(int row, int column) : void
++ getClassChoice() : ClassEnum
++ getPlayerAction( Character character, Party badGuys ) : BattleAction
++ RecieveBattleOutput( BattleEvent ourEvent ) : void
++ NotifyFinalBattleStart() : void
++ NotifyBattleStart() : void
++ FoundItem( Item item ) : void
++ notifyGameOver() : void
++ notifyUltimateVictory() : void
++ Dungeon : Grid
++ GoodGuys : Party</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
